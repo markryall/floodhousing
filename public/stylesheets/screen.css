@@ -95,6 +95,7 @@ table {
   -moz-box-shadow: 0 0 4px 1px #dedede; 
   -webkit-box-shadow: 0 0 4px 1px #dedede; 
   box-shadow: 0 0 4px 1px #dedede; 
+  overflow:hidden; /* clears */
 }
 
 /* form */
@@ -107,12 +108,104 @@ table {
   height:80px;
 }
 
+#app form fieldset legend {
+  width:290px;
+  float:left;
+  clear:left;
+  padding: 26px 0 0 0;
+  font-size:0.92em;
+}
+
+#app form fieldset ol {
+  width:455px;
+  float:left;
+  overflow:visible;
+  background: url("/images/form-li-bg.gif") 0 0 repeat-x;
+  padding:14px 10px;
+}
+
+#app form fieldset.buttons ol {
+  background-image:none;
+  width:520px;
+}
+
+#app form fieldset ol li {
+  margin:0.3em 0;
+  padding:0;
+  overflow:hidden;
+}
+
+#app form fieldset ol li label {
+  width:140px;
+  float:left; 
+  color:#a07f67;
+  font-size:0.8em;
+  height:30px;
+  line-height:30px;
+}
+
+#app form fieldset ol li input {
+  width:140px;
+  float:left; 
+  font-weight:300;
+}
+
+#app form fieldset ol li.string input,
+#app form fieldset ol li.numeric input {
+  background:#f7efe9;
+  height:35px;
+  line-height:35px;
+  font-size:1.2em;
+  border:1px solid #a07f67;
+  width:280px;
+}
+#app form fieldset ol li.text textarea {
+  background:#f7efe9;
+  font-family: Verdana, Helvetica, Arial, sans-serif;
+  border:1px solid #a07f67;
+  width:400px;
+  margin-left:20px;
+}
+
+#app form fieldset ol li.numeric input {
+  width:110px;
+}
 
 
+#app form fieldset ol li.string input:focus,
+#app form fieldset ol li.numeric input:focus,
+#app form fieldset ol li.text textarea:focus {
+  background: #fff;
+}
 
+#app form fieldset ol li.boolean input {
+  margin: 5px 20px 0 25px;
+}
 
+#app form fieldset ol li.boolean input[type=checkbox] {
+  width:auto;
+}
 
+#app form li.commit {
+  float:right;
+}
 
+#app form li.commit input {
+  border:none;
+  background:transparent;
+  display:block;
+  text-indent:-9999px;
+  background: url("/images/submit-button.gif") 0 0 no-repeat; 
+  width:154px;
+  height:53px;
+  overflow:hidden;
+  cursor:pointer;
+  float:right;
+}
+
+#app form li.commit input:hover {
+background-position: -0 -53px;
+}
 
 
 
