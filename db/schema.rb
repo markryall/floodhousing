@@ -10,9 +10,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110113002927) do
+ActiveRecord::Schema.define(:version => 20110113012600) do
 
-  create_table "accomodations", :force => true do |t|
+  create_table "accommodations", :force => true do |t|
     t.string   "address1"
     t.string   "address2"
     t.string   "suburb"

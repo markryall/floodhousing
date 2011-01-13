@@ -1,0 +1,11 @@
+<%= semantic_form_for @accommodation do |form| %>
+  <% form.inputs :name => "Where do you live?" do %>
+    <%= form.input :address1 %>
+    <%= form.input :address2 %>
+    <%= form.input :suburb %>
+  <% end %>
+
+  <% form.buttons do %>
+    <%= form.commit_button %>
+  <% end %>
+<% end %>
