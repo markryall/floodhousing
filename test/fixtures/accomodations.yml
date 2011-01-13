@@ -1,0 +1,33 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  address1: MyString
+  address2: MyString
+  suburb: MyString
+  name: MyString
+  phone_mobile: MyString
+  phone_home: MyString
+  other_phone: MyString
+  email: MyString
+  comments: MyString
+  number_of_people: 1
+  takes_pets: false
+  takes_family: false
+  takes_children: false
+  takes_other_needs: false
+
+two:
+  address1: MyString
+  address2: MyString
+  suburb: MyString
+  name: MyString
+  phone_mobile: MyString
+  phone_home: MyString
+  other_phone: MyString
+  email: MyString
+  comments: MyString
+  number_of_people: 1
+  takes_pets: false
+  takes_family: false
+  takes_children: false
+  takes_other_needs: false
