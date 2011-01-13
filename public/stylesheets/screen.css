@@ -1,0 +1,118 @@
+/* reset */
+
+html, body, div, span, applet, object, iframe, 
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, 
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, 
+center, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td, 
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+	background: url("/images/body-bg.gif") 0 0 repeat-x;
+	width:100%;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+#page {
+  width: 960px;
+  margin: 0 auto;
+  font:1.2em/1.2 normal Verdana, Helvetica, Arial, sans-serif;
+}
+
+#content {
+  margin:40px 46px;
+  width:100%;
+}
+
+.blurb {
+  font-weight:300;
+}
+
+.blurb img.photo {
+  float:left; 
+  margin: 0 80px 0 0;
+}
+
+.blurb p {
+  margin:0 0 1em 0;
+  padding:0.4em 0 0 0;
+}
+
+.blurb p em {
+  font-weight:700;
+  font-style: normal;
+}
+
+.blurb h2 {
+  color:#ef8230;
+  font-weight:700;
+  font-size:1em;
+}
+
+#app {
+  width:780px;
+  clear:left; 
+  margin:55px auto 0 auto;
+  background:#fdede1;
+  padding:0 25px;
+}
+
+.box-shadow {
+  border:1px solid #ddd;  
+  -moz-box-shadow: 0 0 4px 1px #dedede; 
+  -webkit-box-shadow: 0 0 4px 1px #dedede; 
+  box-shadow: 0 0 4px 1px #dedede; 
+}
+
+/* form */
+#app h2 {
+  color:#a07f67;
+  text-align:center;
+  font-size:1.3em;
+  font-weight:700;
+  line-height:80px;
+  height:80px;
+}
+
+
+
+
+
+
+
+
+
+
