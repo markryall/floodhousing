@@ -1,17 +1,11 @@
-<%= form_for(@accomodation) do |f| %>
-  <% if @accomodation.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@accomodation.errors.count, "error") %> prohibited this accomodation from being saved:</h2>
-
-      <ul>
-      <% @accomodation.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
+<%= semantic_form_for @accomodation do |form| %>
+  <% form.inputs :name => "Where do you live?" do %>
+    <%= form.input :address1 %>
+    <%= form.input :address2 %>
+    <%= form.input :suburb %>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <% form.buttons do %>
+    <%= form.commit_button %>
+  <% end %>
 <% end %>
