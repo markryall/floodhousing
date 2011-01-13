@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(:version => 20110113133755) do
     t.boolean  "takes_other_needs"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "over_18"
+    t.boolean  "over_eighteen"
     t.boolean  "takes_smokers"
   end
 
