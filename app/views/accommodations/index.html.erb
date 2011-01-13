@@ -3,21 +3,24 @@
 <table>
   <tr>
     <th>Suburb</th>
-    <th></th>
-    <th></th>
+    <th>No. People</th>
+    <th>Pets?</th>
+    <th>Family?</th>
+    <th>Children?</th>
     <th></th>
   </tr>
 
 <% @accommodations.each do |accommodation| %>
   <tr>
-    <th><%= accommodation.suburb %></th>
+    <td><%= accommodation.suburb %></td>
+    <td><%= accommodation.number_of_people %></td>
+    <td><%= accommodation.takes_pets %></td>
+    <td><%= accommodation.takes_family %></td>
+    <td><%= accommodation.takes_children %></td>
     <td><%= link_to 'Show', accommodation %></td>
-    <td><%= link_to 'Edit', edit_accommodation_path(accommodation) %></td>
-    <td><%= link_to 'Destroy', accommodation, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Accommodation', new_accommodation_path %>
