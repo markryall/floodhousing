@@ -1,0 +1,21 @@
+<h1>Listing accomodations</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @accomodations.each do |accomodation| %>
+  <tr>
+    <td><%= link_to 'Show', accomodation %></td>
+    <td><%= link_to 'Edit', edit_accomodation_path(accomodation) %></td>
+    <td><%= link_to 'Destroy', accomodation, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Accomodation', new_accomodation_path %>
