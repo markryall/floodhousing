@@ -1,4 +1,5 @@
 class AccommodationsController < ApplicationController
+  
   # GET /accommodations
   # GET /accommodations.xml
   def index
@@ -18,6 +19,16 @@ class AccommodationsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @accommodation }
+    end
+  end
+  
+  # GET /accommodations/search
+  def search
+    @accommodations = Accommodation.all
+
+    respond_to do |format|
+      format.html # search.html.erb
+      format.xml  { render :xml => @accommodations }
     end
   end
 

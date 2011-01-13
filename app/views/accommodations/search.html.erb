@@ -1,0 +1,28 @@
+
+<% @accommodations.each do |accommodation| %>	
+	<div style="border:1px solid gray; margin: 10px">
+		<div style="border-bottom: 1px solid gray; padding: 5px; font-size: 12pt; color: #404040;">
+			<span style="font-weight:bold"><%=accommodation.name%></span>
+			(<%=accommodation.email%>)
+			Mobile <%=accommodation.phone_mobile%>
+			| Home phone: <%=accommodation.phone_home%>
+			| Other phone: <%=accommodation.other_phone%>
+		</div>
+		<div style="border-bottom: 1px solid gray; padding: 5px; font-size: 12pt; color: #404040;">
+			<%=accommodation.address1%><br/>
+			<%=accommodation.address2%><br/>
+			<%=accommodation.suburb%><br/>
+		</div>
+		<div style="border-bottom: 1px solid gray; padding: 5px; font-size: 12pt; color: #404040;">
+			Comments: 
+			<%=accommodation.comments%>
+		</div>		
+		<div style="padding: 5px; font-size: 12pt; color: #404040;">
+			Pets: <%=accommodation.takes_pets ? "Yes" : "No"%>
+			| Family: <%=accommodation.takes_family ? "Yes" : "No"%>
+			| Children: <%=accommodation.takes_family ? "Yes" : "No"%>
+			| Other needs: <%=accommodation.takes_other_needs ? "Yes" : "No"%>
+		</div>
+	</div>
+	<br/>
+<% end %>
