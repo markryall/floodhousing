@@ -1,9 +1,29 @@
 <%= semantic_form_for @accommodation do |form| %>
   <% form.inputs :name => "Where do you live?" do %>
-    <%= form.input :address1 %>
-    <%= form.input :address2 %>
-    <%= form.input :suburb %>
+    <%= form.input :address1, :label => "Address line 1" %>
+    <%= form.input :address2, :label => "Address line 2" %>
+    <%= form.input :suburb, :label => "Suburb" %>
   <% end %>
+
+  <% form.inputs :name => "Who can you accommodate?" do %>
+    <%= form.input :number_of_people, :label => "Number of people" %>
+    <%= form.input :takes_pets, :label => "Pets" %>
+    <%= form.input :takes_family, :label => "A Family" %>
+    <%= form.input :takes_children, :label => "Children" %>
+    <%= form.input :takes_other_needs, :label => "Other Needs" %>
+  <% end %>
+
+  <% form.inputs :name => "Your Contact Details" do %>
+    <%= form.input :name, :label => 'Name' %>
+    <%= form.input :phone_home, :label => 'Home Phone' %>
+    <%= form.input :phone_mobile, :label => 'Mobile Phone' %>
+    <%= form.input :other_phone, :label => 'Other Phone' %>
+    <%= form.input :email, :label => 'Email' %>
+  <% end %>
+
+  <% form.inputs :name => "Other Comments" do %>
+    <%= form.input :comments, :label => false, :as => :text %>
+  <% end %>  
 
   <% form.buttons do %>
     <%= form.commit_button %>
