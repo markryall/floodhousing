@@ -1,4 +1,9 @@
 
+<form id="suburb-search" name="suburb-search" action="">
+<label for="suburb">Filter by suburb:</label>
+<%= text_field_tag("suburb", params['suburb'], :size => 10 ) %>
+</form>
+
 <ul class="listing">
 <% @accommodations.each do |accommodation| %>	
 	<li class= "<%= cycle("even", "odd") %> box-shadow">
