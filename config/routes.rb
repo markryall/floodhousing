@@ -16,6 +16,8 @@ Flood::Application.routes.draw do
       get 'search'
     end
   end
+  
+  root :to => "accommodations#new"
 
   # Sample resource route with options:
   #   resources :products do

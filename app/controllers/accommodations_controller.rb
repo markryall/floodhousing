@@ -24,9 +24,10 @@ class AccommodationsController < ApplicationController
   
   # GET /accommodations/search
   def search
-    @suburb = params['suburb'] or 'All'
-    if @suburb == 'All'
+    @suburb = params['suburb']
+    if @suburb == nil || @suburb == 'All'
       @accommodations = Accommodation.all
+      @suburb = 'All'
     else 
       @accommodations = Accommodation.where("suburb like ? ", @suburb)
     end
