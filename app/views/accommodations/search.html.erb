@@ -1,5 +1,5 @@
 
-<form id="suburb-search" name="suburb-search" action="">
+<form id="suburb-search" name="suburb-search" action="/accommodations/search" method="get">
 <label for="suburb">Filter by suburb:</label>
 <%= select_tag "suburb", options_for_select(['All'] + suburbs, @suburb), options={:onchange=>"this.form.submit()"} %>
 </form>
