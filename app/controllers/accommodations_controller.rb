@@ -59,7 +59,7 @@ class AccommodationsController < ApplicationController
 
     respond_to do |format|
       if @accommodation.save
-        format.html { redirect_to(@accommodation, :notice => 'Accommodation was successfully created.') }
+        format.html { redirect_to(:action => 'search') }
         format.xml  { render :xml => @accommodation, :status => :created, :location => @accommodation }
       else
         format.html { render :action => "new" }
