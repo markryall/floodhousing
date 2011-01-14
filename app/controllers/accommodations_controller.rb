@@ -45,7 +45,7 @@ class AccommodationsController < ApplicationController
 
   # GET /accommodations/1/edit
   def edit
-    @accommodation = Accommodation.find(params[:id])
+    @accommodation = Accommodation.find(params[:id]) 
   end
 
   # POST /accommodations
