@@ -3,7 +3,7 @@ class Accommodation < ActiveRecord::Base
   validates_acceptance_of :over_eighteen, :accept=>true, :message => 'must be over 18'
   
   def self.per_page
-    25
+    50
   end
   
   def self.search_by_suburb(search, page)

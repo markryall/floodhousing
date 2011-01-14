@@ -24,15 +24,16 @@ class AccommodationsController < ApplicationController
   
   # GET /accommodations/search
   def search
+    @suburb = params['suburb'] or 'All'
     page = params[:page] || 1
-    if params[:suburb]
-      @accommodations = Accommodation.search_by_suburb(params[:suburb], page)
-    else 
+    if @suburb == 'All'
       @accommodations = Accommodation.paginate :page => page
+    else 
+      @accommodations = Accommodation.search_by_suburb(params[:suburb], page)
     end
 
     respond_to do |format|
-      format.html # search.html.erb
+      format.html
       format.xml  { render :xml => @accommodations }
     end
   end
@@ -50,7 +51,7 @@ class AccommodationsController < ApplicationController
 
   # GET /accommodations/1/edit
   def edit
-    @accommodation = Accommodation.find(params[:id])
+    @accommodation = Accommodation.find(params[:id]) 
   end
 
   # POST /accommodations
