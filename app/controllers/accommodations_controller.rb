@@ -20,15 +20,11 @@ class AccommodationsController < ApplicationController
   # GET /accommodations/search
   def search
 
-    @suburb = params['suburb']
     page = params[:page] || 1
-
-    if @suburb == nil || @suburb == 'All'
-      @accommodations = Accommodation.all(page)
-      @suburb = 'All'
-    else 
-      @accommodations = Accommodation.search_by_suburb(params[:suburb], page)
-    end
+    
+    @accommodations = Accommodation.search(AccommodationSearchQuery.new(params), page)
+    @suburb = params[:suburb] || 'All'
+    @number_of_people = params[:number_of_people]
 
     respond_to do |format|
       format.html

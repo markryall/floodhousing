@@ -1,7 +1,11 @@
 
 <form id="suburb-search" name="suburb-search" action="/accommodations/search" method="get">
-<label for="suburb">Filter by suburb:</label>
-<%= select_tag "suburb", options_for_select(['All'] + suburbs, @suburb), options={:onchange=>"this.form.submit()"} %>
+<div>
+	<label for="suburb">I am looking for accommodation in</label>
+	<%= select_tag "suburb", options_for_select(['All'] + suburbs, @suburb), options={:onchange=>"this.form.submit()"} %>
+</div>
+<div>I need <%= text_field_tag 'number_of_people', @number_of_people %> beds
+</div>
 </form>
 
 <ul class="listing">

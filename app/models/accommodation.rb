@@ -6,15 +6,9 @@ class Accommodation < ActiveRecord::Base
     50
   end
   
-  def self.all(page)
-    paginate :per_page => per_page, :page => page, 
-             :conditions => ['enabled=1'],
-             :order => 'created_at DESC'    
-  end
-  
-  def self.search_by_suburb(search, page)
+  def self.search(query, page)
     paginate :per_page => per_page, :page => page,
-             :conditions => ['enabled=1 and suburb like ?', "%#{search}%"], 
+             :conditions => query.to_sql_conditions, 
              :order => 'created_at DESC'
   end
   
