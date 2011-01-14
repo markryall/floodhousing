@@ -15,6 +15,7 @@ class AccommodationSearchQuery
     add_smokers()
     add_children()
     add_family()
+    #add_enabled()
     ([] << @where_query.join(' and ')).concat @where_params
     
   end
@@ -29,6 +30,11 @@ class AccommodationSearchQuery
     return unless @query_params[:number_of_people] &&  @query_params[:number_of_people] != ''
     @where_query << 'number_of_people >= ?'
     @where_params << @query_params[:number_of_people]
+  end
+  
+  def add_enabled()
+    @where_query << 'enabled = ?'
+    @where_params << true
   end
 
   #For anyone unfamiliar with metaprogramming, this will take the following boolean params and define 'add_XXX' methods for them 
