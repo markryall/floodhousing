@@ -24,7 +24,11 @@ class AccommodationsController < ApplicationController
   
   # GET /accommodations/search
   def search
-    @accommodations = Accommodation.all
+    if params[:suburb]
+      @accommodations = Accommodation.where("suburb like ? ", params[:suburb])
+    else 
+      @accommodations = Accommodation.all
+    end
 
     respond_to do |format|
       format.html # search.html.erb

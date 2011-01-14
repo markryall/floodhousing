@@ -280,3 +280,16 @@ dl.details dd {
 padding: 0 1em 0 0;
 }
 
+form#suburb-search {
+margin: 1em 0; 
+}
+
+form#suburb-search input {
+height:35px;
+padding:3px 0 0 0;
+line-height:32px;
+font-size:1.2em;
+border:1px solid #a07f67;
+width:280px;
+}
+
