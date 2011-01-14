@@ -29,6 +29,8 @@ GEM
       activesupport (= 3.0.3)
     activesupport (3.0.3)
     arel (2.0.6)
+    authlogic (2.1.6)
+      activesupport
     builder (2.1.2)
     diff-lcs (1.1.2)
     erubis (2.6.6)
@@ -89,6 +91,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  authlogic (= 2.1.6)
   formtastic (~> 1.1.0)
   haml (= 3.0.25)
   pg
