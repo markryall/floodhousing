@@ -44,9 +44,9 @@ class AccommodationsController < ApplicationController
   end
 
   # GET /accommodations/1/edit
-  #def edit
-  #  @accommodation = Accommodation.find(params[:id])
-  #end
+  def edit
+    @accommodation = Accommodation.find(params[:id])
+  end
 
   # POST /accommodations
   # POST /accommodations.xml
@@ -82,13 +82,13 @@ class AccommodationsController < ApplicationController
 
   # DELETE /accommodations/1
   # DELETE /accommodations/1.xml
-  #def destroy
-  #  @accommodation = Accommodation.find(params[:id])
-  #  @accommodation.destroy
-
-  #  respond_to do |format|
-  #    format.html { redirect_to(accommodations_url) }
-  #    format.xml  { head :ok }
-  #  end
-  #end
+  def destroy
+    @accommodation = Accommodation.find(params[:id])
+    @accommodation.destroy
+  
+    respond_to do |format|
+      format.html { redirect_to(accommodations_url) }
+      format.xml  { head :ok }
+    end
+  end
 end
