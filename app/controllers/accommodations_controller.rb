@@ -44,9 +44,9 @@ class AccommodationsController < ApplicationController
   end
 
   # GET /accommodations/1/edit
-  #def edit
-  #  @accommodation = Accommodation.find(params[:id])
-  #end
+  def edit
+    @accommodation = Accommodation.find(params[:id])
+  end
 
   # POST /accommodations
   # POST /accommodations.xml
