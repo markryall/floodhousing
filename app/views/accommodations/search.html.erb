@@ -4,10 +4,10 @@
 	<label for="suburb">I am looking for accommodation in</label>
 	<%= select_tag "suburb", options_for_select(['All'] + suburbs, @suburb), options={:onchange=>"this.form.submit()"} %>
 </div>
-<div>I need <%= text_field_tag 'number_of_people', @number_of_people %> beds</div>
-<div><%= check_box_tag 'pets', 'yes', @pets %>I want to take my pet</div>
-<div><%= check_box_tag 'smokers', 'yes', @smokers %>I need to get my nicotine fix</div>
-<div><%= check_box_tag 'children', 'yes', @children %>I have children</div>
+<div>I need <%= text_field_tag 'number_of_people', @number_of_people, options={:onchange=>"this.form.submit()"}  %> beds</div>
+<div><%= check_box_tag 'pets', 'yes', @pets, options={:onchange=>"this.form.submit()"}  %>I want to take my pet</div>
+<div><%= check_box_tag 'smokers', 'yes', @smokers, options={:onchange=>"this.form.submit()"}  %>I need to get my nicotine fix</div>
+<div><%= check_box_tag 'children', 'yes', @children, options={:onchange=>"this.form.submit()"}  %>I have children</div>
 </form>
 
 <ul class="listing">
@@ -39,7 +39,7 @@
 			<dt>Family</dt> 
 			<dd><%=accommodation.takes_family ? "Yes" : "No"%></dd>
 			<dt>Children</dt> 
-			<dd><%=accommodation.takes_family ? "Yes" : "No"%></dd>
+			<dd><%=accommodation.takes_children ? "Yes" : "No"%></dd>
 			<dt>Other needs</dt> 
 			<dd><%=accommodation.takes_other_needs ? "Yes" : "No"%></dd>
 		</dl>
