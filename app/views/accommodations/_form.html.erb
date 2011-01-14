@@ -10,6 +10,7 @@
     <%= form.input :takes_pets, :label => "Pets" %>
     <%= form.input :takes_family, :label => "A Family" %>
     <%= form.input :takes_children, :label => "Children" %>
+    <%= form.input :takes_smokers, :label => "Smokers" %>
     <%= form.input :takes_other_needs, :label => "Other Needs" %>
   <% end %>
 
@@ -19,6 +20,7 @@
     <%= form.input :phone_mobile, :label => 'Mobile Phone' %>
     <%= form.input :other_phone, :label => 'Other Phone' %>
     <%= form.input :email, :label => 'Email' %>
+    <%= form.input :over_eighteen, :label => "Over 18" %>
   <% end %>
 
   <% form.inputs :name => "Other Comments", :class => "inputs other-comments" do %>
