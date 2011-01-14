@@ -4,8 +4,10 @@
 	<label for="suburb">I am looking for accommodation in</label>
 	<%= select_tag "suburb", options_for_select(['All'] + suburbs, @suburb), options={:onchange=>"this.form.submit()"} %>
 </div>
-<div>I need <%= text_field_tag 'number_of_people', @number_of_people %> beds
-</div>
+<div>I need <%= text_field_tag 'number_of_people', @number_of_people %> beds</div>
+<div><%= check_box_tag 'pets', 'yes', @pets %>I want to take my pet</div>
+<div><%= check_box_tag 'smokers', 'yes', @smokers %>I need to get my nicotine fix</div>
+<div><%= check_box_tag 'children', 'yes', @children %>I have children</div>
 </form>
 
 <ul class="listing">

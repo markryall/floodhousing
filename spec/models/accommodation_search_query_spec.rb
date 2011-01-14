@@ -18,14 +18,29 @@ describe AccommodationSearchQuery do
       accommodation.to_sql_conditions.should eql ['number_of_people >= ?', '4']
     end
     
+    it 'should ignore any values that are empty' do
+      accommodation = AccommodationSearchQuery.new(:number_of_people => '', :suburb => '')
+      accommodation.to_sql_conditions.should eql [""]
+    end
+    
     it 'should build a query for all params available' do
       accommodation = AccommodationSearchQuery.new(:number_of_people => '2', :suburb => 'Carindale')
       accommodation.to_sql_conditions.should eql ['suburb like ? and number_of_people >= ?', "%Carindale%", '2']
     end
     
-    it 'should ignore any values that are empty' do
-      accommodation = AccommodationSearchQuery.new(:number_of_people => '', :suburb => '')
-      accommodation.to_sql_conditions.should eql [""]
+    it 'should find on pets' do
+      accommodation = AccommodationSearchQuery.new(:pets => 'yes')
+      accommodation.to_sql_conditions.should eql ['takes_pets = ?', true]
+    end
+    
+    it 'should find on children' do
+      accommodation = AccommodationSearchQuery.new(:children => 'yes')
+      accommodation.to_sql_conditions.should eql ['takes_children = ?', true]
+    end
+    
+    it 'should find on smokers' do
+      accommodation = AccommodationSearchQuery.new(:smokers => 'yes')
+      accommodation.to_sql_conditions.should eql ['takes_smokers = ?', true]
     end
     
   end

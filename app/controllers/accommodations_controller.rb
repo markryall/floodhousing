@@ -25,6 +25,9 @@ class AccommodationsController < ApplicationController
     @accommodations = Accommodation.search(AccommodationSearchQuery.new(params), page)
     @suburb = params[:suburb] || 'All'
     @number_of_people = params[:number_of_people]
+    @pets = params[:pets] == 'yes'
+    @smokers = params[:smokers] == 'yes'
+    @children = params[:children] == 'yes'
 
     respond_to do |format|
       format.html
@@ -71,7 +74,7 @@ class AccommodationsController < ApplicationController
 
     respond_to do |format|
       if @accommodation.update_attributes(params[:accommodation])
-        format.html { redirect_to(@accommodation, :notice => 'Accommodation was successfully updated.') }
+        format.html { redirect_to(:action => 'search') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
