@@ -1,5 +1,5 @@
 class Accommodation < ActiveRecord::Base
-  
+
   validates_acceptance_of :over_eighteen, :accept=>true, :message => 'must be over 18'
   
   def complete_address
@@ -7,5 +7,4 @@ class Accommodation < ActiveRecord::Base
       x.empty? ? nil : x
     }.compact.join(', ')         
   end
-  
 end
