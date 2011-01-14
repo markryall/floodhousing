@@ -24,14 +24,19 @@ class AccommodationsController < ApplicationController
   
   # GET /accommodations/search
   def search
-    if params[:suburb]
-      @accommodations = Accommodation.where("suburb like ? ", params[:suburb])
+
+    @suburb = params['suburb']
+    page = params[:page] || 1
+
+    if @suburb == nil || @suburb == 'All'
+      @accommodations = Accommodation.paginate :page => page
+      @suburb = 'All'
     else 
-      @accommodations = Accommodation.all
+      @accommodations = Accommodation.search_by_suburb(params[:suburb], page)
     end
 
     respond_to do |format|
-      format.html # search.html.erb
+      format.html
       format.xml  { render :xml => @accommodations }
     end
   end
