@@ -12,20 +12,16 @@
 
 </form>
 
+<% if @accommodations.size == 0 %>
+<div>We are sorry, but we haven't been able to find anywhere matching your description. Perhaps you should try a different neighbourhood?</div>
+<%end%>
+
 <ul class="listing">
 <% @accommodations.each do |accommodation| %>	
 	<li class= "<%= cycle("even", "odd") %> box-shadow">
 		<dl class="details">
-			<dt class="accomodation-name">Name</dt>
-			<dd><%=empty_default(accommodation.name)%></dd>
-			<dt class="accomodation-email">Email</dt>
-			<dd><%=empty_default(accommodation.email)%></dd>
-			<dt class="accomodation-mobile">Mobile</dt> 
-			<dd><%=empty_default(accommodation.phone_mobile)%></dd>
-		  <dt class="accomodation-home-phone">Home phone</dt> 
-		  <dd><%=empty_default(accommodation.phone_home)%></dd>
-			<dt class="accomodation-other-phone">Other phone</dt> 
-			<dd><%=empty_default(accommodation.other_phone)%></dd>
+			<dt class="number-of-people">Number of people that we can take</dt>
+			<dd><%=accommodation.number_of_people%></dd>
 		</dl>
 		<dl class="details address">
 		  <dt>Address</dt>
