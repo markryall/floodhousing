@@ -24,12 +24,15 @@ class AccommodationsController < ApplicationController
   
   # GET /accommodations/search
   def search
+
     @suburb = params['suburb']
+    page = params[:page] || 1
+
     if @suburb == nil || @suburb == 'All'
-      @accommodations = Accommodation.all
+      @accommodations = Accommodation.paginate :page => page
       @suburb = 'All'
     else 
-      @accommodations = Accommodation.where("suburb like ? ", @suburb)
+      @accommodations = Accommodation.search_by_suburb(params[:suburb], page)
     end
 
     respond_to do |format|
