@@ -52,6 +52,14 @@ table {
   font:1.2em/1.2 normal Verdana, Helvetica, Arial, sans-serif;
 }
 
+a:link {
+  color:#ee7921;
+}
+
+a:hover {
+  color:black;
+}
+
 #content {
   margin:40px 46px;
   width:100%;
@@ -293,3 +301,8 @@ border:1px solid #a07f67;
 width:280px;
 }
 
+.pagination {
+  text-align:center;
+  margin: 2em 0 1em 0;
+  color: #A07F67;
+}
