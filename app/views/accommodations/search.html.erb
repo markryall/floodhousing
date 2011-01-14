@@ -1,28 +1,37 @@
 
+<ul class="listing">
 <% @accommodations.each do |accommodation| %>	
-	<div style="border:1px solid gray; margin: 10px">
-		<div style="border-bottom: 1px solid gray; padding: 5px; font-size: 12pt; color: #404040;">
-			<span style="font-weight:bold"><%=accommodation.name%></span>
-			(<%=accommodation.email%>)
-			Mobile <%=accommodation.phone_mobile%>
-			| Home phone: <%=accommodation.phone_home%>
-			| Other phone: <%=accommodation.other_phone%>
-		</div>
-		<div style="border-bottom: 1px solid gray; padding: 5px; font-size: 12pt; color: #404040;">
-			<%=accommodation.address1%><br/>
-			<%=accommodation.address2%><br/>
-			<%=accommodation.suburb%><br/>
-		</div>
-		<div style="border-bottom: 1px solid gray; padding: 5px; font-size: 12pt; color: #404040;">
-			Comments: 
-			<%=accommodation.comments%>
-		</div>		
-		<div style="padding: 5px; font-size: 12pt; color: #404040;">
-			Pets: <%=accommodation.takes_pets ? "Yes" : "No"%>
-			| Family: <%=accommodation.takes_family ? "Yes" : "No"%>
-			| Children: <%=accommodation.takes_family ? "Yes" : "No"%>
-			| Other needs: <%=accommodation.takes_other_needs ? "Yes" : "No"%>
-		</div>
-	</div>
-	<br/>
+	<li class= "<%= cycle("even", "odd") %> box-shadow">
+		<dl class="details">
+			<dt class="accomodation-name">Name</dt>
+			<dd><%=empty_default(accommodation.name)%></dd>
+			<dt class="accomodation-email">Email</dt>
+			<dd><%=empty_default(accommodation.email)%></dd>
+			<dt class="accomodation-mobile">Mobile</dt> 
+			<dd><%=empty_default(accommodation.phone_mobile)%></dd>
+		  <dt class="accomodation-home-phone">Home phone</dt> 
+		  <dd><%=empty_default(accommodation.phone_home)%></dd>
+			<dt class="accomodation-other-phone">Other phone</dt> 
+			<dd><%=empty_default(accommodation.other_phone)%></dd>
+		</dl>
+		<dl class="details address">
+		  <dt>Address</dt>
+		  <dd><%=accommodation.complete_address%></dd>
+		</dl>
+		<dl class="details comments">
+		  <dt>Comments</dt>
+			<dd><%=accommodation.comments%></dd>
+		</dl>
+		<dl class="details">
+			<dt>Pets</dt> 
+			<dd><%=accommodation.takes_pets ? "Yes" : "No"%></dd>
+			<dt>Family</dt> 
+			<dd><%=accommodation.takes_family ? "Yes" : "No"%></dd>
+			<dt>Children</dt> 
+			<dd><%=accommodation.takes_family ? "Yes" : "No"%></dd>
+			<dt>Other needs</dt> 
+			<dd><%=accommodation.takes_other_needs ? "Yes" : "No"%></dd>
+		</dl>
+  </li>
 <% end %>
+</ul>
