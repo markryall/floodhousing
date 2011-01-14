@@ -1,7 +1,7 @@
 
 <form id="suburb-search" name="suburb-search" action="">
 <label for="suburb">Filter by suburb:</label>
-<%= text_field_tag("suburb", params['suburb'], :size => 10 ) %>
+<%= select_tag "suburb", options_for_select(['All'] + suburbs, @suburb), options={:onchange=>"this.form.submit()"} %>
 </form>
 
 <ul class="listing">
