@@ -7,11 +7,8 @@ gem 'haml', '3.0.25'
 gem "will_paginate", "~> 3.0.pre2"
 gem 'authlogic', '2.1.6'
 
-group :development do
-  gem 'sqlite3-ruby', '1.3.2'
-end
-
 group :test, :development do
+  gem 'sqlite3-ruby', '1.3.2'
   gem 'rspec-rails', '2.4.1'  
 end
 
