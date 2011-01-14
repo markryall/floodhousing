@@ -7,8 +7,7 @@ class AccommodationsControllerTest < ActionController::TestCase
 
   test "should get index" do
     get :index
-    assert_response :success
-    assert_not_nil assigns(:accommodations)
+    assert_response 302
   end
 
   test "should get new" do
