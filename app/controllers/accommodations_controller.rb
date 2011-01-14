@@ -24,7 +24,7 @@ class AccommodationsController < ApplicationController
     page = params[:page] || 1
 
     if @suburb == nil || @suburb == 'All'
-      @accommodations = Accommodation.paginate :page => page
+      @accommodations = Accommodation.all(page)
       @suburb = 'All'
     else 
       @accommodations = Accommodation.search_by_suburb(params[:suburb], page)
