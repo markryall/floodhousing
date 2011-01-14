@@ -3,6 +3,9 @@ Flood::Application.routes.draw do
     collection do
       get 'search'
     end
+    member do
+      get 'disable'
+    end
   end
 
   root :to => "accommodations#new"

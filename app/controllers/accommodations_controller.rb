@@ -83,6 +83,12 @@ class AccommodationsController < ApplicationController
       end
     end
   end
+  
+  def disable
+    @accommodation = Accommodation.find(params[:id])
+    @accommodation.disable
+    redirect_to :action => 'search'
+  end
 
   # DELETE /accommodations/1
   # DELETE /accommodations/1.xml

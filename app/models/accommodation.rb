@@ -7,12 +7,20 @@ class Accommodation < ActiveRecord::Base
   end
   
   def self.all(page)
-    paginate :per_page => per_page, :page => page, :order => 'created_at DESC'    
+    paginate :per_page => per_page, :page => page, 
+             :conditions => ['enabled=1'],
+             :order => 'created_at DESC'    
   end
   
   def self.search_by_suburb(search, page)
     paginate :per_page => per_page, :page => page,
-             :conditions => ['suburb like ?', "%#{search}%"], :order => 'created_at DESC'
+             :conditions => ['enabled=1 and suburb like ?', "%#{search}%"], 
+             :order => 'created_at DESC'
+  end
+  
+  def disable
+    self.enabled = false
+    save!
   end
   
   def complete_address
