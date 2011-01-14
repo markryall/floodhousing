@@ -37,6 +37,8 @@
 			<dt>Other needs</dt> 
 			<dd><%=accommodation.takes_other_needs ? "Yes" : "No"%></dd>
 		</dl>
+		
+		<%= link_to 'Edit', edit_accommodation_path(accommodation) %>
   </li>
 <% end %>
 </ul>

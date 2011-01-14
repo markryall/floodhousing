@@ -3,12 +3,7 @@ class AccommodationsController < ApplicationController
   # GET /accommodations
   # GET /accommodations.xml
   def index
-    @accommodations = Accommodation.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @accommodations }
-    end
+    redirect_to :action => 'search'
   end
 
   # GET /accommodations/1
