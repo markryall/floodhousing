@@ -28,6 +28,7 @@ class AccommodationsController < ApplicationController
     @pets = params[:pets] == 'yes'
     @smokers = params[:smokers] == 'yes'
     @children = params[:children] == 'yes'
+    @family = params[:family] == 'yes'
 
     respond_to do |format|
       format.html
