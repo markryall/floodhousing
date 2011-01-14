@@ -27,7 +27,7 @@ class BilletVolunteering
 
   def initialize(browser)
     @browser = browser
-    @browser.goto URLS[:production]
+    @browser.goto URLS[:local]
   end
 
   def complete_with type_of_details
