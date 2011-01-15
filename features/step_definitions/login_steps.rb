@@ -5,7 +5,7 @@ end
 
 When /^I log in as$/ do |table|
   account = table.hashes.first
-  LoginPage.on(self) do |page|
+  on_login do |page|
     page.login account['email'], account['password']
   end
 end
