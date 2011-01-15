@@ -1,7 +1,10 @@
 class Seeker 
-  extend ActiveModel::Naming
+  extend  ActiveModel::Naming
   include ActiveModel::Conversion
   include ActiveModel::Translation
+  include ActiveModel::Validations
+  
+  validates_presence_of :name,:phone
   
   def initialize(params = {})
     @name = params[:name] || ''
@@ -14,7 +17,7 @@ class Seeker
     @personal_message = params[:personal_message] || ''
   end
   
-  attr_reader :name, :phone, :contact_method, :number_of_people, :allergies, :special_requirements, :pets, :personal_message
+  attr_accessor :name, :phone, :contact_method, :number_of_people, :allergies, :special_requirements, :pets, :personal_message
   
   def persisted?
     false
