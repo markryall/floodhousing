@@ -21,15 +21,13 @@ class Accommodation < ActiveRecord::Base
              :order => 'created_at DESC'
   end
   
-  def taken
-    self.available = false
-    save!
-  end
-  
   def complete_address
     [address1, address2, suburb].collect { |x|
       x.empty? ? nil : x
     }.compact.join(', ')         
   end
-  
+
+  def authorization_token
+    OpenSSL::HMAC.hexdigest(OpenSSL::Digest::MD5.new, Rails.application.config.secret_token, id.to_s).to_i(16).to_s(36)
+  end
 end

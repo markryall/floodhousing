@@ -23,6 +23,7 @@ group :test do
   gem 'autotest', '4.4.6'
   gem 'kronic'
   gem 'delorean'
+  gem 'faker'
 end
 
 group :production do

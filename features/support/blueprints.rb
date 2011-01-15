@@ -1,5 +1,7 @@
 require 'machinist/active_record'
 
+Sham.email { Faker::Internet.email }
+
 Accommodation.blueprint do
   address1 {'1/509 Factory'}
   address2 {'Street'}
@@ -12,3 +14,8 @@ Accommodation.blueprint do
   state {"VIC"}
 end
 
+Login.blueprint do
+  email { Sham.email }
+  password { 'password' }
+  password_confirmation { 'password' }
+end
