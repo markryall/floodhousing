@@ -1,5 +1,6 @@
 class AccommodationsController < ApplicationController
-  
+  before_filter :authenticate_login!, :only => [:edit, :update, :destroy]
+
   # GET /accommodations
   # GET /accommodations.xml
   def index
@@ -19,7 +20,6 @@ class AccommodationsController < ApplicationController
   
   # GET /accommodations/search
   def search
-
     page = params[:page] || 1
     
     @accommodations = Accommodation.search(AccommodationSearchQuery.new(params), page)
