@@ -6,13 +6,13 @@ Feature: Login
 
   Scenario: Successful login
       Given there is an Admin user
-         | username | password |
-         | admin    | secret!  |      
+         | email         | password |
+         | admin@foo.com | secret!  |      
       When I log in as
-         | username | password |
-         | admin    | secret!  |
+         | email         | password |
+         | admin@foo.com | secret!  |
       Then the application will show that I am logged in as 'admin'
-  
+
   Scenario: Incorrect Password
       Given there is an Admin user
          | username | password |
