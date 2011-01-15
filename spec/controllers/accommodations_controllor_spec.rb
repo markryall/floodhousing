@@ -2,43 +2,115 @@ require 'spec_helper'
 
 describe AccommodationsController do
   include Devise::TestHelpers
-  
-  before(:each) do
-    @acc = Accommodation.make
-  end
-  
-  it "should redirect to search from the index" do
-    get :index
-    response.should be_redirect
-    response.location.should == search_accommodations_url
-  end
-  
-  describe "without a logged in user" do
-    
-    it "should redirect for a login when trying to mark a listing as taken" do
-      put :taken, :id => @acc
-      @acc.reload
-      @acc.should be_available
-      response.should be_redirect
-    end
-    
-  end
-  
-  describe "with a logged in user" do
-    
-    before(:each) do
-      @user = Login.make
-      sign_in @user
-    end
-    
-    it "should allow a listing to be marked taken" do
-      put :taken, :id => @acc
-      @acc.reload
-      @acc.should_not be_available
-      response.should be_redirect
-    end
-    
-  end
-  
 
+  before :each do
+    @accommodation = mock_model(Accommodation, :id => 4321)
+    Accommodation.stub(:find).and_return(@accommodation)
+  end
+
+  describe :index do
+    it "should redirect to search" do
+      get :index
+      response.should redirect_to :action => :search
+    end
+  end
+
+  describe :login do
+    context 'with a valid accommodation' do
+      it 'should redirect a valid token to the edit page' do
+        token = 'abc123'
+
+        @accommodation.should_receive(:authorization_token).and_return token
+        get :login, :id => @accommodation.id, :token => token
+
+        response.should redirect_to :action => :edit
+        session[:ok_to_edit].should == @accommodation.id.to_s
+      end
+
+      it 'should redirect an invalid token to the index page' do
+        @accommodation.should_receive(:authorization_token).and_return nil
+        get :login, :id => @accommodation.id, :token => 'abc123'
+
+        response.should redirect_to :root
+        session[:ok_to_edit].should == nil
+      end
+    end
+
+    it 'should redirect an invalid ID to the index page' do
+      Accommodation.should_receive(:find).with(0).and_return nil
+      get :login, :id => 0
+
+      response.should redirect_to :root
+      session[:ok_to_edit].should == nil
+    end
+  end
+
+  def self.it_should_reject_unauthorized(action, verb)
+    context 'without session authorization' do
+      it 'should reject an authenticated request' do
+        send verb, action, :id => 1
+        response.should be_redirect
+      end
+    end
+  end
+
+  describe :edit do
+    it_should_reject_unauthorized :edit, :get
+
+    context 'with session authorization' do
+      before :each do
+        session[:ok_to_edit] = @accommodation.id
+      end
+
+      it 'should accept an authenticated request' do
+        get :edit, :id => @accommodation.id
+        response.should be_success
+      end
+    end
+  end
+
+  describe :update do
+    it_should_reject_unauthorized :update, :post
+
+    context 'with session authorization' do
+      before :each do
+        @accommodation.stub(:update_attributes)
+        session[:ok_to_edit] = @accommodation.id
+      end
+
+      it 'should accept an authenticated request' do
+        post :update, :id => @accommodation.id
+        response.should be_success
+      end
+    end
+  end
+
+  describe :taken do
+    it_should_reject_unauthorized :taken, :post
+
+    context 'with session authorization' do
+      before :each do
+        @accommodation.stub(:update_attribute)
+        session[:ok_to_edit] = @accommodation.id
+      end
+
+      it 'should accept an authenticated request' do
+        put :taken, :id => @accommodation.id
+        response.should redirect_to :action => :search
+      end
+    end
+
+    context "with a logged in user" do
+      before :each do
+        @user = Login.make
+        sign_in @user
+      end
+
+      it "should allow a listing to be marked taken" do
+        @accommodation.should_receive(:update_attribute).with(:available, false)
+        put :taken, :id => @accommodation.id
+        response.should be_redirect
+      end
+    end
+  end
 end
