@@ -4,3 +4,13 @@ vendor/bundle
 db/*.sqlite3
 log/*.log
 tmp/**/*
+
+.bundle
+.rvmrc
+db/*.sqlite3
+log/*.log
+tmp/**/*
+#*
+*#
+~*
+.#*
