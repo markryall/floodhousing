@@ -9,4 +9,12 @@ class SearchPage < Page
     driver.has_css?("#no-listings-message")
   end
   
+  def listings
+    driver.all(".listing li")
+  end
+  
+  def pagination_control
+    driver.all(".pagination").first
+  end
+  
 end
