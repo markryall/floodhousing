@@ -5,7 +5,7 @@ module AccommodationsHelper
   end
 
   def states
-    ['ACT','QLD','NSW','WA','TAS','NT','SA'].sort 
+    ['QLD','NSW','ACT','WA','TAS','NT','SA'] 
   end
 
   #to be removed when search realigned

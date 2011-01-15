@@ -1,5 +1,4 @@
 class Accommodation < ActiveRecord::Base
-
   validates_acceptance_of :over_eighteen, :accept=>true, :message => 'must be over 18'
   validates_acceptance_of :terms_and_conditions_accepted, :accept=>true, :message => 'must be accepted'
   validates_presence_of :number_of_beds, :message => 'Please tell us the number of beds'
@@ -10,7 +9,12 @@ class Accommodation < ActiveRecord::Base
   validates_format_of :postcode, :with => /\d{4}/, :message => "Postcode must be 4 digits eg. 4000"
   
   validates_presence_of :state, :message => 'Please tell us the state'
-  
+
+  def initialize params={}
+    params[:state] ||= 'QLD'
+    super
+  end
+
   def self.per_page
     50
   end
