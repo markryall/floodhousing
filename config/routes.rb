@@ -1,4 +1,6 @@
 Flood::Application.routes.draw do
+  devise_for :logins
+
   resources :accommodations do
     collection do
       get 'search'
