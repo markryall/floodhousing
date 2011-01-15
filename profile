@@ -1,5 +1,5 @@
 alias gpush="git push origin master"
 alias gpull="git pull origin master"
-alias dtest="git push herokutest master"
-alias dprod="git push heroku master"
+alias dtest="git push herokutest master; heroku rake db:migrate --app floodhousingtest; heroku restart --app floodhousingtest"
+alias dprod="git push heroku master; heroku rake db:migrate --app floodhousing; heroku restart --app floodhousing"
 alias go="./script/rails s"

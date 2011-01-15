@@ -1,4 +1,15 @@
 <%= semantic_form_for @accommodation, :class_names => "d" do |form| %>
+  <% form.inputs :name => "Who can you accommodate?", :class => "inputs who-can-you-accommodate" do %>
+    <%= form.input :number_of_beds, :label => "Number of beds" %>
+    <%= form.input :takes_pets, :label => "Pets ok?" %>
+    <%= form.input :takes_pets_comment, :input_html => { :size => 5 }  %>
+    <%= form.input :takes_children, :label => "Suitable for children?" %>
+    <%= form.input :takes_smokers, :label => "Smokers ok?" %>
+    <%= form.input :takes_disabled, :label => "Disabled access?" %>
+    <%= form.input :takes_storage, :label => "Storage available?" %>
+    <%= form.input :takes_storage_comment  %>
+  <% end %>
+
   <% form.inputs :name => "Where do you live?", :class => "inputs where-do-you-live" do %>
     <%= form.input :address1, :label => "Address line 1" %>
     <%= form.input :address2, :label => "Address line 2" %>
@@ -6,15 +17,6 @@
 	<%= form.label :suburb, :label => "Suburb" %>
 	    <%= form.select :suburb, suburbs %>
 	</li>
-  <% end %>
-
-  <% form.inputs :name => "Who can you accommodate?", :class => "inputs who-can-you-accommodate" do %>
-    <%= form.input :number_of_people, :label => "Number of people" %>
-    <%= form.input :takes_pets, :label => "Pets" %>
-    <%= form.input :takes_family, :label => "A Family" %>
-    <%= form.input :takes_children, :label => "Children" %>
-    <%= form.input :takes_smokers, :label => "Smokers" %>
-    <%= form.input :takes_other_needs, :label => "Other Needs" %>
   <% end %>
 
   <% form.inputs :name => "Your Details", :class => "inputs your-contact-details" do %>
