@@ -1,4 +1,19 @@
 module NavigationHelpers
+  
+  def goto(page_class)
+    page = page_class.new(self)
+    page.visit
+    page.check_we_are_on_this_page
+    yield page if block_given?
+  end
+  
+  def on(page_class)
+     page = page_class.new(self)
+     page.check_we_are_on_this_page
+     yield page if block_given?
+   end
+  
+  
   # Maps a name to a path. Used by the
   #
   #   When /^I go to (.+)$/ do |page_name|
