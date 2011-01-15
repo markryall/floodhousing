@@ -1,4 +1,3 @@
-@wip
 Feature: View Latest Listings
   In order to see what kind of thing is available on this site
   As a Seeker
