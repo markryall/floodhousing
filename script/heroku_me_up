@@ -1,0 +1,29 @@
+#!/usr/bin/env ruby
+
+def prompt_for prompt
+  print "Please enter the #{prompt} > "
+  gets.chomp
+end
+
+def onward
+  if ENV['SOFTLY_SOFTLY']
+    print 'Continue? '
+    exit 0 if gets.slice(0..0).downcase == 'n'
+  end
+end
+
+def run command
+  puts command
+  system command
+  raise "command failed with status #{$?}" unless $? == 0
+  onward
+end
+
+name = ARGV.shift || prompt_for('heroku project name')
+
+run "heroku create #{name}"
+run "git remote add heroku-#{name} git@heroku.com:#{name}.git"
+run "heroku config:add BUNDLE_WITHOUT=\"development:test\" --app #{name}"
+run "heroku addons:add sendgrid:free --app #{name}"
+
+puts "export $HEROKU_TEST=#{name}"
