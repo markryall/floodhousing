@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110115044753) do
+ActiveRecord::Schema.define(:version => 20110115055807) do
 
   create_table "accommodations", :force => true do |t|
     t.string   "address1"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20110115044753) do
     t.string   "takes_storage_comment"
     t.string   "postcode"
     t.string   "state"
+    t.string   "area"
   end
 
   create_table "logins", :force => true do |t|

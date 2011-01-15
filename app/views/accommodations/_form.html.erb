@@ -20,9 +20,12 @@
 	<%= form.input :postcode, :label => "Postcode" %>
     <li>
     <%= form.label :state, :required => true, :label => "State" %>
-           <%= form.select :state, states %>
+      <%= form.select :state, states %>
     </li>
-    
+    <li>  
+    <%= form.label :area, :required => true, :label => "Area" %>
+      <%= form.select :area, areas %>
+    </li>
   <% end %>
 
   <% form.inputs :name => "Your Details", :class => "inputs your-contact-details" do %>
