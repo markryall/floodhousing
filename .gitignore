@@ -1,6 +1,7 @@
 .rvmrc
 .bundle
 vendor/bundle
+vendor/
 db/*.sqlite3
 log/*.log
 tmp/**/*
