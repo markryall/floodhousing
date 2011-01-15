@@ -18,6 +18,12 @@
 <ul class="listing">
 <% @accommodations.each do |accommodation| %>	
 	<li class= "<%= cycle("even", "odd") %> box-shadow">
+	    <% if login_signed_in? %>
+            <fieldset style="float: right">
+            	<%= button_to 'Edit', edit_accommodation_path(accommodation) %>
+            	<%= button_to 'Taken', taken_accommodation_path(accommodation), :method => :put %>
+            </fieldset>
+        <% end %>
 		<dl class="details">
 			<dt class="number-of-people">Number of people that we can take</dt>
 			<dd><%=accommodation.number_of_beds%></dd>
@@ -38,9 +44,6 @@
 			<dt>Smokers</dt> 
 			<dd><%=accommodation.takes_smokers ? "Yes" : "No"%></dd>
 		</dl>
-		
-		<%= link_to 'Edit', edit_accommodation_path(accommodation) %>
-		<%= link_to 'Disable', disable_accommodation_path(accommodation) %>
   </li>
 <% end %>
 </ul>

@@ -6,7 +6,7 @@ Flood::Application.routes.draw do
       get 'search'
     end
     member do
-      get 'disable'
+      put 'taken'
     end
   end
 

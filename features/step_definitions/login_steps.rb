@@ -1,11 +1,13 @@
 Given /^there is an Admin user$/ do |table|
-  # table is a Cucumber::Ast::Table
-  pending # express the regexp above with the code you wish you had
+  account = table.hashes.first
+  Login.create! :email => account['email'], :password => account['password'], :password_confirmation => account['password']
 end
 
 When /^I log in as$/ do |table|
-  # table is a Cucumber::Ast::Table
-  pending # express the regexp above with the code you wish you had
+  account = table.hashes.first
+  goto(LoginPage) do |page|
+    page.login account['email'], account['password']
+  end
 end
 
 Then /^the application will show that I am logged in as 'admin'$/ do

@@ -21,8 +21,8 @@ class Accommodation < ActiveRecord::Base
              :order => 'created_at DESC'
   end
   
-  def disable
-    self.enabled = false
+  def taken
+    self.available = false
     save!
   end
   
