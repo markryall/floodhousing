@@ -1,5 +1,5 @@
 class AccommodationsController < ApplicationController
-  before_filter :authenticate_login!, :only => [:edit, :update, :destroy]
+  before_filter :authenticate_login!, :only => [:edit, :update, :disable, :destroy]
 
   # GET /accommodations
   # GET /accommodations.xml
