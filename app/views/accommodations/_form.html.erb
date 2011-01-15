@@ -42,6 +42,11 @@
     <%= form.input :comments, :label => false, :as => :text %>
   <% end %>  
 
+  <% form.inputs :name => "Terms and Conditions", :class => "inputs terms-and-conditions" do %>
+    <p> Blah Blah Blah </p>
+    <%= form.input :terms_and_conditions_accepted, :label => "Accept" %>
+  <% end %>  
+
   <% form.buttons do %>
     <%= form.commit_button %>
   <% end %>
