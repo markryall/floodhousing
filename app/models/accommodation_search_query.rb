@@ -8,7 +8,7 @@ class AccommodationSearchQuery
   
   def to_sql_conditions
     add_suburb_query()
-    add_number_of_people_query()
+    add_number_of_beds_query()
     
     #TODO: sprinkle some meta magic over this
     add_pets()
@@ -26,10 +26,10 @@ class AccommodationSearchQuery
     @where_params << "%#{@query_params[:suburb]}%"
   end
   
-  def add_number_of_people_query
-    return unless @query_params[:number_of_people] &&  @query_params[:number_of_people] != ''
-    @where_query << 'number_of_people >= ?'
-    @where_params << @query_params[:number_of_people]
+  def add_number_of_beds_query
+    return unless @query_params[:number_of_beds] &&  @query_params[:number_of_beds] != ''
+    @where_query << 'number_of_beds >= ?'
+    @where_params << @query_params[:number_of_beds]
   end
   
   def add_enabled()
