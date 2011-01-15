@@ -14,7 +14,7 @@ module AccommodationsHelper
    
 
    def num_beds
-      (1..6).to_a 
+      (1..6).to_a  << "6+"
    end
   
 end
