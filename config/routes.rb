@@ -11,6 +11,13 @@ Flood::Application.routes.draw do
       get 'edit'
       put 'taken'
       get 'login'
+      get 'contact_host'
+    end
+  end
+  
+  resources :seekers do
+    collection do 
+      get 'interest_registered'
     end
   end
 

@@ -44,6 +44,10 @@
 			<dt>Smokers</dt> 
 			<dd><%=accommodation.takes_smokers ? "Yes" : "No"%></dd>
 		</dl>
+		<dl>
+			<dt>Interested?</dt>
+			<dd><%= button_to 'Contact the host', contact_host_accommodation_path(accommodation), :method => :get %></dd>
+		</dl>
   </li>
 <% end %>
 </ul>

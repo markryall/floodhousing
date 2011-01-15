@@ -1,0 +1,15 @@
+<%= semantic_form_for @seeker, :class_names => "d" do |form| %>
+  <% form.inputs :name => "Your information", :class => "inputs your-information" do %>
+    <li>
+	    <%= form.input :name, :required => true, :label => "Name" %>
+    </li>
+    <li>
+	    <%= form.input :phone, :required => true, :label => "Phone" %>
+    </li>
+  <% end %>
+  <%= hidden_field_tag 'accommodation', @accommodation.id %>
+
+  <% form.buttons do %>
+    <%= form.commit_button %>
+  <% end %>
+<% end %>

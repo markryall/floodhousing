@@ -95,6 +95,17 @@ class AccommodationsController < ApplicationController
       format.xml { head :ok }
     end
   end
+  
+  def contact_host
+    @seeker = Seeker.new
+    @accommodation = Accommodation.find(params[:id])
+    
+    respond_to do |format|
+      format.html 
+      format.xml  { render :xml => @seeker }
+    end  
+  end
+  
 
   private
   def authorized?
