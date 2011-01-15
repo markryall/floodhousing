@@ -42,7 +42,8 @@ class AccommodationsController < ApplicationController
   end
 
   def edit
-    @accommodation = Accommodation.find(params[:id]) 
+    @accommodation = Accommodation.find(params[:id])
+    @accommodation.email_confirmation = @accommodation.email
   end
 
   def create

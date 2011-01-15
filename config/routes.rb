@@ -8,6 +8,7 @@ Flood::Application.routes.draw do
       get 'search'
     end
     member do
+      get 'edit'
       put 'taken'
       get 'login'
     end
