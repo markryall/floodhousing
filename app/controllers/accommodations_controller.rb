@@ -87,8 +87,13 @@ class AccommodationsController < ApplicationController
   
   def taken
     @accommodation = Accommodation.find(params[:id])
-    @accommodation.taken
-    redirect_to :action => 'search'
+    @accommodation.available = false
+    @accommodation.save!
+    
+    respond_to do |format|
+      format.html { redirect_to :action => 'search' }
+      format.xml { head :ok }
+    end
   end
 
   # DELETE /accommodations/1

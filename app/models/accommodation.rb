@@ -13,11 +13,6 @@ class Accommodation < ActiveRecord::Base
              :order => 'created_at DESC'
   end
   
-  def taken
-    self.available = false
-    save!
-  end
-  
   def complete_address
     [address1, address2, suburb].collect { |x|
       x.empty? ? nil : x
