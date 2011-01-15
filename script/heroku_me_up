@@ -25,5 +25,14 @@ run "heroku create #{name}"
 run "git remote add heroku-#{name} git@heroku.com:#{name}.git"
 run "heroku config:add BUNDLE_WITHOUT=\"development:test\" --app #{name}"
 run "heroku addons:add sendgrid:free --app #{name}"
+run "git push heroku-#{name} master"
+run "heroku rake db:migrate --app #{name}"
+run "open http://#{name}.heroku.com/"
 
-puts "export $HEROKU_TEST=#{name}"
+puts <<EOF
+# set the following environment variable
+export $HEROKU_TEST=#{name}"
+# for subsequent deployments
+. profile
+dtest
+EOF
