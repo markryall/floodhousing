@@ -10,6 +10,17 @@ When /^I log in as$/ do |table|
   end
 end
 
+When /^I am logged in as an admin$/ do
+  user = Login.make
+  goto(LoginPage) do |page|
+    page.login user.email, user.password
+  end
+end
+
+When /^no one is logged in$/ do
+  # Nothing to do here
+end
+
 Then /^the application will show that I am logged in as 'admin'$/ do
   pending # express the regexp above with the code you wish you had
 end
