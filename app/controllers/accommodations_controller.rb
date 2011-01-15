@@ -1,14 +1,10 @@
 class AccommodationsController < ApplicationController
-  before_filter :authenticate_login!, :only => [:edit, :update, :taken, :destroy]
+  before_filter :authorized?, :only => [:edit, :update, :taken]
 
-  # GET /accommodations
-  # GET /accommodations.xml
   def index
     redirect_to :action => 'search'
   end
 
-  # GET /accommodations/1
-  # GET /accommodations/1.xml
   def show
     @accommodation = Accommodation.find(params[:id])
 
@@ -18,7 +14,6 @@ class AccommodationsController < ApplicationController
     end
   end
   
-  # GET /accommodations/search
   def search
     page = params[:page] || 1
     params[:available] ||= 'yes'
@@ -37,8 +32,6 @@ class AccommodationsController < ApplicationController
     end
   end
 
-  # GET /accommodations/new
-  # GET /accommodations/new.xml
   def new
     @accommodation = Accommodation.new
 
@@ -48,13 +41,10 @@ class AccommodationsController < ApplicationController
     end
   end
 
-  # GET /accommodations/1/edit
   def edit
     @accommodation = Accommodation.find(params[:id]) 
   end
 
-  # POST /accommodations
-  # POST /accommodations.xml
   def create
     @accommodation = Accommodation.new(params[:accommodation])
 
@@ -69,8 +59,6 @@ class AccommodationsController < ApplicationController
     end
   end
 
-  # PUT /accommodations/1
-  # PUT /accommodations/1.xml
   def update
     @accommodation = Accommodation.find(params[:id])
 
@@ -84,27 +72,31 @@ class AccommodationsController < ApplicationController
       end
     end
   end
-  
+
+  def login
+    @accommodation = Accommodation.find(params[:id])
+
+    if @accommodation && @accommodation.authorization_token == params[:token]
+      session[:ok_to_edit] = @accommodation.id.to_s
+      redirect_to :action => :edit
+    else
+      redirect_to :root
+    end
+  end
+
   def taken
     @accommodation = Accommodation.find(params[:id])
-    @accommodation.available = false
-    @accommodation.save!
-    
+    @accommodation.update_attribute(:available, false)
+
     respond_to do |format|
       format.html { redirect_to :action => 'search' }
       format.xml { head :ok }
     end
   end
 
-  # DELETE /accommodations/1
-  # DELETE /accommodations/1.xml
-  def destroy
-    @accommodation = Accommodation.find(params[:id])
-    @accommodation.destroy
-  
-    respond_to do |format|
-      format.html { redirect_to(accommodations_url) }
-      format.xml  { head :ok }
-    end
+  private
+  def authorized?
+    session[:ok_to_edit] == params[:id] || authenticate_login!
   end
+
 end
