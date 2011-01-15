@@ -17,10 +17,12 @@ end
 group :test do
   gem 'cucumber-rails'
   gem 'capybara'
+  gem 'webrat'
   gem 'database_cleaner'
   gem 'autotest-rails', '4.1.0'
   gem 'autotest', '4.4.6'
   gem 'machinist'
+  gem 'faker'
 end
 
 group :production do

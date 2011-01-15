@@ -4,7 +4,7 @@ describe AccommodationsController do
   include Devise::TestHelpers
   
   before(:each) do
-    @acc = Accommodation.create!(:over_eighteen => true, :number_of_beds => 4)
+    @acc = Accommodation.make
   end
   
   it "should redirect to search from the index" do
@@ -26,11 +26,8 @@ describe AccommodationsController do
   
   describe "with a logged in user" do
     
-    before(:all) do
-      @user = Login.create!(:email => 'foo@bacon.org', :password => 'password', :password_confirmation => 'password')
-    end
-    
     before(:each) do
+      @user = Login.make
       sign_in @user
     end
     
