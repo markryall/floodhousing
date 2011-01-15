@@ -51,7 +51,7 @@ class AccommodationsController < ApplicationController
 
     respond_to do |format|
       if @accommodation.save
-        # NotificationMailer.accommodation_listed(@accommodation).deliver
+        NotificationMailer.accommodation_listed(@accommodation).deliver
         format.html { redirect_to(:action => 'search') }
         format.xml  { render :xml => @accommodation, :status => :created, :location => @accommodation }
       else

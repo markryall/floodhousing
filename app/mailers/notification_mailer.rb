@@ -1,5 +1,5 @@
 class NotificationMailer < ActionMailer::Base
-  default :from => "from@example.com"
+  default :from => "floodhousing@thoughtworks.com"
   helper :application
   
   def accommodation_listed(accommodation)
