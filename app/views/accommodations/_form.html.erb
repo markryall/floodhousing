@@ -1,6 +1,9 @@
 <%= semantic_form_for @accommodation, :class_names => "d" do |form| %>
   <% form.inputs :name => "Who can you accommodate?", :class => "inputs who-can-you-accommodate" do %>
-    <%= form.input :number_of_beds, :label => "Number of beds" %>
+    <li>
+    <%= form.label :number_of_beds, :required => true, :label => "Number of beds" %>
+           <%= form.select :number_of_beds, num_beds %>
+    </li>
     <%= form.input :takes_pets, :label => "Pets ok?" %>
     <%= form.input :takes_pets_comment, :input_html => { :size => 5 }  %>
     <%= form.input :takes_children, :label => "Suitable for children?" %>
@@ -13,10 +16,13 @@
   <% form.inputs :name => "Where do you live?", :class => "inputs where-do-you-live" do %>
     <%= form.input :address1, :label => "Address line 1" %>
     <%= form.input :address2, :label => "Address line 2" %>
-	<li>
-	<%= form.label :suburb, :label => "Suburb" %>
-	    <%= form.select :suburb, suburbs %>
-	</li>
+	<%= form.input :suburb, :label => "Suburb" %>
+	<%= form.input :postcode, :label => "Postcode" %>
+    <li>
+    <%= form.label :state, :required => true, :label => "State" %>
+           <%= form.select :state, states %>
+    </li>
+    
   <% end %>
 
   <% form.inputs :name => "Your Details", :class => "inputs your-contact-details" do %>
@@ -25,7 +31,7 @@
     <%= form.input :phone_mobile, :label => 'Mobile Phone' %>
     <%= form.input :other_phone, :label => 'Other Phone' %>
     <%= form.input :email, :label => 'Email' %>
-    <%= form.input :over_eighteen, :label => "Over 18" %>
+    <%= form.input :over_eighteen, :required=> true, :label => "Over 18" %>
   <% end %>
 
   <% form.inputs :name => "Other Comments", :class => "inputs other-comments" do %>
