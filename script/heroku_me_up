@@ -31,7 +31,7 @@ run "open http://#{name}.heroku.com/"
 
 puts <<EOF
 # set the following environment variable
-export $HEROKU_TEST=#{name}"
+export $HEROKU_TEST=#{name}
 # for subsequent deployments
 . profile
 dtest
