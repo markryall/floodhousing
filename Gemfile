@@ -11,16 +11,19 @@ gem 'devise', '1.1.5'
 
 group :test, :development do
   gem 'sqlite3-ruby', '1.3.2'
+  gem 'rspec-rails', '2.4.1'
+  gem 'machinist' 
 end
 
 group :test do
-  gem 'rspec-rails', '2.4.1' 
   gem 'cucumber-rails'
   gem 'capybara'
   gem 'database_cleaner'
   gem 'autotest-rails', '4.1.0'
   gem 'autotest', '4.4.6'
-  gem 'factory_girl_rails', '1.0.1'
+  gem 'kronic'
+  gem 'delorean'
+  gem 'faker'
 end
 
 group :production do

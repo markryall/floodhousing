@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110115012623) do
+ActiveRecord::Schema.define(:version => 20110115063739) do
 
   create_table "accommodations", :force => true do |t|
     t.string   "address1"
@@ -22,37 +22,33 @@ ActiveRecord::Schema.define(:version => 20110115012623) do
     t.string   "other_phone"
     t.string   "email"
     t.string   "comments"
-    t.integer  "number_of_beds"
+    t.string   "number_of_beds"
     t.boolean  "takes_pets"
     t.boolean  "takes_children"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "over_eighteen"
     t.boolean  "takes_smokers"
-    t.boolean  "enabled",               :default => true
+    t.boolean  "available",                     :default => true
     t.string   "takes_pets_comment"
     t.boolean  "takes_disabled"
     t.boolean  "takes_storage"
     t.string   "takes_storage_comment"
+    t.string   "postcode"
+    t.string   "state"
+    t.string   "area"
+    t.boolean  "terms_and_conditions_accepted"
   end
 
   create_table "logins", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
     t.string   "encrypted_password",   :limit => 128, :default => "", :null => false
     t.string   "password_salt",                       :default => "", :null => false
-    t.string   "reset_password_token"
-    t.string   "remember_token"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                       :default => 0
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
+    t.string   "authentication_token"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "logins", ["email"], :name => "index_logins_on_email", :unique => true
-  add_index "logins", ["reset_password_token"], :name => "index_logins_on_reset_password_token", :unique => true
 
 end

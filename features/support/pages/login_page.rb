@@ -1,13 +1,10 @@
-class LoginPage
-  def self.on driver
-    driver.visit '/logins/sign_in'
-    yield LoginPage.new driver
-  end
+require File.dirname(__FILE__) + "/page"
+class LoginPage < Page
 
-  def initialize driver
-    @driver = driver
+  def visit
+     driver.visit '/logins/sign_in'
   end
-
+  
   def login email, password
     @driver.fill_in 'login_email', :with => email
     @driver.fill_in 'login_password', :with => password
