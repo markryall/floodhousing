@@ -18,10 +18,12 @@
 <ul class="listing">
 <% @accommodations.each do |accommodation| %>	
 	<li class= "<%= cycle("even", "odd") %> box-shadow">
-        <fieldset style="float: right">
-        	<%= button_to 'Edit', edit_accommodation_path(accommodation) %>
-        	<%= button_to 'Taken', taken_accommodation_path(accommodation), :method => :put %>
-        </fieldset>
+	    <% if login_signed_in? %>
+            <fieldset style="float: right">
+            	<%= button_to 'Edit', edit_accommodation_path(accommodation) %>
+            	<%= button_to 'Taken', taken_accommodation_path(accommodation), :method => :put %>
+            </fieldset>
+        <% end %>
 		<dl class="details">
 			<dt class="number-of-people">Number of people that we can take</dt>
 			<dd><%=accommodation.number_of_beds%></dd>

@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(:version => 20110115022107) do
     t.datetime "updated_at"
     t.boolean  "over_eighteen"
     t.boolean  "takes_smokers"
-    t.boolean  "available",         :default => true
+    t.boolean  "available",             :default => true
     t.string   "takes_pets_comment"
     t.boolean  "takes_disabled"
     t.boolean  "takes_storage"
