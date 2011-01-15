@@ -29,7 +29,9 @@
 
   <%= hidden_field_tag 'accommodation', @accommodation.id %>
 
-  <% form.buttons do %>
-    <%= form.commit_button %>
-  <% end %>
+  <fieldset class="buttons">
+    <ol>
+      <li class="commit"><input class="submit" id="seeker_submit" name="commit" type="submit" value="Submit" /></li> 
+    </ol>
+  </fieldset>
 <% end %>
