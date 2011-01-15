@@ -1,0 +1,1 @@
+bundle install --deployment &&  bundle exec rake build
