@@ -1,5 +1,5 @@
 class AccommodationsController < ApplicationController
-  before_filter :authenticate_login!, :only => [:edit, :update, :destroy]
+  before_filter :authenticate_login!, :only => [:edit, :update, :destroy, :taken]
 
   # GET /accommodations
   # GET /accommodations.xml
@@ -21,6 +21,7 @@ class AccommodationsController < ApplicationController
   # GET /accommodations/search
   def search
     page = params[:page] || 1
+    params[:available] ||= 'yes'
     
     @accommodations = Accommodation.search(AccommodationSearchQuery.new(params), page)
     @suburb = params[:suburb] || 'All'
@@ -84,9 +85,9 @@ class AccommodationsController < ApplicationController
     end
   end
   
-  def disable
+  def taken
     @accommodation = Accommodation.find(params[:id])
-    @accommodation.disable
+    @accommodation.taken
     redirect_to :action => 'search'
   end
 
