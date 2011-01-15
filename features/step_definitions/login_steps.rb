@@ -1,9 +1,7 @@
 Given /^there is an Admin user$/ do |table|
   table.hashes.each do |account|
-    puts account
     Login.create! :email => account['email'], :password => account['password'], :password_confirmation => account['password']
   end
-  pending
 end
 
 When /^I log in as$/ do |table|
