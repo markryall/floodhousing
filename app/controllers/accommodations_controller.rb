@@ -1,5 +1,5 @@
 class AccommodationsController < ApplicationController
-  before_filter :authenticate_login!, :only => [:edit, :update, :destroy, :taken]
+  before_filter :authenticate_login!, :only => [:edit, :update, :taken, :destroy]
 
   # GET /accommodations
   # GET /accommodations.xml
@@ -25,7 +25,7 @@ class AccommodationsController < ApplicationController
     
     @accommodations = Accommodation.search(AccommodationSearchQuery.new(params), page)
     @suburb = params[:suburb] || 'All'
-    @number_of_people = params[:number_of_people]
+    @number_of_beds = params[:number_of_beds]
     @pets = params[:pets] == 'yes'
     @smokers = params[:smokers] == 'yes'
     @children = params[:children] == 'yes'

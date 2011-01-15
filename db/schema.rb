@@ -22,16 +22,18 @@ ActiveRecord::Schema.define(:version => 20110115022107) do
     t.string   "other_phone"
     t.string   "email"
     t.string   "comments"
-    t.integer  "number_of_people"
+    t.integer  "number_of_beds"
     t.boolean  "takes_pets"
-    t.boolean  "takes_family"
     t.boolean  "takes_children"
-    t.boolean  "takes_other_needs"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "over_eighteen"
     t.boolean  "takes_smokers"
     t.boolean  "available",         :default => true
+    t.string   "takes_pets_comment"
+    t.boolean  "takes_disabled"
+    t.boolean  "takes_storage"
+    t.string   "takes_storage_comment"
   end
 
   create_table "logins", :force => true do |t|
