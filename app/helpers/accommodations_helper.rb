@@ -4,11 +4,6 @@ module AccommodationsHelper
     value.empty? ? "--" : value 
   end
 
-  #to be removed when search realigned
-  def suburbs
-    ['Acacia Ridge', 'Albany Creek', 'Albion', 'Alderley', 'Algester', 'Annerle']
-  end
-   
   def number_of_beds
     (1..6).to_a  << "6+"
   end

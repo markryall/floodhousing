@@ -1,0 +1,17 @@
+full details:
+  address1: "18 Anthony Drive"
+  address2: "Near Glebe Place"
+  suburb: "Brookfield"
+  number_of_people: "9"
+  takes_pets: true
+  takes_family: true
+  takes_children: true
+  takes_smokers: true
+  takes_other: true
+  name: "Harold Holt"
+  home_phone: "07 55676767"
+  mobile_phone: "0422222222"
+  other_phone: "07 3232 3333"
+  email: "harold.holt@gmail.com"
+  over18: "Yes"
+  comments: "I have a pony if people have allergies"

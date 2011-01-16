@@ -38,3 +38,11 @@ Given /^a listing at "([^"]*)" was posted ([^"]*)$/ do |address, time|
   end
 end
 
+Given /^a listing "([^"]*)" for (\d+) beds was posted$/ do |listing, number_of_beds|
+  @listings = { listing => Accommodation.make(:number_of_beds => number_of_beds) }
+end
+
+Given /^a listing "([^"]*)" for area "([^"]*)" was posted$/ do |listing, area|
+  @listings = { listing => Accommodation.make(:area => area) }
+end
+

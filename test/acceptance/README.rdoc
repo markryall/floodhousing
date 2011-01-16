@@ -1,0 +1,20 @@
+= Cucumber Acceptance Tests
+
+== Bootstapping Process
+
+* run ./go in the acceptance directory and this will install everything you need and run the cucumber features
+* uses jruby to execute cucumber as Celerity requires this
+
+== Supported Browsers
+
+* firefox, chrome, ie (windows)
+* headless (celerity htmlunit with good javascript support)
+
+== Syntax/API
+
+* Uses Celerity and Watir-WebDriver that have almost the same API
+
+== Style
+
+* This uses a simple page-object pattern, where pages are defined as classes, and test data is defined in yaml files.
+* The steps simply use the page classes to interact with the system.

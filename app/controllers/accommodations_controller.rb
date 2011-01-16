@@ -1,8 +1,8 @@
 class AccommodationsController < ApplicationController
-  before_filter :authorized?, :only => [:edit, :update, :taken, :delist]
+  before_filter :authorized?, :only => [:edit, :update, :list]
 
   def index
-    redirect_to :action => 'search'
+    redirect_to :action => :search
   end
 
   def show
@@ -20,12 +20,14 @@ class AccommodationsController < ApplicationController
     params[:enabled] ||= true
     
     @accommodations = Accommodation.search(AccommodationSearchQuery.new(params), page)
-    @suburb = params[:suburb] || 'All'
+    @area = params[:area] || 'All'
     @number_of_beds = params[:number_of_beds]
     @pets = params[:pets] == 'yes'
     @smokers = params[:smokers] == 'yes'
     @children = params[:children] == 'yes'
     @family = params[:family] == 'yes'
+    @disabled = params[:disabled] == 'yes'
+    @storage = params[:storage] == 'yes'
 
     respond_to do |format|
       format.html
@@ -56,7 +58,7 @@ class AccommodationsController < ApplicationController
         format.html { redirect_to thank_you_path }
         format.xml  { render :xml => @accommodation, :status => :created, :location => @accommodation }
       else
-        format.html { render :action => "new" }
+        format.html { render :action => :new }
         format.xml  { render :xml => @accommodation.errors, :status => :unprocessable_entity }
       end
     end
@@ -67,10 +69,10 @@ class AccommodationsController < ApplicationController
 
     respond_to do |format|
       if @accommodation.update_attributes(params[:accommodation])
-        format.html { redirect_to(:action => 'search') }
+	format.html { render :action => :edit }
         format.xml  { head :ok }
       else
-        format.html { render :action => "edit" }
+        format.html { render :action => :edit }
         format.xml  { render :xml => @accommodation.errors, :status => :unprocessable_entity }
       end
     end
@@ -87,23 +89,16 @@ class AccommodationsController < ApplicationController
     end
   end
 
-  def taken
+  def list
     @accommodation = Accommodation.find(params[:id])
-    @accommodation.update_attribute(:available, false)
+    @accommodation.update_attribute(:available, params[:available])
 
     respond_to do |format|
-      format.html { redirect_to :action => 'search' }
-      format.xml { head :ok }
-    end
-  end
-  
-  def delist
-    @accommodation = Accommodation.find(params[:id])
-    @accommodation.update_attribute(:enabled, false)
-
-    respond_to do |format|
-      format.html { redirect_to :action => 'search' }
-      format.xml { head :ok }
+      format.js do
+	render(:update) do |page|
+	  page.replace 'availability', :partial => 'availability'
+	end
+      end
     end
   end
   
@@ -117,7 +112,6 @@ class AccommodationsController < ApplicationController
     end  
   end
   
-
   private
   def authorized?
     session[:ok_to_edit] == params[:id] || authenticate_login!
