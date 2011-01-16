@@ -29,6 +29,18 @@ describe AccommodationsController do
     end
   end
 
+  describe :search do
+    before :each do
+      Accommodation.stub(:search).and_return([mock(Accommodation)])
+    end
+    
+    it "should render search" do
+      get :search, :area => 'Ipswich'
+
+      response.should render_template :search
+    end
+  end
+
   describe :login do
     context 'with a valid accommodation' do
       it 'should redirect a valid token to the edit page' do

@@ -7,7 +7,7 @@ class AccommodationSearchQuery
   end
   
   def to_sql_conditions
-    add_suburb_query()
+    add_area_query()
     add_number_of_beds_query()
     
     #TODO: sprinkle some meta magic over this
@@ -24,10 +24,10 @@ class AccommodationSearchQuery
     
   end
   
-  def add_suburb_query
-    return unless @query_params[:suburb] && @query_params[:suburb] != '' && @query_params[:suburb] != 'All'
-    @where_query << 'suburb like ?'
-    @where_params << "%#{@query_params[:suburb]}%"
+  def add_area_query
+    return unless @query_params[:area] && @query_params[:area] != '' && @query_params[:area] != 'All'
+    @where_query << 'area like ?'
+    @where_params << "%#{@query_params[:area]}%"
   end
   
   def add_number_of_beds_query
