@@ -111,9 +111,15 @@ body {
 	display: inline;
 	vertical-align: top;	
 	}
-
+.nav {
+	clear: both;
+}
+.nav ul,
+.nav li {
+	padding: 0;
+}
 .content {
-	background: url(/images/body-bg.gif) repeat-x;
+	background: url(/imagesbody-bg.gif) repeat-x;
 	overflow: hidden;
 }
 
@@ -146,16 +152,15 @@ h2 {
 	line-height: 2;
 	padding-left: 1em;
 }
-p {
-	padding-left:1em;
-}
+
 p, li {
 	font-size: 10pt;
 	line-height: 1.2;
 	margin: 2pt 0 6pt 0;
+	padding: 0 1em
 }
 ul {
-	padding: 2pt 0 6pt 0;
+	padding: 2pt 1em 6pt 1em;
 }
 a,
 a:link,
@@ -193,7 +198,7 @@ img.body_image {
 	float: left;
 	padding: 0 10px;
 	margin: 0 10px 30px 10px;
-	background: url(/images/box-bg.gif) repeat-x;
+	background: url(/imagesbox-bg.gif) repeat-x;
 	border: 1px solid #ef8230;
 	height: 250px;
 }
@@ -210,7 +215,7 @@ a.button {
 	display: block;
 	width: 190px;
 	height: 60px;
-	background: url(/images/button-bg.gif) no-repeat;
+	background: url(/imagesbutton-bg.gif) no-repeat;
 	margin: 0 auto;
 	text-align: center;
 	color: #fff;
@@ -224,14 +229,14 @@ a.button {
 }
 .formbox fieldset.buttons input:hover,
 a.button:hover {
-		background: url(/images/button-bg-hover.gif) no-repeat;
+		background: url(/imagesbutton-bg-hover.gif) no-repeat;
 		color: #ccf1a7;
 		}
 		
 /* Forms */
 .search_formbox,
 .formbox {
-	background: url(/images/form-bg.gif) repeat-x;
+	background: url(/imagesform-bg.gif) repeat-x;
 	width: 80%;
 	margin:  0 40px 0 auto;
 	border: 1px solid #ef8230;
@@ -259,11 +264,13 @@ a.button:hover {
 	float: right;
 	margin-top: 30px;
 }
+
 .formbox fieldset ol li {
 	margin: 5px 0 5px 20px;
 	clear: both;
 	line-height: 1.8;
 	display: block;
+	overflow: hidden !important;
 }
 .formbox fieldset ol p {
 	font-size: 8pt;
@@ -273,6 +280,7 @@ a.button:hover {
 .formbox fieldset label {
 	float: left;
 	margin-bottom: 5px;
+	width: auto !important;
 }
 .formbox fieldset input {
 	width: 240px;
@@ -346,11 +354,10 @@ ul.listing {
 	float: left;
 	clear: none;
 	margin-right: 2em;
-		margin-top: 5px;
-
-		line-height: 1.5;
-
+	margin-top: 5px;
+	line-height: 1.5;
 }
+
 
 .pagination {
   text-align:center;
