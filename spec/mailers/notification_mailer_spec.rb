@@ -12,7 +12,7 @@ describe NotificationMailer do
     it "renders the headers" do
       @mail.subject.should eq("Your accommodation has been listed")
       @mail.to.should eq(["to@example.org"])
-      @mail.from.should eq(["floodhousing@thoughtworks.com"])
+      @mail.from.should eq(["ozfloodhelp@getup.com.au"])
     end
 
     it "renders the body" do
