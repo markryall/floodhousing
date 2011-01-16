@@ -9,7 +9,6 @@ class CreateListingPage < Page
     @driver.fill_in "accommodation_address1", :with => listing['address1']
     @driver.fill_in "accommodation_address2", :with => listing['address2']
     @driver.fill_in "accommodation_suburb", :with => listing['suburb']
-    @driver.select listing["state"], :from => "accommodation_state"
     @driver.select listing["area"], :from => 'accommodation_area'
     @driver.fill_in "accommodation_name", :with => listing['name']
     @driver.fill_in "accommodation_phone_mobile", :with => listing['phone_mobile']
