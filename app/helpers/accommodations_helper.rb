@@ -9,7 +9,7 @@ module AccommodationsHelper
     ['Acacia Ridge', 'Albany Creek', 'Albion', 'Alderley', 'Algester', 'Annerle']
   end
    
-  def num_beds
+  def number_of_beds
     (1..6).to_a  << "6+"
   end
  

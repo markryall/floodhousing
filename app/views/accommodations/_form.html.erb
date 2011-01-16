@@ -1,8 +1,7 @@
 <%= semantic_form_for @accommodation, :class_names => "d" do |form| %>
   <%= form.inputs :name => "Who can you accommodate?", :class => "inputs who-can-you-accommodate" do %>
     <li>
-    <%= form.label :number_of_beds, :required => true, :label => "Number of beds" %>
-           <%= form.select :number_of_beds, num_beds %>
+    <%= form.input :number_of_beds, :as => :select, :prompt => "Please Select", :collection => number_of_beds %>
     </li>
     <%= form.input :takes_pets, :label => "Pets ok?" %>
     <%= form.input :takes_pets_comment, :input_html => { :size => 5 }  %>
@@ -19,8 +18,7 @@
 	<%= form.input :suburb, :label => "Suburb" %>
 	<%= form.input :postcode, :label => "Postcode" %>
     <li>  
-    <%= form.label :area, :required => true, :label => "Area" %>
-      <%= form.select :area, areas %>
+    <%= form.input :area, :as => :select, :prompt => "Please Select", :collection => areas %>
     </li>
   <% end %>
 
