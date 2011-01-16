@@ -1,26 +1,49 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <title>Queensland flood relief billet volunteering</title>
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults %>
-  <%= formtastic_stylesheet_link_tag %>
-  <%= csrf_meta_tag %>
+    <title><% yield(:title) %></title>
+    <%= stylesheet_link_tag :all %>
+    <%= javascript_include_tag :defaults %>
+    <%= formtastic_stylesheet_link_tag %>
+    <%= csrf_meta_tag %>
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+    <link rel="stylesheet" type="text/css" href="qldfloods.css" />
 </head>
+
 <body>
+    <div class="container">
+        <div class="head">
+            <div class="logos">
+                <img src="/images/getup-logo-on-black.gif" alt="GetUp! Action for Australia" height="80" /> <img src="/images/TW_logo.gif" alt="ThoughtWorks" height="32" />
+            </div><!--logos-->.
+<div class="networks"><p>Share this site: &nbsp;
+               <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="http://ozfloodhelp.org" show_faces="false" width="100"colorscheme="dark"></fb:like>
   
-<div id="page">
-  
-<div id="header">
-<a href="/"><img src ="/images/getup-logo-on-black.gif" alt="GetUp! Action for Australia"></a>
-</div><!-- // #header -->
+                
+                
+                <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ozfloodhelp.org" data-text="Connecting Aussies affected by #QLDflood with welcome Aussie homes" data-count="horizontal" data-via="GetUp">Tweet This</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+               
+                <a href="mailto: ?Subject=Temporary%20housing%20for%20flood%20victims&Body=Hi%2C%0A%0ATens%20of%20thousands%20of%20Australians%20affected%20by%20floods%20are%20in%20need%20of%20temporary%20housing.%20%0A%0AIf%20you%20need%20a%20place%20to%20stay%20-%20or%20have%20a%20spare%20bed%2C%20couch%20or%20room%2C%20check%20out%20this%20site%3A%0A%0Awww.ozfloodhelp.org%0A%0AThanks%21">
+                <img src="/images/icon_mail.png" alt="icon_mail" width="90" height="20" /></a></p>
+            </div>
 
-<div id="content">
+            <div class="title">
+                <h1>Queensland Flood Relief Housing</h1>
 
-<%= yield %>
+                <h4>Connecting Aussies affected by floods, with welcome homes</h4>
+            </div><!--title-->
 
-</div><!-- // #content -->
+                    </div><!--head-->
 
-</div><!-- // #page -->
+        <div class="content">
+          <%= yield %>
+        </div>
+
+        <div class="footer">
+            <p>With thanks to:<img src="/images/storageking_logo.jpg" alt="storageking_logo" width="80" /><img src="/images/wotiflogo.jpg" alt="wotiflogo" width="140" /></p>
+        </div>
+    </div>
 </body>
 </html>

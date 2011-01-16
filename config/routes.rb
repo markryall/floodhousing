@@ -1,4 +1,6 @@
 Flood::Application.routes.draw do
+  get "home/index"
+
   devise_for :logins
 
   match "l/:id/:token" => "accommodations#login"
@@ -23,7 +25,7 @@ Flood::Application.routes.draw do
     end
   end
 
-  root :to => "accommodations#new"
+  root :to => "home#index"
 
   resource :user_session do
     get :create
