@@ -1,3 +1,14 @@
+Given /^I fill in details about the accommodation I can offer$/ do |table|
+  listing = table.rows_hash
+  goto(CreateListingPage) do |page|
+    page.create_listing listing 
+  end
+end
+
+Then /^I will see confirmation$/ do
+  pending # express the regexp above with the code you wish you had
+end
+
 Given /^that no listings have been posted$/ do
    # don't need to do anything!
 end
@@ -14,6 +25,7 @@ Given /^that listing has already been taken$/ do
   @accommodation.available = false
   @accommodation.save!
 end
+
 
 Given /^that (\d+) listings have been posted$/ do |number_of_listings|
   number_of_listings.to_i.times {Accommodation.make}
