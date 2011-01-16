@@ -45,5 +45,13 @@ production:
   username: flood
   password:
 
+preproduction:
+  adapter: postgresql
+  encoding: unicode
+  database: flood_production
+  pool: 5
+  username: flood
+  password:
+
 cucumber:
   <<: *test

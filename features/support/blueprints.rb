@@ -11,8 +11,11 @@ Accommodation.blueprint do
   email {"foo@bar.com"}
   over_eighteen {true}
   terms_and_conditions_accepted {true}
-  postcode {"3184"}
+  postcode {"3184"}  
 end
+
+
+
 
 Login.blueprint do
   email { Sham.email }
