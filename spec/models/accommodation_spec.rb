@@ -1,7 +1,12 @@
 require 'spec_helper'
 
 describe Accommodation do
-  
+  describe 'default values' do
+    it 'should default to QLD for state' do
+      Accommodation.new.state.should == 'QLD'
+    end
+  end
+
   describe 'complete_address' do
     it 'should have comma separated address fields' do
       accommodation = Accommodation.new

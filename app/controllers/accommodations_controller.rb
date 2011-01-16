@@ -42,7 +42,8 @@ class AccommodationsController < ApplicationController
   end
 
   def edit
-    @accommodation = Accommodation.find(params[:id]) 
+    @accommodation = Accommodation.find(params[:id])
+    @accommodation.email_confirmation = @accommodation.email
   end
 
   def create
@@ -50,6 +51,7 @@ class AccommodationsController < ApplicationController
 
     respond_to do |format|
       if @accommodation.save
+        NotificationMailer.accommodation_listed(@accommodation).deliver
         format.html { redirect_to(:action => 'search') }
         format.xml  { render :xml => @accommodation, :status => :created, :location => @accommodation }
       else
@@ -93,6 +95,17 @@ class AccommodationsController < ApplicationController
       format.xml { head :ok }
     end
   end
+  
+  def contact_host
+    @seeker = Seeker.new
+    @accommodation = Accommodation.find(params[:id])
+    
+    respond_to do |format|
+      format.html 
+      format.xml  { render :xml => @seeker }
+    end  
+  end
+  
 
   private
   def authorized?

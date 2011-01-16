@@ -4,7 +4,7 @@ describe AccommodationsController do
   include Devise::TestHelpers
 
   before :each do
-    @accommodation = mock_model(Accommodation, :id => 4321)
+    @accommodation = Accommodation.make
     Accommodation.stub(:find).and_return(@accommodation)
   end
 
@@ -49,7 +49,7 @@ describe AccommodationsController do
     context 'without session authorization' do
       it 'should reject an authenticated request' do
         send verb, action, :id => 1
-        response.should be_redirect
+        response.should redirect_to new_login_session_url
       end
     end
   end

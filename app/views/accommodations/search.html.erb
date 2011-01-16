@@ -20,7 +20,7 @@
 	<li class= "<%= cycle("even", "odd") %> box-shadow">
 	    <% if login_signed_in? %>
             <fieldset style="float: right">
-            	<%= button_to 'Edit', edit_accommodation_path(accommodation) %>
+            	<%= button_to 'Edit', edit_accommodation_path(accommodation), :method => :get %>
             	<%= button_to 'Taken', taken_accommodation_path(accommodation), :method => :put %>
             </fieldset>
         <% end %>
@@ -43,6 +43,10 @@
 			<dd><%=accommodation.takes_children ? "Yes" : "No"%></dd>
 			<dt>Smokers</dt> 
 			<dd><%=accommodation.takes_smokers ? "Yes" : "No"%></dd>
+		</dl>
+		<dl>
+			<dt>Interested?</dt>
+			<dd><%= button_to 'Contact the host', contact_host_accommodation_path(accommodation), :method => :get %></dd>
 		</dl>
   </li>
 <% end %>
