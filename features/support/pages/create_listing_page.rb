@@ -16,6 +16,7 @@ class CreateListingPage < Page
     @driver.fill_in "accommodation_phone_home", :with => listing['phone_home']
     @driver.fill_in "accommodation_other_phone", :with => listing['other_phone']
     @driver.fill_in "accommodation_email", :with => listing['email']
+    @driver.fill_in "accommodation_email_confirmation", :with => listing['email_confirmation']
     @driver.fill_in "accommodation_comments", :with => listing['comments']
     @driver.select listing['number_of_beds'], :from => "accommodation_number_of_beds"
     @driver.check "accommodation_takes_pets" if listing['takes_pets']
@@ -27,7 +28,6 @@ class CreateListingPage < Page
     @driver.check "accommodation_takes_storage" if listing['takes_storage']
     @driver.fill_in "accommodation_takes_storage_comment", :with => listing['takes_storage_comment']
     @driver.fill_in "accommodation_postcode", :with => listing['postcode']
-
     @driver.check "accommodation_terms_and_conditions_accepted" if listing['terms_and_conditions_accepted']
 
     @driver.click_button 'accommodation_submit'

@@ -52,7 +52,7 @@ class AccommodationsController < ApplicationController
     respond_to do |format|
       if @accommodation.save
         NotificationMailer.accommodation_listed(@accommodation).deliver
-        format.html { redirect_to(:action => 'search') }
+        format.html { redirect_to thank_you_path }
         format.xml  { render :xml => @accommodation, :status => :created, :location => @accommodation }
       else
         format.html { render :action => "new" }

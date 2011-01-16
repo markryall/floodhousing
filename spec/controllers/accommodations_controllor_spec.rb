@@ -15,6 +15,20 @@ describe AccommodationsController do
     end
   end
 
+  describe :create do
+    before :each do
+      Accommodation.stub(:new).and_return(@accommodation)
+    end
+
+    context "on success" do
+      it "should redirect to thank you" do
+        post :create, :accommodation => {}
+
+        response.should redirect_to thank_you_path
+      end
+    end
+  end
+
   describe :login do
     context 'with a valid accommodation' do
       it 'should redirect a valid token to the edit page' do

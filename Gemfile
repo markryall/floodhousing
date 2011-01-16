@@ -24,6 +24,7 @@ group :test do
   gem 'kronic'
   gem 'delorean'
   gem 'faker'
+  gem 'launchy'
 end
 
 group :production do

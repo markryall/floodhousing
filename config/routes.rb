@@ -3,6 +3,8 @@ Flood::Application.routes.draw do
 
   match "l/:id/:token" => "accommodations#login"
 
+  resource :thank_you
+
   resources :accommodations do
     collection do
       get 'search'
