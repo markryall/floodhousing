@@ -1,8 +1,8 @@
 
 <form id="suburb-search" name="suburb-search" action="/accommodations/search" method="get">
 <div>
-	<label for="suburb">I am looking for accommodation in</label>
-	<%= select_tag "suburb", options_for_select(['All'] + suburbs, @suburb), options={:onchange=>"this.form.submit()"} %>
+	<label for="area">I am looking for accommodation in</label>
+	<%= select_tag "area", options_for_select(['All'] + areas, @area), options={:onchange=>"this.form.submit()"} %>
 </div>
 <div>I need 
 <%= select_tag "number_of_beds", options_for_select([""] | number_of_beds, @number_of_beds), options={:onchange=>"this.form.submit()"} %>
