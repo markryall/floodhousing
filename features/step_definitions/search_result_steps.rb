@@ -41,6 +41,12 @@ When /^I filter by (\d+) beds$/ do | number_of_beds |
   end
 end
 
+When /^I filter by area "([^"]*)"$/ do | area |
+  on(SearchPage) do | page |
+    page.select_area area
+  end
+end
+
 Then /^the listing "([^"]*)" will be returned$/ do |listing|
   @listings.has_key?(listing).should be_true
 end

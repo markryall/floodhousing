@@ -20,12 +20,14 @@ class AccommodationsController < ApplicationController
     params[:enabled] ||= true
     
     @accommodations = Accommodation.search(AccommodationSearchQuery.new(params), page)
-    @suburb = params[:suburb] || 'All'
+    @area = params[:area] || 'All'
     @number_of_beds = params[:number_of_beds]
     @pets = params[:pets] == 'yes'
     @smokers = params[:smokers] == 'yes'
     @children = params[:children] == 'yes'
     @family = params[:family] == 'yes'
+    @disabled = params[:disabled] == 'yes'
+    @storage = params[:storage] == 'yes'
 
     respond_to do |format|
       format.html
