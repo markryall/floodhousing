@@ -4,12 +4,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title><% yield(:title) %></title>
-    <%= stylesheet_link_tag :all %>
+    <%= stylesheet_link_tag 'screen' %>
+    <%= stylesheet_link_tag 'flash' %>
     <%= javascript_include_tag :defaults %>
-    <%= formtastic_stylesheet_link_tag %>
+    <%= javascript_include_tag 'flash' %>
     <%= csrf_meta_tag %>
     <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
-    <link rel="stylesheet" type="text/css" href="qldfloods.css" />
 </head>
 
 <body>
@@ -36,8 +36,18 @@
             </div><!--title-->
 
                     </div><!--head-->
+        <div class="nav">
+          <ul>
+            <li><%= link_to "Find a Place to Stay", search_accommodations_path %></li>
+            <li><%= link_to "Volunteer a Place to Stay", new_accommodation_path %></li>
+            <li><a href="#" title="FAQ">FAQ</a></li>
+            <li><a href="#" title="Guidelines">Guidelines</a></li>
+            <li><a href="#" title="Terms &amp; Conditions">Terms &amp; Conditions</a></li>
+          </ul>
+        </div>
 
         <div class="content">
+          <%= display_flash_messages %>
           <%= yield %>
         </div>
 

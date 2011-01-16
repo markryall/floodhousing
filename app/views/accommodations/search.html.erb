@@ -1,19 +1,21 @@
-
-<form id="suburb-search" name="suburb-search" action="/accommodations/search" method="get">
-<div>
-	<label for="area">I am looking for accommodation in</label>
-	<%= select_tag "area", options_for_select(['All'] + areas, @area), options={:onchange=>"this.form.submit()"} %>
+<div class="search_formbox">
+  <form id="suburb-search" name="suburb-search" action="/accommodations/search" method="get">
+  <ul>
+  <li>
+    <label for="area">I am looking for accommodation in</label>
+    <%= select_tag "area", options_for_select(['All'] + areas, @area), options={:onchange=>"this.form.submit()"} %>
+  </li>
+  <li>I need
+  <%= select_tag "number_of_beds", options_for_select([""] | number_of_beds, @number_of_beds), options={:onchange=>"this.form.submit()"} %>
+  beds</li>
+  <li><%= check_box_tag 'pets', 'yes', @pets, options={:onchange=>"this.form.submit()"}  %>I want to take my pet</li>
+  <li><%= check_box_tag 'children', 'yes', @children, options={:onchange=>"this.form.submit()"}  %>I have children</li>
+  <li><%= check_box_tag 'smokers', 'yes', @smokers, options={:onchange=>"this.form.submit()"}  %>I need to get my nicotine fix</li>
+  <li><%= check_box_tag 'disabled', 'yes', @disabled, options={:onchange=>"this.form.submit()"}  %>I require disabled support</li>
+  <li><%= check_box_tag 'storage', 'yes', @storage, options={:onchange=>"this.form.submit()"}  %>I require storage space</li>
+  </ul>
+  </form>
 </div>
-<div>I need 
-<%= select_tag "number_of_beds", options_for_select([""] | number_of_beds, @number_of_beds), options={:onchange=>"this.form.submit()"} %>
-beds</div>
-<div><%= check_box_tag 'pets', 'yes', @pets, options={:onchange=>"this.form.submit()"}  %>I want to take my pet</div>
-<div><%= check_box_tag 'children', 'yes', @children, options={:onchange=>"this.form.submit()"}  %>I have children</div>
-<div><%= check_box_tag 'smokers', 'yes', @smokers, options={:onchange=>"this.form.submit()"}  %>I need to get my nicotine fix</div>
-<div><%= check_box_tag 'disabled', 'yes', @disabled, options={:onchange=>"this.form.submit()"}  %>I require disabled support</div>
-<div><%= check_box_tag 'storage', 'yes', @storage, options={:onchange=>"this.form.submit()"}  %>I require storage space</div>
-
-</form>
 
 <% if @accommodations.size == 0 %>
 <div id="no-listings-message" >We are sorry, but we haven't been able to find anywhere matching your description. Perhaps you should try a different neighbourhood?</div>
@@ -60,5 +62,4 @@ beds</div>
   </li>
 <% end %>
 </ul>
-
 <%= will_paginate @accommodations %>

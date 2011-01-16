@@ -51,10 +51,10 @@ class AccommodationsController < ApplicationController
 
   def create
     @accommodation = Accommodation.new(params[:accommodation])
-
+    
     respond_to do |format|
       if @accommodation.save
-        NotificationMailer.accommodation_listed(@accommodation).deliver
+        email_notification(@accommodation)
         format.html { redirect_to thank_you_path }
         format.xml  { render :xml => @accommodation, :status => :created, :location => @accommodation }
       else
@@ -63,13 +63,24 @@ class AccommodationsController < ApplicationController
       end
     end
   end
+  
+  def email_notification(accommodation)
+    begin
+      NotificationMailer.accommodation_listed(@accommodation).deliver
+    rescue Exception => e
+      Rails.logger.error e
+    end
+  end
 
   def update
     @accommodation = Accommodation.find(params[:id])
 
     respond_to do |format|
       if @accommodation.update_attributes(params[:accommodation])
-	format.html { render :action => :edit }
+	format.html do
+	  flash[:notice] = "Thanks for that! We've saved your new details."
+	  redirect_to :action => :edit
+	end
         format.xml  { head :ok }
       else
         format.html { render :action => :edit }
