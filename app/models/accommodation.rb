@@ -4,6 +4,8 @@ class Accommodation < ActiveRecord::Base
   validates_presence_of :number_of_beds, :message => 'Please tell us the number of beds'
   validates_presence_of :area, :message => 'Please tell us the area'
   validates_presence_of :email, :message => 'Please tell us your email address'
+  validates :email, :email => true
+  
   validates_confirmation_of :email, :message => 'Your email must match the confirmation email'
   validates_presence_of :suburb, :message => 'Please tell us the suburb'
   validates_presence_of :postcode, :message => 'Please tell us the postcode'
