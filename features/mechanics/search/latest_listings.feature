@@ -41,7 +41,7 @@ Scenario: Most recent listings are shown first
 
   When I view the search page
   Then I will see the listings in the following order
-    | 100, Order St, Brisbane |
-    | 200, Order St, Brisbane |
-    | 300, Order St, Brisbane |
+    | Brisbane, 3184, Ipswich |
+    | Brisbane, 3184, Ipswich |
+    | Brisbane, 3184, Ipswich |
    
