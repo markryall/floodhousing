@@ -1,9 +1,9 @@
 class Accommodation < ActiveRecord::Base
-  validates_acceptance_of :over_eighteen, :accept=>true, :message => 'must be over 18'
-  validates_acceptance_of :terms_and_conditions_accepted, :accept=>true, :message => 'must be accepted'
+  validates_acceptance_of :over_eighteen, :accept=>true, :message => 'You must be over 18'
+  validates_acceptance_of :terms_and_conditions_accepted, :accept=>true, :message => 'Please accept the terms and conditions'
   validates_presence_of :number_of_beds, :message => 'Please tell us the number of beds'
   validates_presence_of :email, :message => 'Please tell us your email address'
-  validates_confirmation_of :email
+  validates_confirmation_of :email, :message => 'Your email must match the confirmation email'
   validates_presence_of :suburb, :message => 'Please tell us the suburb'
   validates_presence_of :postcode, :message => 'Please tell us the postcode'
   validates_format_of :postcode, :with => /\d{4}/, :message => "Postcode must be 4 digits eg. 4000"
