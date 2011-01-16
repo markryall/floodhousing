@@ -34,6 +34,15 @@
             </div><!--title-->
 
                     </div><!--head-->
+        <div class="nav">
+          <ul>
+            <li><%= link_to "Find a Place to Stay", search_accommodations_path %></li>
+            <li><%= link_to "Volunteer a Place to Stay", new_accommodation_path %></li>
+            <li><a href="#" title="FAQ">FAQ</a></li>
+            <li><a href="#" title="Guidelines">Guidelines</a></li>
+            <li><a href="#" title="Terms &amp; Conditions">Terms &amp; Conditions</a></li>
+          </ul>
+        </div>
 
         <div class="content">
           <%= yield %>
