@@ -13,10 +13,13 @@ class AccommodationSearchQuery
     #TODO: sprinkle some meta magic over this
     add_pets()
     add_smokers()
+    add_storage()
+    add_disabled()
     add_children()
     add_family()
     add_available()
     add_enabled()
+   
     ([] << @where_query.join(' and ')).concat @where_params
     
   end
@@ -46,7 +49,7 @@ class AccommodationSearchQuery
   end
 
   #For anyone unfamiliar with metaprogramming, this will take the following boolean params and define 'add_XXX' methods for them 
-  [:pets, :children, :smokers, :family].each do |next_query|
+  [:pets, :children, :smokers, :family, :disabled, :storage].each do |next_query|
       method_name = ("add_" + next_query.to_s).to_sym
       send :define_method, method_name do
         

@@ -26,6 +26,8 @@ class AccommodationsController < ApplicationController
     @smokers = params[:smokers] == 'yes'
     @children = params[:children] == 'yes'
     @family = params[:family] == 'yes'
+    @disabled = params[:disabled] == 'yes'
+    @storage = params[:storage] == 'yes'
 
     respond_to do |format|
       format.html
