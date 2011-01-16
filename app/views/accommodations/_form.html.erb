@@ -16,7 +16,7 @@
     <%= form.input :address1, :label => "Address line 1" %>
     <%= form.input :address2, :label => "Address line 2" %>
 	<%= form.input :suburb, :label => "Suburb" %>
-	<%= form.input :postcode, :label => "Postcode" %>
+    <%= form.input :postcode, :label => "Postcode", :input_html => { :maxlength => 4 } %>
     <li>  
     <%= form.input :area, :as => :select, :prompt => "Please Select", :collection => areas %>
     </li>
