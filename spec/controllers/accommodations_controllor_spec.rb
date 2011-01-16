@@ -117,10 +117,16 @@ describe AccommodationsController do
         response.should be_success
       end
 
-      it 'should reject edit to unauthorized accomodation' do
-        some_other_id = @accommodation.id * 10
-        post :update, :id => some_other_id
-        response.should redirect_to new_login_session_url
+      it 'should update the model with changes' do
+        params = {'lol' => 1}
+        @accommodation.should_receive(:update_attributes).with(params)
+        post :update, :id => @accommodation.id, :accommodation => params
+      end
+
+      it 'should flash a notice' do
+        @accommodation.stub(:update_attributes).and_return(true)
+        post :update, :id => @accommodation.id, :accommodation => {}
+        flash[:notice].should_not be_blank
       end
     end
   end

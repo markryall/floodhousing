@@ -1,0 +1,37 @@
+#flash p {
+  height: 32px;
+  padding: 15px 10px;
+}
+
+#flash p span {
+  padding: 0 0 32px 42px;
+}
+
+#flash p.notice {
+  background: url(/images/flash/flash-notice-bg.jpg) repeat-x left top;
+  color: #41612f;
+}
+
+#flash p.notice span {
+  background: url(/images/flash/flash-check.png) no-repeat left top;
+}
+
+#flash p.warning {
+  background: url(/images/flash/flash-warning-bg.jpg) repeat-x left -10px;
+  color: #a26a1a;
+}
+
+#flash p.warning span {
+  margin-top: -6px;
+  background: url(/images/flash/flash-warning.png) no-repeat left top;
+}
+
+#flash p.error {
+  background: url(/images/flash/flash-error-bg.jpg) repeat-x left -10px;
+  color: #af0100;
+}
+
+#flash p.error span {
+  margin-top: -6px;
+  background: url(/images/flash/flash-error.png) no-repeat left top;
+}

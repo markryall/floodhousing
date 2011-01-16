@@ -77,7 +77,10 @@ class AccommodationsController < ApplicationController
 
     respond_to do |format|
       if @accommodation.update_attributes(params[:accommodation])
-	format.html { render :action => :edit }
+	format.html do
+	  flash[:notice] = "Thanks for that! We've saved your new details."
+	  redirect_to :action => :edit
+	end
         format.xml  { head :ok }
       else
         format.html { render :action => :edit }
