@@ -106,18 +106,14 @@ body {
 	display: inline;
 	vertical-align: top;
 }
-#connect_widget_4d328abf3988b2f54781804{
-	width: 150px;
-	text-align: right;
-}
+
 .head .networks img {
 	display: inline;
-	vertical-align: top;
-	
+	vertical-align: top;	
 	}
 
 .content {
-	background: url(images/body-bg.gif) repeat-x;
+	background: url(/images/body-bg.gif) repeat-x;
 	overflow: hidden;
 }
 
@@ -127,6 +123,7 @@ body {
 		font-weight: bold;
 		border-top: 2px solid #000;
 		text-align: right;
+		margin-top: 20px;
 
 }
 .footer img {
@@ -147,6 +144,10 @@ h2 {
 	font-weight: bold;
 	font-size: 14pt;
 	line-height: 2;
+	padding-left: 1em;
+}
+p {
+	padding-left:1em;
 }
 p, li {
 	font-size: 10pt;
@@ -192,7 +193,7 @@ img.body_image {
 	float: left;
 	padding: 0 10px;
 	margin: 0 10px 30px 10px;
-	background: url(images/box-bg.gif) repeat-x;
+	background: url(/images/box-bg.gif) repeat-x;
 	border: 1px solid #ef8230;
 	height: 250px;
 }
@@ -200,11 +201,16 @@ img.body_image {
 .home_box .text {
 	height:100px
 }
+.home_box p,
+.home_box h2 {
+	padding-left: 0;
+}
+.formbox fieldset.buttons input,
 a.button {
 	display: block;
 	width: 190px;
 	height: 60px;
-	background: url(images/button-bg.gif) no-repeat;
+	background: url(/images/button-bg.gif) no-repeat;
 	margin: 0 auto;
 	text-align: center;
 	color: #fff;
@@ -214,11 +220,137 @@ a.button {
 	text-decoration: none;
 	margin-top: 30px;
 	font-size: 10pt;
+	border: none;
 }
+.formbox fieldset.buttons input:hover,
 a.button:hover {
-		background: url(images/button-bg-hover.gif) no-repeat;
+		background: url(/images/button-bg-hover.gif) no-repeat;
 		color: #ccf1a7;
 		}
+		
+/* Forms */
+.search_formbox,
+.formbox {
+	background: url(/images/form-bg.gif) repeat-x;
+	width: 80%;
+	margin:  0 40px 0 auto;
+	border: 1px solid #ef8230;
+	padding-bottom: 20px;
+}
+.search_formbox {
+	margin: 0 auto;
+	padding: 10px;
+}
+.formbox fieldset legend {
+	float: left;
+	display: block;
+	height: 20px;
+	font-weight: bold;
+	margin-top: 20px;
+	margin-left: 20px;
+	padding-top: 15px;
+	text-align: right;
+	color: #ef8230;
+}
+.formbox fieldset ol {
+	display: block;
+	width: 500px;
+	border-left: 1px solid #ef8230;
+	float: right;
+	margin-top: 30px;
+}
+.formbox fieldset ol li {
+	margin: 5px 0 5px 20px;
+	clear: both;
+	line-height: 1.8;
+	display: block;
+}
+.formbox fieldset ol p {
+	font-size: 8pt;
+	width: 420px;
+	margin: 10px;
+}
+.formbox fieldset label {
+	float: left;
+	margin-bottom: 5px;
+}
+.formbox fieldset input {
+	width: 240px;
+	display: block;
+	margin-left: 180px;
+	font-size: 10pt;
+}
+.formbox fieldset select {
+	display: block;
+	margin-left: 180px;
+	font-size: 10pt;
+}
+.formbox fieldset input[type="checkbox"] {
+	width: 20px;
+	margin-left: 180px;
+	float: left;
+}
+.formbox fieldset #terms_and_conditions {
+	font-size: 8pt;
+	height: 90px;
+}
+.formbox fieldset input#accommodation_terms_and_conditions_accepted {
+	margin-left: 10px;
+}
+.formbox fieldset textarea {
+	width: 420px;
+}
+.formbox fieldset:last-child ol {
+	border: none;
+}
+.formbox fieldset:last-child input[type="button"]  {
+	margin: 0 auto;
+}
+.formbox fieldset.buttons input {
+	padding: 0;
+	width: 200px;
+	margin: 0 auto;
+}
+
+/* Listings */
+
+ul.listing {
+	margin: 0;
+	padding: 0;
+}
+.listing li {
+	width: 80%;
+	margin: 10px auto;
+	border: 1px solid #ef8230;
+	padding: 10px;
+}
+.listing li.even {
+}
+.listing li.odd {
+	background-color: #fadac2;
+}
+.listing li dl {
+	clear: both;
+	display: block;
+	overflow: hidden;
+}
+.listing li dl dt {
+	font-weight: bold;
+	float: left;
+	margin-right: 1em;
+	margin-top: 5px;
+	line-height: 1.5;
+	
+}
+.listing li dl dd {
+	float: left;
+	clear: none;
+	margin-right: 2em;
+		margin-top: 5px;
+
+		line-height: 1.5;
+
+}
 
 .pagination {
   text-align:center;
