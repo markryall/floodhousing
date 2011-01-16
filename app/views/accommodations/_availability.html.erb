@@ -1,0 +1,9 @@
+<div id="availability">
+  <% if @accommodation.available %>
+    <h2 class="go">Available</h2>
+    <%= link_to 'Delist me, please.', {:action => :list, :available => false}, :class => 'list', :method => :put, :remote => true %>
+  <% else %>
+    <h2 class="stop">Unavailable</h2>
+    <%= link_to 'Relist me, please.', {:action => :list, :available => true}, :class => 'list', :method => :put, :remote => true %>
+  <% end %>
+</div>

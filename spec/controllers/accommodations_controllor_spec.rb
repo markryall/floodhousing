@@ -113,8 +113,8 @@ describe AccommodationsController do
     end
   end
 
-  describe :taken do
-    it_should_reject_unauthorized :taken, :post
+  describe :list do
+    it_should_reject_unauthorized :list, :post
 
     context 'with session authorization' do
       before :each do
@@ -123,10 +123,9 @@ describe AccommodationsController do
       end
 
       it 'should accept an authenticated request' do
-        post :taken, :id => @accommodation.id
-        response.should redirect_to :action => :search
+        xhr :put, :list, :id => @accommodation.id, :available => true
+        response.should be_success
       end
-
     end
 
     context "with a logged in user" do
@@ -137,38 +136,13 @@ describe AccommodationsController do
 
       it "should allow a listing to be marked taken" do
         @accommodation.should_receive(:update_attribute).with(:available, false)
-        post :taken, :id => @accommodation.id
-        response.should be_redirect
-      end
-    end
-  end
-
-  describe :delist do
-    it_should_reject_unauthorized :delist, :post
-
-    context 'with session authorization' do
-      before :each do
-        @accommodation.stub(:update_attribute)
-        session[:ok_to_edit] = @accommodation.id
+        xhr :put, :list, :id => @accommodation.id, :available => false
+        response.should be_success
       end
 
-      it 'should accept an authenticated request' do
-        post :delist, :id => @accommodation.id
-        response.should redirect_to :action => :search
-      end
-
-    end
-
-    context "with a logged in user" do
-      before :each do
-        @user = Login.make
-        sign_in @user
-      end
-
-      it "should allow a listing to be delisted" do
-        @accommodation.should_receive(:update_attribute).with(:enabled, false)
-        post :delist, :id => @accommodation.id
-        response.should be_redirect
+      it "should render the availability partial" do
+	xhr :put, :list, :id => @accommodation.id, :available => true
+	response.should render_template('accommodations/_availability')
       end
     end
   end

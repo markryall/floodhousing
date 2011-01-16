@@ -7,20 +7,19 @@ Flood::Application.routes.draw do
 
   resources :accommodations do
     collection do
-      get 'search'
+      get :search
     end
     member do
-      get 'edit'
-      post 'taken'
-      post 'delist'
-      get 'login'
-      get 'contact_host'
+      get :edit
+      get :login
+      get :contact_host
+      put :list
     end
   end
   
   resources :seekers do
     collection do 
-      get 'interest_registered'
+      get :interest_registered
     end
   end
 

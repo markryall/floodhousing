@@ -306,3 +306,15 @@ width:280px;
   margin: 2em 0 1em 0;
   color: #A07F67;
 }
+
+#availability h2.go, .go {
+  color: green;
+}
+
+#availability h2.stop, .stop {
+  color: red;
+}
+
+#availability a.list {
+  float: right;
+}
