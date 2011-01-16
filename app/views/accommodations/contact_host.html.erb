@@ -1,0 +1,37 @@
+<%= semantic_form_for @seeker, :class_names => "d" do |form| %>
+  <% form.inputs :name => "Your information", :class => "inputs your-information" do %>
+    <li>
+	    <%= form.input :name, :required => true, :label => "Name" %>
+    </li>
+    <li>
+	    <%= form.input :phone, :required => true, :label => "Phone" %>
+    </li>
+  <% end %>
+  <% form.inputs :name => "Your requirements", :class => "inputs your-requirements" do %>
+    <li>
+	    <%= form.input :number_of_people, :label => "Number of People" %>
+    </li>
+    <li>
+	    <%= form.input :pets,  :label => "Pets" %>
+    </li>
+    <li>
+	    <%= form.input :allergies,  :label => "Allergies" %>
+    </li>
+
+    <li>
+	    <%= form.input :special_requirements, :label => "Special Access Requirements" %>
+    </li>
+    <li>
+	    <%= form.input :personal_message, :label => "Personal Message" %>
+    </li>
+
+  <% end %>
+
+  <%= hidden_field_tag 'accommodation', @accommodation.id %>
+
+  <fieldset class="buttons">
+    <ol>
+      <li class="commit"><input class="submit" id="seeker_submit" name="commit" type="submit" value="Submit" /></li> 
+    </ol>
+  </fieldset>
+<% end %>

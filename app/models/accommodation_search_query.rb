@@ -16,6 +16,7 @@ class AccommodationSearchQuery
     add_children()
     add_family()
     add_available()
+    add_enabled()
     ([] << @where_query.join(' and ')).concat @where_params
     
   end
@@ -35,6 +36,12 @@ class AccommodationSearchQuery
   def add_available
     return unless @query_params[:available] && @query_params[:available] = 'yes'
     @where_query << 'available = ?'
+    @where_params << true
+  end
+
+  def add_enabled
+    return unless @query_params[:enabled] && @query_params[:enabled] = 'yes'
+    @where_query << 'enabled = ?'
     @where_params << true
   end
 

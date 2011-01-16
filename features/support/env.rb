@@ -11,7 +11,6 @@ require 'cucumber/formatter/unicode' # Remove this line if you don't want Cucumb
 require 'cucumber/rails/world'
 require 'cucumber/rails/active_record'
 require 'cucumber/web/tableish'
-
 require 'capybara/rails'
 require 'capybara/cucumber'
 require 'capybara/session'
@@ -19,7 +18,7 @@ require 'cucumber/rails/capybara_javascript_emulation' # Lets you click links wi
 # Capybara defaults to XPath selectors rather than Webrat's default of CSS3. In
 # order to ease the transition to Capybara we set the default here. If you'd
 # prefer to use XPath just remove this line and adjust any selectors in your
-# steps to use the XPath syntax.
+# steps to use the XPath syntax..
 Capybara.default_selector = :css
 
 # If you set this to false, any error raised from within your app will bubble 
@@ -55,3 +54,11 @@ if defined?(ActiveRecord::Base)
   rescue LoadError => ignore_if_database_cleaner_not_present
   end
 end
+
+module PageModule
+  def on_login &block
+    LoginPage.on self, &block
+  end
+end
+
+World PageModule

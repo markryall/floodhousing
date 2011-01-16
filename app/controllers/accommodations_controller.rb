@@ -1,14 +1,10 @@
 class AccommodationsController < ApplicationController
-  before_filter :authenticate_login!, :only => [:edit, :update, :taken, :destroy]
+  before_filter :authorized?, :only => [:edit, :update, :taken, :delist]
 
-  # GET /accommodations
-  # GET /accommodations.xml
   def index
     redirect_to :action => 'search'
   end
 
-  # GET /accommodations/1
-  # GET /accommodations/1.xml
   def show
     @accommodation = Accommodation.find(params[:id])
 
@@ -18,10 +14,10 @@ class AccommodationsController < ApplicationController
     end
   end
   
-  # GET /accommodations/search
   def search
     page = params[:page] || 1
     params[:available] ||= 'yes'
+    params[:enabled] ||= true
     
     @accommodations = Accommodation.search(AccommodationSearchQuery.new(params), page)
     @suburb = params[:suburb] || 'All'
@@ -37,8 +33,6 @@ class AccommodationsController < ApplicationController
     end
   end
 
-  # GET /accommodations/new
-  # GET /accommodations/new.xml
   def new
     @accommodation = Accommodation.new
 
@@ -48,19 +42,18 @@ class AccommodationsController < ApplicationController
     end
   end
 
-  # GET /accommodations/1/edit
   def edit
-    @accommodation = Accommodation.find(params[:id]) 
+    @accommodation = Accommodation.find(params[:id])
+    @accommodation.email_confirmation = @accommodation.email
   end
 
-  # POST /accommodations
-  # POST /accommodations.xml
   def create
     @accommodation = Accommodation.new(params[:accommodation])
 
     respond_to do |format|
       if @accommodation.save
-        format.html { redirect_to(:action => 'search') }
+        NotificationMailer.accommodation_listed(@accommodation).deliver
+        format.html { redirect_to thank_you_path }
         format.xml  { render :xml => @accommodation, :status => :created, :location => @accommodation }
       else
         format.html { render :action => "new" }
@@ -69,8 +62,6 @@ class AccommodationsController < ApplicationController
     end
   end
 
-  # PUT /accommodations/1
-  # PUT /accommodations/1.xml
   def update
     @accommodation = Accommodation.find(params[:id])
 
@@ -84,22 +75,52 @@ class AccommodationsController < ApplicationController
       end
     end
   end
-  
-  def taken
-    @accommodation = Accommodation.find(params[:id])
-    @accommodation.taken
-    redirect_to :action => 'search'
-  end
 
-  # DELETE /accommodations/1
-  # DELETE /accommodations/1.xml
-  def destroy
+  def login
     @accommodation = Accommodation.find(params[:id])
-    @accommodation.destroy
-  
-    respond_to do |format|
-      format.html { redirect_to(accommodations_url) }
-      format.xml  { head :ok }
+
+    if @accommodation && @accommodation.authorization_token == params[:token]
+      session[:ok_to_edit] = @accommodation.id.to_s
+      redirect_to :action => :edit
+    else
+      redirect_to :root
     end
   end
+
+  def taken
+    @accommodation = Accommodation.find(params[:id])
+    @accommodation.update_attribute(:available, false)
+
+    respond_to do |format|
+      format.html { redirect_to :action => 'search' }
+      format.xml { head :ok }
+    end
+  end
+  
+  def delist
+    @accommodation = Accommodation.find(params[:id])
+    @accommodation.update_attribute(:enabled, false)
+
+    respond_to do |format|
+      format.html { redirect_to :action => 'search' }
+      format.xml { head :ok }
+    end
+  end
+  
+  def contact_host
+    @seeker = Seeker.new
+    @accommodation = Accommodation.find(params[:id])
+    
+    respond_to do |format|
+      format.html 
+      format.xml  { render :xml => @seeker }
+    end  
+  end
+  
+
+  private
+  def authorized?
+    session[:ok_to_edit] == params[:id] || authenticate_login!
+  end
+
 end

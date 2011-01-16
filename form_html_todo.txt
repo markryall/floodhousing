@@ -1,0 +1,5 @@
+- disclaimer - let host know phone, street address and email wont be shown
+- terms and conditions copy
+- field alignment
+- any other copy changes
+- take lock off submit button

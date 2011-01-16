@@ -12,7 +12,7 @@
 </form>
 
 <% if @accommodations.size == 0 %>
-<div>We are sorry, but we haven't been able to find anywhere matching your description. Perhaps you should try a different neighbourhood?</div>
+<div id="no-listings-message" >We are sorry, but we haven't been able to find anywhere matching your description. Perhaps you should try a different neighbourhood?</div>
 <%end%>
 
 <ul class="listing">
@@ -20,8 +20,7 @@
 	<li class= "<%= cycle("even", "odd") %> box-shadow">
 	    <% if login_signed_in? %>
             <fieldset style="float: right">
-            	<%= button_to 'Edit', edit_accommodation_path(accommodation) %>
-            	<%= button_to 'Taken', taken_accommodation_path(accommodation), :method => :put %>
+            	<%= button_to 'Edit', edit_accommodation_path(accommodation), :method => :get %>
             </fieldset>
         <% end %>
 		<dl class="details">
@@ -44,8 +43,12 @@
 			<dt>Smokers</dt> 
 			<dd><%=accommodation.takes_smokers ? "Yes" : "No"%></dd>
 		</dl>
+		<dl>
+			<dt>Interested?</dt>
+			<dd><%= button_to 'Contact the host', contact_host_accommodation_path(accommodation), :method => :get %></dd>
+		</dl>
   </li>
 <% end %>
 </ul>
 
-<%= will_paginate @posts %>
+<%= will_paginate @accommodations %>

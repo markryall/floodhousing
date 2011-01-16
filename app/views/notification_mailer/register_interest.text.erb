@@ -1,0 +1,26 @@
+Hi there <%= @accommodation.name %>
+
+You registered your accommodation at <%= @accommodation.complete_address %> on FloodHousing, and now someone is interested in it.
+
+Can you get in contact with <%= @seeker.name %> on <%= @seeker.phone %>? They would like to use some of your beds.
+
+Thank you for helping in this time of need!
+
+
+Hi <%= @accommodation.name %>,
+
+You have received a request for accommodation from <%= @seeker.name %>. <%= @seeker.name %>'s details are
+below. Please make contact with them and let them know if you can help them out
+or not. Please don't select people who aren't a good match for you - refer
+to our guidelines for more advice on this. You may receive requests from
+other people too - please reply to all that you can to let them know whether
+you can help out. If you have filled your available beds, please click here
+to update your post on the ozfloodhelp website so that you don't receive
+more emails like this one! Thanks!
+
+Phone number: <%= @seeker.phone %>
+number of people: <%= @seeker.number_of_people %>
+allergies: <%= @seeker.allergies %>
+special access requirements: <%= @seeker.special_requirements %>
+pets: <%= @seeker.pets %>
+personal message:  <%= @seeker.personal_message %>
