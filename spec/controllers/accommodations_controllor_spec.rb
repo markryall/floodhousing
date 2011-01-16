@@ -129,8 +129,8 @@ describe AccommodationsController do
     end
   end
 
-  describe :remove do
-    it_should_reject_unauthorized :remove, :post
+  describe :delist do
+    it_should_reject_unauthorized :delist, :post
 
     context 'with session authorization' do
       before :each do
@@ -139,7 +139,7 @@ describe AccommodationsController do
       end
 
       it 'should accept an authenticated request' do
-        post :remove, :id => @accommodation.id
+        post :delist, :id => @accommodation.id
         response.should redirect_to :action => :search
       end
 
@@ -151,9 +151,9 @@ describe AccommodationsController do
         sign_in @user
       end
 
-      it "should allow a listing to be removed" do
+      it "should allow a listing to be delisted" do
         @accommodation.should_receive(:update_attribute).with(:enabled, false)
-        post :remove, :id => @accommodation.id
+        post :delist, :id => @accommodation.id
         response.should be_redirect
       end
     end

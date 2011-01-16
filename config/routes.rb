@@ -10,7 +10,7 @@ Flood::Application.routes.draw do
     member do
       get 'edit'
       post 'taken'
-      post 'remove'
+      post 'delist'
       get 'login'
       get 'contact_host'
     end
