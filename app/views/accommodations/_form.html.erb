@@ -5,12 +5,12 @@
     <%= form.input :number_of_beds, :as => :select, :prompt => "Please Select", :collection => number_of_beds %>
     </li>
     <%= form.input :takes_pets, :label => "Pets ok?" %>
-    <%= form.input :takes_pets_comment, :input_html => { :size => 5 }  %>
+    <%= form.input :takes_pets_comment, :label => "Comments about pets", :input_html => { :size => 5 } %>
     <%= form.input :takes_children, :label => "Suitable for children?" %>
     <%= form.input :takes_smokers, :label => "Smokers ok?" %>
     <%= form.input :takes_disabled, :label => "Disabled access?" %>
     <%= form.input :takes_storage, :label => "Storage available?" %>
-    <%= form.input :takes_storage_comment  %>
+    <%= form.input :takes_storage_comment, :label => "Comments about storage" %>
   <% end %>
 
   <%= form.inputs :name => "Where do you live?", :class => "inputs where-do-you-live" do %>
