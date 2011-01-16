@@ -2,6 +2,7 @@ namespace :floods do
   
   task :populate => :environment do
     list_count = ENV['LISTINGS'].to_i
+    puts "LIST_COUNT = #{list_count}"
     list_count.times do
       Accommodation.create!(
         :number_of_beds => '3',
