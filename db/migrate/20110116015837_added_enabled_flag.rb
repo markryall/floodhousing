@@ -5,6 +5,6 @@ class AddedEnabledFlag < ActiveRecord::Migration
   end
 
   def self.down
-    remove_column :accommodations, :enabled, :boolean    
+    remove_column :accommodations, :enabled
   end
 end
