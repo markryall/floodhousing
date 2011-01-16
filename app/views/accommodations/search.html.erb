@@ -21,7 +21,6 @@
 	    <% if login_signed_in? %>
             <fieldset style="float: right">
             	<%= button_to 'Edit', edit_accommodation_path(accommodation), :method => :get %>
-            	<%= button_to 'Taken', taken_accommodation_path(accommodation), :method => :put %>
             </fieldset>
         <% end %>
 		<dl class="details">
