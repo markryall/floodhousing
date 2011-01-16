@@ -34,6 +34,7 @@ describe AccommodationsController do
         response.should redirect_to :root
         session[:ok_to_edit].should == nil
       end
+
     end
 
     it 'should redirect an invalid ID to the index page' do
@@ -66,6 +67,13 @@ describe AccommodationsController do
         get :edit, :id => @accommodation.id
         response.should be_success
       end
+
+      it 'should reject edit to unauthorized accomodation' do
+        some_other_id = @accommodation.id * 10
+        get :edit, :id => some_other_id
+        response.should redirect_to new_login_session_url
+      end
+
     end
   end
 
@@ -81,6 +89,12 @@ describe AccommodationsController do
       it 'should accept an authenticated request' do
         post :update, :id => @accommodation.id
         response.should be_success
+      end
+
+      it 'should reject edit to unauthorized accomodation' do
+        some_other_id = @accommodation.id * 10
+        post :update, :id => some_other_id
+        response.should redirect_to new_login_session_url
       end
     end
   end
@@ -98,6 +112,7 @@ describe AccommodationsController do
         put :taken, :id => @accommodation.id
         response.should redirect_to :action => :search
       end
+
     end
 
     context "with a logged in user" do
