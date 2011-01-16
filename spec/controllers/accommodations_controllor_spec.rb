@@ -109,7 +109,7 @@ describe AccommodationsController do
       end
 
       it 'should accept an authenticated request' do
-        put :taken, :id => @accommodation.id
+        post :taken, :id => @accommodation.id
         response.should redirect_to :action => :search
       end
 
@@ -123,7 +123,37 @@ describe AccommodationsController do
 
       it "should allow a listing to be marked taken" do
         @accommodation.should_receive(:update_attribute).with(:available, false)
-        put :taken, :id => @accommodation.id
+        post :taken, :id => @accommodation.id
+        response.should be_redirect
+      end
+    end
+  end
+
+  describe :remove do
+    it_should_reject_unauthorized :remove, :post
+
+    context 'with session authorization' do
+      before :each do
+        @accommodation.stub(:update_attribute)
+        session[:ok_to_edit] = @accommodation.id
+      end
+
+      it 'should accept an authenticated request' do
+        post :remove, :id => @accommodation.id
+        response.should redirect_to :action => :search
+      end
+
+    end
+
+    context "with a logged in user" do
+      before :each do
+        @user = Login.make
+        sign_in @user
+      end
+
+      it "should allow a listing to be removed" do
+        @accommodation.should_receive(:update_attribute).with(:enabled, false)
+        post :remove, :id => @accommodation.id
         response.should be_redirect
       end
     end
