@@ -1,5 +1,5 @@
 class AccommodationsController < ApplicationController
-  before_filter :authorized?, :only => [:edit, :update, :taken, :remove]
+  before_filter :authorized?, :only => [:edit, :update, :taken, :delist]
 
   def index
     redirect_to :action => 'search'
@@ -97,7 +97,7 @@ class AccommodationsController < ApplicationController
     end
   end
   
-  def remove
+  def delist
     @accommodation = Accommodation.find(params[:id])
     @accommodation.update_attribute(:enabled, false)
 

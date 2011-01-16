@@ -1,7 +1,7 @@
 
 <div id ="app" class="box-shadow">
     <h2>Editing accommodation</h2>
-    <%= button_to 'Remove Accommodation', remove_accommodation_path(@accommodation), :method => :post %>
+    <%= button_to 'Delist Accommodation', delist_accommodation_path(@accommodation), :method => :post %>
     <%= button_to 'Mark as Taken', taken_accommodation_path(@accommodation), :method => :post %>
     <%= render 'form' %>
     <%= link_to 'Cancel', search_accommodations_path %>
