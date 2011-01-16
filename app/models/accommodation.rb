@@ -8,13 +8,6 @@ class Accommodation < ActiveRecord::Base
   validates_presence_of :postcode, :message => 'Please tell us the postcode'
   validates_format_of :postcode, :with => /\d{4}/, :message => "Postcode must be 4 digits eg. 4000"
   
-  validates_presence_of :state, :message => 'Please tell us the state'
-
-  def initialize params={}
-    params[:state] ||= 'QLD'
-    super
-  end
-
   def self.per_page
     50
   end

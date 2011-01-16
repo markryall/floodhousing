@@ -4,10 +4,6 @@ module AccommodationsHelper
     value.empty? ? "--" : value 
   end
 
-  def states
-    ['QLD','NSW','ACT','WA','TAS','NT','SA'] 
-  end
-
   #to be removed when search realigned
   def suburbs
     ['Acacia Ridge', 'Albany Creek', 'Albion', 'Alderley', 'Algester', 'Annerle']

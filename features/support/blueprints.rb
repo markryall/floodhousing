@@ -11,7 +11,6 @@ Accommodation.blueprint do
   over_eighteen {true}
   terms_and_conditions_accepted {true}
   postcode {"3184"}
-  state {"VIC"}
 end
 
 Login.blueprint do

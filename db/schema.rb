@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110116015837) do
+ActiveRecord::Schema.define(:version => 20110116032353) do
 
   create_table "accommodations", :force => true do |t|
     t.string   "address1"
@@ -35,7 +35,6 @@ ActiveRecord::Schema.define(:version => 20110116015837) do
     t.boolean  "takes_storage"
     t.string   "takes_storage_comment"
     t.string   "postcode"
-    t.string   "state"
     t.string   "area"
     t.boolean  "terms_and_conditions_accepted"
     t.boolean  "enabled",                       :default => true

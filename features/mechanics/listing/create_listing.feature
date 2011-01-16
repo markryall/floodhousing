@@ -24,7 +24,6 @@ Feature: Create listing
       | takes_storage                 | yes                 |
       | takes_storage_comment         | cellar              |
       | postcode                      | 4000                |
-      | state                         | QLD                 |
       | area                          | North East Brisbane |
       | terms_and_conditions_accepted | yes                 |
      Then I will see confirmation
