@@ -11,7 +11,8 @@ Flood::Application.routes.draw do
     end
     member do
       get 'edit'
-      put 'taken'
+      post 'taken'
+      post 'remove'
       get 'login'
       get 'contact_host'
     end

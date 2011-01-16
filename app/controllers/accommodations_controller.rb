@@ -1,5 +1,5 @@
 class AccommodationsController < ApplicationController
-  before_filter :authorized?, :only => [:edit, :update, :taken]
+  before_filter :authorized?, :only => [:edit, :update, :taken, :remove]
 
   def index
     redirect_to :action => 'search'
@@ -17,6 +17,7 @@ class AccommodationsController < ApplicationController
   def search
     page = params[:page] || 1
     params[:available] ||= 'yes'
+    params[:enabled] ||= true
     
     @accommodations = Accommodation.search(AccommodationSearchQuery.new(params), page)
     @suburb = params[:suburb] || 'All'
@@ -89,6 +90,16 @@ class AccommodationsController < ApplicationController
   def taken
     @accommodation = Accommodation.find(params[:id])
     @accommodation.update_attribute(:available, false)
+
+    respond_to do |format|
+      format.html { redirect_to :action => 'search' }
+      format.xml { head :ok }
+    end
+  end
+  
+  def remove
+    @accommodation = Accommodation.find(params[:id])
+    @accommodation.update_attribute(:enabled, false)
 
     respond_to do |format|
       format.html { redirect_to :action => 'search' }

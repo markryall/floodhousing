@@ -43,6 +43,16 @@ describe AccommodationSearchQuery do
       accommodation.to_sql_conditions.should eql ['takes_smokers = ?', true]
     end
     
+    it 'should find on available' do
+      accommodation = AccommodationSearchQuery.new(:available => true)
+      accommodation.to_sql_conditions.should eql ['available = ?', true]
+    end
+    
+    it 'should find on enabled' do
+      accommodation = AccommodationSearchQuery.new(:enabled => true)
+      accommodation.to_sql_conditions.should eql ['enabled = ?', true]
+    end
+    
   end
   
 end
