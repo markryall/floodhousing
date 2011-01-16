@@ -5,7 +5,7 @@ Feature: Create listing
  I want to create a listing
  
  Scenario: Successful listing by filling in all fields
-     Given 
+     
      When I fill in details about the accommodation I can offer
        |address1| christie centre |
        |address2| 320 adelaide st |

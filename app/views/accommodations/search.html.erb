@@ -12,7 +12,7 @@
 </form>
 
 <% if @accommodations.size == 0 %>
-<div>We are sorry, but we haven't been able to find anywhere matching your description. Perhaps you should try a different neighbourhood?</div>
+<div id="no-listings-message" >We are sorry, but we haven't been able to find anywhere matching your description. Perhaps you should try a different neighbourhood?</div>
 <%end%>
 
 <ul class="listing">
@@ -48,4 +48,4 @@
 <% end %>
 </ul>
 
-<%= will_paginate @posts %>
+<%= will_paginate @accommodations %>

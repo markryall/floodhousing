@@ -20,7 +20,8 @@ group :test do
   gem 'database_cleaner'
   gem 'autotest-rails', '4.1.0'
   gem 'autotest', '4.4.6'
-  gem 'factory_girl_rails', '1.0.1'
+  gem 'machinist'
+  gem 'faker'
 end
 
 group :production do
