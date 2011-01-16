@@ -1,15 +1,17 @@
 
 <form id="suburb-search" name="suburb-search" action="/accommodations/search" method="get">
 <div>
-	<label for="suburb">I am looking for accommodation in</label>
-	<%= select_tag "suburb", options_for_select(['All'] + suburbs, @suburb), options={:onchange=>"this.form.submit()"} %>
+	<label for="area">I am looking for accommodation in</label>
+	<%= select_tag "area", options_for_select(['All'] + areas, @area), options={:onchange=>"this.form.submit()"} %>
 </div>
 <div>I need 
 <%= select_tag "number_of_beds", options_for_select([""] | number_of_beds, @number_of_beds), options={:onchange=>"this.form.submit()"} %>
 beds</div>
 <div><%= check_box_tag 'pets', 'yes', @pets, options={:onchange=>"this.form.submit()"}  %>I want to take my pet</div>
-<div><%= check_box_tag 'smokers', 'yes', @smokers, options={:onchange=>"this.form.submit()"}  %>I need to get my nicotine fix</div>
 <div><%= check_box_tag 'children', 'yes', @children, options={:onchange=>"this.form.submit()"}  %>I have children</div>
+<div><%= check_box_tag 'smokers', 'yes', @smokers, options={:onchange=>"this.form.submit()"}  %>I need to get my nicotine fix</div>
+<div><%= check_box_tag 'disabled', 'yes', @disabled, options={:onchange=>"this.form.submit()"}  %>I require disabled support</div>
+<div><%= check_box_tag 'storage', 'yes', @storage, options={:onchange=>"this.form.submit()"}  %>I require storage space</div>
 
 </form>
 
@@ -31,7 +33,7 @@ beds</div>
 		</dl>
 		<dl class="details address">
 		  <dt>Address</dt>
-		  <dd><%=accommodation.complete_address%></dd>
+		  <dd><%=accommodation.restricted_address %></dd>
 		</dl>
 		<dl class="details comments">
 		  <dt>Comments</dt>
@@ -44,6 +46,12 @@ beds</div>
 			<dd><%=accommodation.takes_children ? "Yes" : "No"%></dd>
 			<dt>Smokers</dt> 
 			<dd><%=accommodation.takes_smokers ? "Yes" : "No"%></dd>
+			<dt>Disabled Support</dt> 
+			<dd><%=accommodation.takes_disabled ? "Yes" : "No"%></dd>
+			<dt>Storage</dt> 
+			<dd><%=accommodation.takes_storage ? "Yes" : "No"%></dd>
+			<dt>Storage comments</dt>
+			<dd><%=accommodation.takes_storage_comment %></dd>
 		</dl>
 		<dl>
 			<dt>Interested?</dt>

@@ -3,13 +3,13 @@ require 'spec_helper'
 describe AccommodationSearchQuery do
   
   describe 'query' do
-    it 'should find suburb like a suburb in the query parameter' do
-      accommodation = AccommodationSearchQuery.new(:suburb => 'Auchenflower')
-      accommodation.to_sql_conditions.should eql ['suburb like ?', "%Auchenflower%"]
+    it 'should find area like area in the query parameter' do
+      accommodation = AccommodationSearchQuery.new(:area => 'Ipswich')
+      accommodation.to_sql_conditions.should eql ['area like ?', "%Ipswich%"]
     end
     
-    it 'should not use suburb in query when searching on all' do
-      accommodation = AccommodationSearchQuery.new(:suburb => 'All')
+    it 'should not use area in query when searching on all areas' do
+      accommodation = AccommodationSearchQuery.new(:area => 'All')
       accommodation.to_sql_conditions.should eql [""]
     end
     
@@ -19,13 +19,13 @@ describe AccommodationSearchQuery do
     end
     
     it 'should ignore any values that are empty' do
-      accommodation = AccommodationSearchQuery.new(:number_of_beds => '', :suburb => '')
+      accommodation = AccommodationSearchQuery.new(:number_of_beds => '', :area => '')
       accommodation.to_sql_conditions.should eql [""]
     end
     
     it 'should build a query for all params available' do
-      accommodation = AccommodationSearchQuery.new(:number_of_beds => '2', :suburb => 'Carindale')
-      accommodation.to_sql_conditions.should eql ['suburb like ? and number_of_beds >= ?', "%Carindale%", '2']
+      accommodation = AccommodationSearchQuery.new(:number_of_beds => '2', :area => 'Ipswich')
+      accommodation.to_sql_conditions.should eql ['area like ? and number_of_beds >= ?', "%Ipswich%", '2']
     end
     
     it 'should find on pets' do
