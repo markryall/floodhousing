@@ -10,7 +10,8 @@ class Accommodation < ActiveRecord::Base
   validates_presence_of :suburb, :message => 'Please tell us the suburb'
   validates_presence_of :postcode, :message => 'Please tell us the postcode'
   validates_format_of :postcode, :with => /\d{4}/, :message => "Postcode must be 4 digits eg. 4000"
- 
+  validates :phone_home, :phone_mobile, :other_phone, :phone => true
+  
   def self.per_page
     50
   end

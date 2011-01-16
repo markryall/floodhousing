@@ -5,6 +5,8 @@ class Seeker
   include ActiveModel::Validations
   
   validates_presence_of :name,:phone
+  validates :phone, :backup_phone, :phone => true
+  validates :email, :email => true
   
   def initialize(params = {})
     @name = params[:name] || ''
