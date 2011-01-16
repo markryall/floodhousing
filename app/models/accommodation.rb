@@ -20,12 +20,21 @@ class Accommodation < ActiveRecord::Base
   end
   
   def complete_address
-    [address1, address2, suburb].collect { |x|
-      x.empty? ? nil : x
-    }.compact.join(', ')         
+    address_formatter([address1, address2, suburb])
+  end
+
+  def restricted_address
+    address_formatter([suburb, postcode, area])
   end
 
   def authorization_token
     OpenSSL::HMAC.hexdigest(OpenSSL::Digest::MD5.new, Rails.application.config.secret_token, id.to_s).to_i(16).to_s(36)
+  end
+
+  private
+  def address_formatter(field_arr)
+    field_arr.collect { |x|
+      x.empty? ? nil : x
+    }.compact.join(', ')
   end
 end
