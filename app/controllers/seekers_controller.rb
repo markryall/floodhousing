@@ -2,8 +2,8 @@ class SeekersController < ApplicationController
   def create
     @accommodation = Accommodation.find(params[:accommodation])
     @seeker = Seeker.new(params[:seeker])
-    NotificationMailer.register_interest(@accommodation, @seeker).deliver if @seeker.valid?
-    
+    email_notification @accommodation, @seeker if @seeker.valid?
+
     respond_to do |format|
       if @seeker.valid?
         format.html { redirect_to :action => 'interest_registered' }
@@ -21,5 +21,12 @@ class SeekersController < ApplicationController
       format.xml
     end
   end
-  
+private
+  def email_notification accommodation, seeker
+    begin
+      NotificationMailer.register_interest(accommodation, seeker).deliver
+    rescue Exception => e
+      Rails.logger.error e
+    end
+  end
 end
