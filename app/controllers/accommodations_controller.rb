@@ -51,7 +51,8 @@ class AccommodationsController < ApplicationController
 
   def create
     @accommodation = Accommodation.new(params[:accommodation])
-    
+    @accommodation.available = false
+
     respond_to do |format|
       if @accommodation.save
         email_notification(@accommodation)
@@ -63,7 +64,7 @@ class AccommodationsController < ApplicationController
       end
     end
   end
-  
+
   def email_notification(accommodation)
     begin
       NotificationMailer.accommodation_listed(@accommodation).deliver
@@ -77,10 +78,10 @@ class AccommodationsController < ApplicationController
 
     respond_to do |format|
       if @accommodation.update_attributes(params[:accommodation])
-	format.html do
-	  flash[:notice] = "Thanks for that! We've saved your new details."
-	  redirect_to :action => :edit
-	end
+        format.html do
+          flash[:notice] = "Thanks for that! We've saved your new details."
+          redirect_to :action => :edit
+        end
         format.xml  { head :ok }
       else
         format.html { render :action => :edit }
@@ -105,10 +106,10 @@ class AccommodationsController < ApplicationController
     @accommodation.update_attribute(:available, params[:available])
 
     respond_to do |format|
-      format.js do
-	render(:update) do |page|
-	  page.replace 'availability', :partial => 'availability'
-	end
+        format.js do
+          render(:update) do |page|
+            page.replace 'availability', :partial => 'availability'
+          end
       end
     end
   end
