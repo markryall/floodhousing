@@ -209,9 +209,9 @@ h1 {
 	margin-top: 30px;
 }
 h2 {
-	color: #f68d1f;
-	font-family:"arvo", Georgia, "Times New Roman", Times, serif;
-	font-size:22px;
+	color: #ef8230;
+	font-weight: bold;
+	font-size: 14pt;
 	line-height: 2;
 	padding-left: 1em;
 }
@@ -346,7 +346,11 @@ a.button:hover {
 /* Forms */
 .search_formbox,
 .formbox {
-
+	background: url(/images/form-bg.gif) repeat-x;
+	width: 80%;
+	margin:  0 40px 0 auto;
+	border: 1px solid #ef8230;
+	padding-bottom: 20px;
 }
 .search_formbox {
 	margin: 0 auto;
@@ -360,14 +364,15 @@ a.button:hover {
 	margin-top: 20px;
 	margin-left: 20px;
 	padding-top: 15px;
-	text-align: left;
-	color: #25AAE1;
+	text-align: right;
+	color: #ef8230;
 }
 .formbox fieldset ol {
 	display: block;
+	width: 500px;
+	border-left: 1px solid #ef8230;
+	float: right;
 	margin-top: 30px;
-	padding-bottom:30px;
-	border-bottom:1px solid #ccc;
 }
 
 .formbox fieldset ol li {
@@ -392,7 +397,6 @@ a.button:hover {
 	display: block;
 	margin-left: 180px;
 	font-size: 10pt;
-	border:1px solid #ccc;
 }
 .formbox fieldset select {
 	display: block;
@@ -413,7 +417,6 @@ a.button:hover {
 }
 .formbox fieldset textarea {
 	width: 420px;
-	border:1px solid #ccc;
 }
 .formbox fieldset:last-child ol {
 	border: none;
@@ -656,8 +659,9 @@ dl.comments dd {
        color: white;
 }
 
-div#form {
+#form {
 	margin: 0;
 	border-left:1px solid #e3e3e3;
 	border-right:1px solid #e3e3e3;
+	
 }
