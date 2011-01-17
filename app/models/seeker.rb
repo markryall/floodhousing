@@ -4,6 +4,7 @@ class Seeker
   include ActiveModel::Translation
   include ActiveModel::Validations
   
+  validates_acceptance_of :terms_and_conditions_accepted, :accept=>true, :message => 'Please accept the terms and conditions'
   validates_presence_of :name,:phone
   validates :phone, :backup_phone, :phone => true
   validates :email, :email => true

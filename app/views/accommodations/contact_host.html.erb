@@ -31,24 +31,21 @@
     <li>
 	    <%= form.input :personal_message, :label => "Personal Message" %>
     </li>
-    
-  <%= form.inputs :name => "Terms and conditions", :class=>"unfinished" %>
-    <input type="checkbox" value="" id="terms_and_conditions_accepted">
-      <label for="terms_and_conditions_accepted">
-      By checking this box, I acknowledge that I am being contacted by, and receiving goods and/or services from,
-      someone at my own risk and that GetUp! Limited will not be responsible for the conduct of any person offering the
-      goods and/or services. I understand that GetUp! is not familiar with the laws of every State, and if I have any questions
-      regarding the legal implications of the goods and/or services I am receiving, I should seek legal advice in my State. I
-      understand that GetUp! may, exclusively for the purpose of flood relief assistance, provide my personal details and
-      contact information to third parties assisting with the flood relief campaign. I hereby release GetUp! Limited and its
-      directors, officers, employees, agents, affiliates and representatives from any liability arising from any acts or omissions of
-      any person offering the goods and/or services. I also agree to the <a href="#" class="unfinished">Terms of Use</a>.
-      </label>
-    </input>
+  <% end %>    
+  <%= form.inputs :name => "Terms and Conditions", :class => "inputs terms-and-conditions" do %>
+    <%= form.input(:terms_and_conditions_accepted, :label => "I accept", :as => :boolean) %>
+    <p>By checking this box, I acknowledge that I am providing goods and/or services at my own risk and that GetUp! Limited
+    will not be responsible for the conduct of any person who contacts me through OzFloodHelp or any other means through
+    GetUp!’s flood relief assistance campaign. I understand that GetUp! is not familiar with the laws of every State, and
+    if I have any questions regarding the legal implications of the goods and/or services I am offering, I should seek legal
+    advice in my State. I understand that GetUp! may, exclusively for the purpose of flood relief assistance, provide my
+    personal details and contact information to third parties assisting with the flood relief campaign. I hereby release GetUp!
+    Limited and its directors, officers, employees, agents, affiliates and representatives from any liability arising from any
+    acts or omissions of any person who contacts me through OzFloodHelp or any other means through GetUp!’s flood relief
+    campaign. I also agree to the <a class="unfinished">Terms of Use</a>.
+    </p>
   <% end %>
-
   <%= hidden_field_tag 'accommodation', @accommodation.id %>
-
   <fieldset class="buttons">
     <ol>
       <li class="commit"><input class="submit" id="seeker_submit" name="commit" type="submit" value="Submit" /></li> 
