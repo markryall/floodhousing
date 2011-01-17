@@ -431,20 +431,34 @@ p.inline-errors {
 }
 /* Listings */
 
+#suburb-search {
+	background:url(/images/filter_BG.gif) no-repeat;
+	height:179px;
+	margin-top:7px;
+	padding:20px;
+}
+
+.form-top {
+	background:url(/images/form_top.gif) no-repeat;
+	height:15px;
+	margin-top:10px;
+}
+	
 ul.listing {
 	margin: 0;
-	padding: 0;
+	border-left:1px solid #e3e3e3;
+	border-right:1px solid #e3e3e3;
+	
 }
 .listing li {
-	width: 80%;
-	margin: 10px auto;
-	border: 1px solid #ef8230;
-	padding: 10px;
+	padding: 15px;
+	border-bottom:3px solid #999;
 }
 .listing li.even {
 }
 .listing li.odd {
-	background-color: #fadac2;
+	background-color: #f2f9fc;
+	margin-top:1px;
 }
 .listing li dl {
 	clear: both;
