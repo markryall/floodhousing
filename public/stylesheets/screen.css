@@ -57,6 +57,11 @@ input, textarea {
 	outline: 0;
 }
 
+input.text {
+	left: 300px;
+	position: absolute;
+}
+
 a img {
 	border:none;
 }
@@ -104,11 +109,6 @@ body {
 	margin: 0 60px 0 10px;
 	text-align: center;
 }
-
-.title a {
-	color: white;
-}
-
 .head .networks {
 	text-align: right;
 	height: 25px;
@@ -128,19 +128,23 @@ body {
 	vertical-align: top;	
 	}
 .nav {
+	background-color: #333;
+	border-top: 0px solid white;
 	clear: both;
 	display: block;
-	width: 100%;
 	height: 22px;
-	background-color: #333;
-	border-top: 1px solid #FFF;
+	padding: 10px 0px;
+	width: 100%;
 }
 .nav a {
 	color: #fff;
 	width: 100%;
 }
+
 .nav a:hover {
-	color: #35852d;
+	color: #fff;
+	background: #000;
+	text-decoration: none;
 }
 .nav ul,
 .nav li {
@@ -417,5 +421,7 @@ ul.listing {
   float: right;
 }
 
-
+.title a {
+       color: white;
+}
 
