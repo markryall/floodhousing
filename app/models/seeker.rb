@@ -20,9 +20,12 @@ class Seeker
     @special_requirements = params[:special_requirements] || ''
     @pets =  params[:pets] || ''
     @personal_message = params[:personal_message] || ''
+    @terms_and_conditions_accepted = params[:terms_and_conditions_accepted] == '1'
   end
-  
-  attr_accessor :name, :phone, :backup_phone, :email, :contact_method, :number_of_beds, :allergies, :special_requirements, :pets, :personal_message
+
+  attr_accessor :name, :phone, :backup_phone, :email, :contact_method
+  attr_accessor :number_of_beds, :allergies, :special_requirements, :pets, :personal_message
+  attr_accessor :terms_and_conditions_accepted
   
   def persisted?
     false
