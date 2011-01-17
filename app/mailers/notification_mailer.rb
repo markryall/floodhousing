@@ -3,7 +3,7 @@ class NotificationMailer < ActionMailer::Base
   helper :application
   
   def accommodation_listed(accommodation)
-    headers["X-SMTPAPI"] = disable_opentrack.to_json
+    headers["X-SMTPAPI"] = disable_opentrack_header
     headers["Precedence"] = "bulk"
     @accommodation = accommodation
     person_name = @accommodation.name || 'Friend'
@@ -27,7 +27,7 @@ class NotificationMailer < ActionMailer::Base
 
   private
 
-  def disable_opentrack
+  def disable_opentrack_header
     { "opentrack" => {"category" => "newuser"} }.to_json
   end
 end
