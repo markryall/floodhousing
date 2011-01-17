@@ -9,6 +9,34 @@ module AccommodationsHelper
   end
  
   def areas
-    ["North East Brisbane", "North West Brisbane", "South East Brisbane", "South West Brisbane", "Ipswich", "Australian Capital Territory", "Northern Territory", "New South Wales", "South Australia", "Tasmania", "Victoria", "Western Australia"]
+      [
+"Brisbane Inner-City",
+"Brisbane North-East",
+"Brisbane North-West",
+"Brisbane South-East",
+"Brisbane South-West",
+"Ipswich",
+"Central Queensland",
+"Central East Queensland",
+"North Queensland",
+"Sunshine Coast",
+"South Queensland",
+"Northern NSW",
+"Rest of NSW",
+"Melbourne",
+"Ballarat and surrounds, Victoria",
+"Horsham and surrounds, Victoria",
+"Wangaratta", 
+"Shepparton and surrounds", 
+"Victoria",
+"Australian Capital Territory",
+"Northern Territory",
+"Western Australia",
+"South Australia",
+"Tasmania"
+      ]
   end
 end
+
+
+
