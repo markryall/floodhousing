@@ -9,32 +9,33 @@ module AccommodationsHelper
   end
  
   def areas
-      [
-"Brisbane Inner-City",
-"Brisbane North-East",
-"Brisbane North-West",
-"Brisbane South-East",
-"Brisbane South-West",
-"Ipswich",
-"Central Queensland",
-"Central East Queensland",
-"North Queensland",
-"Sunshine Coast",
-"South Queensland",
-"Northern NSW",
-"Rest of NSW",
-"Melbourne",
-"Ballarat and surrounds, Victoria",
-"Horsham and surrounds, Victoria",
-"Wangaratta", 
-"Shepparton and surrounds", 
-"Victoria",
-"Australian Capital Territory",
-"Northern Territory",
-"Western Australia",
-"South Australia",
-"Tasmania"
-      ]
+    <<EOF.split("\n")
+Brisbane Inner-City
+Brisbane North-East
+Brisbane North-West
+Brisbane South-East
+Brisbane South-West
+Ipswich
+Central Queensland
+Central East Queensland
+North Queensland
+Sunshine Coast
+South Queensland
+Rest of Queensland
+Northern NSW
+Rest of NSW
+Melbourne
+Ballarat and surrounds, Victoria
+Horsham and surrounds, Victoria
+Wangaratta
+Shepparton and surrounds
+Victoria
+Australian Capital Territory
+Northern Territory
+Western Australia
+South Australia
+Tasmania
+EOF
   end
 end
 
