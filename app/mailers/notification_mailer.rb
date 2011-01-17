@@ -1,5 +1,5 @@
 class NotificationMailer < ActionMailer::Base
-  default :from => "Alex Cooper - GetUp! <alexc@getup.org.au>"
+  default :from => ENV['MAIL_SENDER'] || "Alex Cooper - GetUp! <info@getup.org.au>"
   helper :application
   
   def accommodation_listed(accommodation)
