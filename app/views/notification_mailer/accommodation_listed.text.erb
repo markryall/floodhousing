@@ -3,37 +3,6 @@ Dear <%= @salutation.titleize %>,
 Thanks for volunteering to provide someone with a home in a time of
 need. We've listed your offer on the OzFloodHelp.org site.
 
-If you ever need to change, update or remove your listing, you can 
-click the link below:
-
-  <%# short_login_url(@accommodation) %><%= accommodation_url(@accommodation) %>
-
-You will receive emails from people seeking accommodation. It's up to
-you to call or email those people back and organise the stay.
- 
-We haven't vetted the people using our site to find housing, nor can
-we vouch for them.  It’s critical that you speak with them yourself to
-determine whether it’s a good match, and decide whether you feel
-comfortable housing them.
- 
-Your generosity in offering your home is commendable.  However, we strongly
-urge you not to accept an arrangement that doesn’t feel right.  If you
-connect with an evacuee and you think for whatever reason it’s not a
-good match, tell them so.  If appropriate, you can encourage them to
-use our website or hotline to submit more requests.
- 
-Questions you should ask
- 
- * Who are they bringing?  
- * How long do they hope to stay?  
- * What are their expectations from you?  
- * What is their background? 
- * Who are they?  
- * Are they smokers? 
- * Do they have any particular allergies?  
- * Do they need disabled or wheelchair access?  
- * What do they think they might do when you can no longer house them?
-
 Once again, thankyou for your generous offer of support.
  
 Kind regards,
@@ -41,18 +10,6 @@ Kind regards,
 
 The OzFloodHelp Team.
 
-
-Further Information
-
-Frequently Asked Questions
-http://www.ozfloodhelp.org/faq 
-
-Hosting Guidelines
-http://www.ozfloodhelp.org/guidelines 
-
-Terms of use and privacy policy
-http://www.ozfloodhelp.org/guidelines#terms_and_conditions
-
 To unsubscribe from future mailing from us, click here and remove 
 your listing:
-<%= short_login_url(@accommodation) %>
+<%# short_login_url(@accommodation) %><%= accommodation_url(@accommodation) %>
