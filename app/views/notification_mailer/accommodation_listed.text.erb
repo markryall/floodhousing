@@ -1,16 +1,18 @@
-<%= @accommodation.name %>
+<% if @salutation %>
+Dear <%= @salutation.titleize %>,
 
+<% end -%>
 Thank you for volunteering to provide someone with a home in a time of
-need.  Your offer has been listed on the www.ozfloodhelp.org website.
+need.  Your offer has been listed on www.ozfloodhelp.org.
 
-In the meantime, you can update the details of your place at
+In the meantime, you can update your details by following this link:
 
   <%= short_login_url(@accommodation) %>
 
 Next steps
 
 You will receive emails from people seeking accommodation. It's up to
-you to call or email those people back and organise the stay! 
+you to call or email those people back and organise the stay.
  
 We have not vetted the people using our site to find housing, nor can
 we vouch for them.  It’s critical that you speak with them to
@@ -23,14 +25,25 @@ connect with an evacuee and you think for whatever reason it’s not a
 good match, tell them so.  If appropriate, you can encourage them to
 use our website or hotline to submit more requests.
  
-Questions to ask:
+Questions you should ask:
  
-Who are they bringing?  How long do they hope to stay?  What are their
-expectations from you?  What is their background? Who are they?  Are
-they smokers? Do they have any particular allergies?  Do they need
-disabled or wheelchair access?  What do they think they might do when
-you can no longer house them?
+ * Who are they bringing?  
+ * How long do they hope to stay?  
+ * What are their expectations from you?  
+ * What is their background? 
+ * Who are they?  
+ * Are they smokers? 
+ * Do they have any particular allergies?  
+ * Do they need disabled or wheelchair access?  
+ * What do they think they might do when you can no longer house them?
  
-Also see: FAQ - http://www.ozfloodhelp.org/faq 
-Guidelines - http://www.ozfloodhelp.org/guidelines 
+Further Information
+
+Frequently Asked Questions - http://www.ozfloodhelp.org/faq 
+Hosting Guidelines - http://www.ozfloodhelp.org/guidelines 
 Terms of use and privacy policy - http://www.ozfloodhelp.org/guidelines#terms_and_conditions
+
+Kind regards,
+
+Alex Cooper 
+The OzFloodHelp Team

@@ -431,6 +431,12 @@ p.inline-errors {
     margin: 0.5em 0 180px;
     font-size: 8pt;
 }
+
+.terms-and-conditions {
+	font-size:11px;
+	color:#999;
+}
+
 /* Listings */
 
 .filter-box {

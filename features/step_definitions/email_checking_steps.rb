@@ -9,18 +9,15 @@ Then /^the subject will be "([^\"]*)"$/ do |subject|
 end
 
 Then /^the email will address me as "([^"]*)"$/ do |name|
-  @last_email.text_part.to_s.should =~ /#{name}/
+  (@last_email.text_part || @last_email.body).to_s.should =~ /#{name}/
 end
 
 Then /^the email will contain a link I should click if I need to update my listing$/ do
-  
-  @last_email.text_part.to_s =~ /http[s]?:\/\/\S+/
+  (@last_email.text_part || @last_email.body).to_s =~ /http[s]?:\/\/\S+/
   @link = $&
   @link.should_not be_nil
 end
 
 When /^I visit the link$/ do
-  puts @link
  visit @link
 end
-
