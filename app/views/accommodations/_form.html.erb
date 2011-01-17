@@ -38,7 +38,7 @@
   <% end %>  
 
   <%= form.inputs :name => "Terms and Conditions", :class => "inputs terms-and-conditions" do %>
-    <%= form.input(:terms_and_conditions_accepted, :label => "I accept") %>
+    <%= form.input(:terms_and_conditions_accepted, :required => true, :label => "I accept") %>
     <p>By checking this box, I acknowledge that I am providing goods and/or services at my own risk and that GetUp! Limited
     will not be responsible for the conduct of any person who contacts me through OzFloodHelp or any other means through
     GetUp!’s flood relief assistance campaign. I understand that GetUp! is not familiar with the laws of every State, and
