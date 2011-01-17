@@ -20,4 +20,17 @@ describe NotificationMailer do
     end
   end
 
+  describe "accom list but no name" do
+
+    before do
+      #TODO - isolate this better so we dont have to care about id and authorization_token
+      accomodation = stub("accommodation",{:email => "to@example.org", :name => "", :id => 1, :authorization_token => "xxxx"})
+      @mail = NotificationMailer.accommodation_listed(accomodation)
+    end
+
+    it "calls the person 'friend'" do
+      @mail.body.should match("Dear Friend,")
+    end
+  end
+
 end
