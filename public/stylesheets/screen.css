@@ -70,9 +70,9 @@ a img {
 a,
 a:link,
 a:visited {
-	color: #35852d;
+	color: #f68d1f;
 	text-decoration: none;
-	font-weight: bold;
+	font-weight: normal;
 }
 a:hover,
 a:active {
@@ -320,7 +320,7 @@ img.body_image {
 	margin:0 auto;
 }
 
-.formbox fieldset.buttons input,
+/*.formbox fieldset.buttons input,
 a.button {
 	display: block;
 	width: 190px;
@@ -341,7 +341,7 @@ a.button {
 a.button:hover {
 		background: url(/images/button-bg-hover.gif) no-repeat;
 		color: #ccf1a7;
-		}
+		}*/
 		
 /* Forms */
 .search_formbox,
@@ -360,6 +360,7 @@ a.button:hover {
 	margin-top: 20px;
 	margin-left: 20px;
 	padding-top: 15px;
+	padding-bottom:20px;
 	text-align: left;
 	color: #25AAE1;
 }
@@ -426,6 +427,27 @@ a.button:hover {
 	width: 200px;
 	margin: 0 auto;
 }
+
+#new_accommodation li.commit input {
+	background:url(/images/create_accomm_button.gif) no-repeat;
+	width:291px;
+	height:51px;
+	text-indent:-99999px;
+	overflow:hidden;
+	border:0;
+	cursor:pointer;
+}
+
+#new_seeker li.commit input {
+	background:url(/images/sm_contact_host_button.gif) no-repeat;
+	width:190px;
+	height:51px;
+	text-indent:-99999px;
+	overflow:hidden;
+	border:0;
+	cursor:pointer;
+}
+
 p.inline-errors {
     color: #CC0000;
     margin: 0.5em 0 180px;
@@ -635,6 +657,7 @@ dl.comments dd {
 	overflow:hidden;
 	border:0;
 	cursor:pointer;
+	display:block;
 }
 
 /*---*/
