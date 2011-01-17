@@ -25,7 +25,7 @@ Feature: Manage Listings
     And I press "Update Accommodation"
 
     When I view the search page
-    Then I should see "7+" within "dt.number-of-people + dd"
+    Then I should see "7+" within "dt.number-of-beds + dd"
 
   Scenario: When not logged in, there should be no edit button
     Given that a listing has been posted

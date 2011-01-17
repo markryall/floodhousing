@@ -1,62 +1,76 @@
-<div class="search_formbox">
-  <form id="suburb-search" name="suburb-search" action="/accommodations/search" method="get">
-  <ul>
-  <li>
+<form id="suburb-search" name="suburb-search" action="/accommodations/search" method="get">
+  <div>
     <label for="area">I am looking for accommodation in</label>
-    <%= select_tag "area", options_for_select(['All'] + areas, @area), options={:onchange=>"this.form.submit()"} %>
-  </li>
-  <li>I need
-  <%= select_tag "number_of_beds", options_for_select([""] | number_of_beds, @number_of_beds), options={:onchange=>"this.form.submit()"} %>
-  beds</li>
-  <li><%= check_box_tag 'pets', 'yes', @pets, options={:onclick=>"this.form.submit()"}  %>I have pets</li>
-  <li><%= check_box_tag 'children', 'yes', @children, options={:onclick=>"this.form.submit()"}  %>I have children</li>
-  <li><%= check_box_tag 'smokers', 'yes', @smokers, options={:onclick=>"this.form.submit()"}  %>I smoke</li>
-  <li><%= check_box_tag 'disabled', 'yes', @disabled, options={:onclick=>"this.form.submit()"}  %>I require disabled access</li>
-  <li><%= check_box_tag 'storage', 'yes', @storage, options={:onclick=>"this.form.submit()"}  %>I require storage space</li>
+    <%= select_tag "area", options_for_select(['All'] + areas, @area), options={:onchange => "this.form.submit()"} %>
+  </div>
+  <ul>
+    <li>I need <%= select_tag "number_of_beds", options_for_select([""] | number_of_beds, @number_of_beds), options={:onchange => "this.form.submit()"} %> beds</li>
+    <li><%= check_box_tag 'pets', 'yes', @pets, options={:onchange => "this.form.submit()"} %>I have pets</li>
+    <li><%= check_box_tag 'children', 'yes', @children, options={:onchange => "this.form.submit()"} %>I have children</li>
+    <li><%= check_box_tag 'smokers', 'yes', @smokers, options={:onchange => "this.form.submit()"} %>I smoke</li>
+    <li><%= check_box_tag 'disabled', 'yes', @disabled, options={:onchange => "this.form.submit()"} %>I require disabled access</li>
+    <li><%= check_box_tag 'storage', 'yes', @storage, options={:onchange => "this.form.submit()"} %>I require storage space</li>
   </ul>
-  </form>
-</div>
+</form>
 
 <% if @accommodations.size == 0 %>
-<div id="no-listings-message" >We are sorry, but we haven't been able to find anywhere matching your description. Perhaps you should try a different neighbourhood?</div>
-<%end%>
+<div id="no-listings-message">We are sorry, but we haven't been able to find anywhere matching your description. Perhaps you should try a different neighbourhood?</div>
+<% end %>
 
 <ul class="listing">
-<% @accommodations.each do |accommodation| %>	
-	<li class= "<%= cycle("even", "odd") %> box-shadow">
-	    <% if login_signed_in? %>
-            <fieldset style="float: right">
-            	<%= button_to 'Edit', edit_accommodation_path(accommodation), :method => :get %>
-            </fieldset>
-        <% end %>
-		<dl class="details">
-			<dt class="number-of-people">Number of beds that we can provide</dt>
-			<dd><%=accommodation.number_of_beds%></dd>
-		</dl>
-		<dl class="details address">
-		  <dt>Address</dt>
-		  <dd><%=accommodation.restricted_address %></dd>
-		</dl>
-		<dl class="details comments">
-		  <dt>Comments</dt>
-			<dd><%=accommodation.comments%></dd>
-		</dl>
-		<dl class="details">
-			<dt>Pet(s)</dt> 
-			<dd><%=accommodation.takes_pets ? "Yes" : "No"%><%=accommodation.takes_pets_comment.blank? ? "" : " (" + accommodation.takes_pets_comment + ")" %></dd>
-			<dt>Children</dt> 
-			<dd><%=accommodation.takes_children ? "Yes" : "No"%></dd>
-			<dt>Smokers</dt> 
-			<dd><%=accommodation.takes_smokers ? "Yes" : "No"%></dd>
-			<dt>Disabled Support</dt> 
-			<dd><%=accommodation.takes_disabled ? "Yes" : "No"%></dd>
-			<dt>Storage</dt> 
-			<dd><%=accommodation.takes_storage ? "Yes" : "No"%><%=accommodation.takes_storage_comment.blank? ? "" : " (" + accommodation.takes_storage_comment + ")" %></dd>
-		</dl>
-		<dl>
-			<dt>Interested?</dt>
-			<dd><%= button_to 'Contact the host', contact_host_accommodation_path(accommodation), :method => :get %></dd>
-		</dl>
+  <% @accommodations.each do |accommodation| %>	
+  <li class= "<%= cycle("even", "odd") %> box-shadow">
+    <dl class="address">
+      <dt>Address</dt>
+      <dd><%= accommodation.restricted_address %></dd>
+    </dl>
+
+    <dl class="number-of-beds">
+      <dt class="number-of-beds">Number of beds that we can provide</dt>
+      <dd><%= accommodation.number_of_beds%></dd>
+    </dl>
+
+    <div class="takes">
+      <dl class="children">
+	<dt>Children</dt> 
+	<dd><%= accommodation.takes_children ? "Yes" : "No"%></dd>
+      </dl>
+
+      <dl class="pets">
+	<dt>Pet(s)</dt> 
+	<dd><%= accommodation.takes_pets ? "Yes" : "No"%><%= accommodation.takes_pets_comment.blank? ? "" : " (" + accommodation.takes_pets_comment + ")" %></dd>
+      </dl>
+
+      <dl class="smokers">
+	<dt>Smokers</dt> 
+	<dd><%= accommodation.takes_smokers ? "Yes" : "No"%></dd>
+      </dl>
+
+      <dl class="disabled">
+	<dt>Disabled Support</dt> 
+	<dd><%= accommodation.takes_disabled ? "Yes" : "No"%></dd>
+      </dl>
+
+      <dl class="storage">
+	<dt>Storage</dt> 
+	<dd><%= accommodation.takes_storage ? "Yes" : "No"%><%= accommodation.takes_storage_comment.blank? ? "" : " (" + accommodation.takes_storage_comment + ")" %></dd>
+      </dl>
+    </div>
+
+    <dl class="comments">
+      <dt>Comments</dt>
+      <dd><%= accommodation.comments%></dd>
+    </dl>
+
+    <fieldset>
+      <%= button_to 'Interested? Contact Host.', contact_host_accommodation_path(accommodation), :method => :get %>
+    </fieldset>
+
+    <% if login_signed_in? %>
+    <fieldset style="float: right">
+	<%= button_to 'Edit', edit_accommodation_path(accommodation), :method => :get %>
+    </fieldset>
+    <% end %>
   </li>
 <% end %>
 </ul>
