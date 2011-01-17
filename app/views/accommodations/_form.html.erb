@@ -38,17 +38,14 @@
   <% end %>  
 
   <%= form.inputs :name => "Terms and Conditions", :class => "inputs terms-and-conditions" do %>
-    <%= form.input(:terms_and_conditions_accepted, :required => true, :label => "I accept") %>
-    <p>By checking this box, I acknowledge that I am providing goods and/or services at my own risk and that GetUp! Limited
-    will not be responsible for the conduct of any person who contacts me through OzFloodHelp or any other means through
-    GetUp!’s flood relief assistance campaign. I understand that GetUp! is not familiar with the laws of every State, and
-    if I have any questions regarding the legal implications of the goods and/or services I am offering, I should seek legal
-    advice in my State. I understand that GetUp! may, exclusively for the purpose of flood relief assistance, provide my
-    personal details and contact information to third parties assisting with the flood relief campaign. I hereby release GetUp!
-    Limited and its directors, officers, employees, agents, affiliates and representatives from any liability arising from any
-    acts or omissions of any person who contacts me through OzFloodHelp or any other means through GetUp!’s flood relief
-    campaign. I also agree to the <a href="/guidelines#terms_and_conditions" title="Terms &amp; Conditions">Terms of Use</a>.
-    </p>
+    <ul>
+      <li>I acknowledge that I am providing goods and/or services at my own risk and that GetUp! Limited will not be responsible for the conduct of any person who contacts me through OzFloodHelp or any other means through GetUp!’s flood relief assistance campaign.</li>
+      <li>I understand that GetUp! is not familiar with the laws of every State, and if I have any questions regarding the legal implications of the goods and/or services I am offering, I should seek legal advice in my State.</li>
+      <li>I understand that GetUp! may, exclusively for the purpose of flood relief assistance, provide my personal details and contact information to third parties assisting with the flood relief campaign.
+      <li>I hereby release GetUp! Limited and its directors, officers, employees, agents, affiliates and representatives from any liability arising from any acts or omissions of any person who contacts me through OzFloodHelp or any other means through GetUp!’s flood relief campaign.</li>
+      <li>I also agree to the <a href="/guidelines#terms_and_conditions" title="Terms &amp; Conditions">Terms of Use</a>.</li>
+    </ul>
+    <%= form.input(:terms_and_conditions_accepted, :required => true, :label => "I accept the above terms &amp; conditions.") %>
   <% end %>  
 
   <%= form.buttons do %>
