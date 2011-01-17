@@ -4,6 +4,7 @@ class NotificationMailer < ActionMailer::Base
   
   def accommodation_listed(accommodation)
     headers["X-SMTPAPI"] = disable_opentrack.to_json
+    headers["Precedence"] = "bulk"
     @accommodation = accommodation
     person_name = @accommodation.name || 'Friend'
     @salutation = person_name.split(/\s/).first || 'Friend'

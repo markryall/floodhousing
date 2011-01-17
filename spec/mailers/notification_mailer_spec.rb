@@ -16,7 +16,7 @@ describe NotificationMailer do
     end
 
     it "renders the body" do
-      @mail.body.should match("fred")
+      @mail.body.should match("Dear Fred,")
     end
   end
 
