@@ -43,9 +43,7 @@
 		</dl>
 		<dl class="details">
 			<dt>Pet(s)</dt> 
-			<dd><%=accommodation.takes_pets ? "Yes" : "No"%></dd>
-			<dt>Comments about pet(s)</dt>
-			<dd><%=accommodation.takes_pets_comment %></dd>
+			<dd><%=accommodation.takes_pets ? "Yes" : "No"%><%=accommodation.takes_pets_comment ? " (" + accommodation.takes_pets_comment + ")" : "" %></dd>
 			<dt>Children</dt> 
 			<dd><%=accommodation.takes_children ? "Yes" : "No"%></dd>
 			<dt>Smokers</dt> 
@@ -53,9 +51,7 @@
 			<dt>Disabled Support</dt> 
 			<dd><%=accommodation.takes_disabled ? "Yes" : "No"%></dd>
 			<dt>Storage</dt> 
-			<dd><%=accommodation.takes_storage ? "Yes" : "No"%></dd>
-			<dt>Comments about storage</dt>
-			<dd><%=accommodation.takes_storage_comment %></dd>
+			<dd><%=accommodation.takes_storage ? "Yes" : "No"%><%=accommodation.takes_storage_comment ? " (" + accommodation.takes_storage_comment + ")" : "" %></dd>
 		</dl>
 		<dl>
 			<dt>Interested?</dt>
