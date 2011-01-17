@@ -13,14 +13,11 @@ Then /^the email will address me as "([^"]*)"$/ do |name|
 end
 
 Then /^the email will contain a link I should click if I need to update my listing$/ do
-  
   @last_email.text_part.to_s =~ /http[s]?:\/\/\S+/
   @link = $&
   @link.should_not be_nil
 end
 
 When /^I visit the link$/ do
-  puts @link
  visit @link
 end
-
