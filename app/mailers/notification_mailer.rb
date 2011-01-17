@@ -8,13 +8,21 @@ class NotificationMailer < ActionMailer::Base
     @accommodation = accommodation
     person_name = @accommodation.name || 'Friend'
     @salutation = person_name.split(/\s/).first || 'Friend'
-    mail(:to => "#{accommodation.name} <#{accommodation.email}>", :subject => "Your accommodation has been listed")
+    if @salutation == "Friend"
+      subj = "Your accommodation has been listed"
+      dest = "#{accommodation.email}"
+    else
+      subj = "Thanks #{@salutation}, your accommodation has been listed."
+      dest = "#{accommodation.name} <#{accommodation.email}>"
+    end
+    mail(:to => dest, :subject => subj)
   end
   
   def register_interest(accommodation, seeker)
     @seeker = seeker
     @accommodation = accommodation
-    mail(:to => "#{accommodation.name} <#{accommodation.email}>", :subject => "Flood housing - a message from someone looking for a place to stay")
+    mail(:to => "#{accommodation.name} <#{accommodation.email}>", 
+         :subject => "Flood housing - a message from someone looking for a place to stay")
   end
 
   private
