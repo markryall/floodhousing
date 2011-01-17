@@ -28,6 +28,6 @@ class NotificationMailer < ActionMailer::Base
   private
 
   def disable_opentrack_header
-    { "opentrack" => { "settings" => {"enable" => "0"}} }.to_json
+    { "filters" => { "opentrack" => { "settings" => {"enable" => "0"}}}}.to_json
   end
 end
