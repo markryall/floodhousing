@@ -104,6 +104,11 @@ body {
 	margin: 0 60px 0 10px;
 	text-align: center;
 }
+
+.title a {
+	color: white;
+}
+
 .head .networks {
 	text-align: right;
 	height: 25px;
