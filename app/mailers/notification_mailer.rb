@@ -1,5 +1,5 @@
 class NotificationMailer < ActionMailer::Base
-  default :from => "ozfloodhelp@getup.org.au"
+  default :from => "OzFloodHelp.org Support <ozfloodhelp@getup.org.au>"
   helper :application
   
   def accommodation_listed(accommodation)
@@ -28,6 +28,6 @@ class NotificationMailer < ActionMailer::Base
   private
 
   def disable_opentrack_header
-    { "opentrack" => {"category" => "newuser"} }.to_json
+    { "opentrack" => {"enable" => "0"} }.to_json
   end
 end
