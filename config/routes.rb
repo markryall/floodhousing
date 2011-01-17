@@ -4,6 +4,8 @@ Flood::Application.routes.draw do
   devise_for :logins
 
   match "l/:id/:token" => "accommodations#login"
+  
+  match "faq" => "home#faq"
 
   resource :thank_you
 
