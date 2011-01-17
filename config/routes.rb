@@ -6,6 +6,7 @@ Flood::Application.routes.draw do
   match "l/:id/:token" => "accommodations#login"
   
   match "faq" => "home#faq"
+  match "guidelines" => "home#guidelines"
 
   resource :thank_you
 
