@@ -10,38 +10,41 @@
     <%= javascript_include_tag 'flash' %>
     <%= csrf_meta_tag %>
     <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+	<link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
     <div class="container">
         <div class="head">
             <div class="logos">
-                <img src="/images/getup-logo-on-black.gif" alt="GetUp! Action for Australia" height="80" /> <img src="/images/TW_logo.gif" alt="ThoughtWorks" height="32" />
+                <a href="/"><img src="/images/logo.gif" alt="OzFloodHelp.org" height="112" width="332" /></a>
             </div><!--logos-->
-<div class="networks"><p>Share this site: &nbsp;
-               <script src="<%= request.protocol %>connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="http://ozfloodhelp.org" show_faces="false" width="100"colorscheme="dark"></fb:like>
-  
-                
-                
-                <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ozfloodhelp.org" data-text="Connecting Aussies affected by #QLDflood with welcome Aussie homes" data-count="horizontal" data-via="GetUp">Tweet This</a><script type="text/javascript" src="<%= request.protocol %>platform.twitter.com/widgets.js"></script>
-               
-                <a href="mailto: ?Subject=Temporary%20housing%20for%20flood%20victims&Body=Hi%2C%0A%0ATens%20of%20thousands%20of%20Australians%20affected%20by%20floods%20are%20in%20need%20of%20temporary%20housing.%20%0A%0AIf%20you%20need%20a%20place%20to%20stay%20-%20or%20have%20a%20spare%20bed%2C%20couch%20or%20room%2C%20check%20out%20this%20site%3A%0A%0Awww.ozfloodhelp.org%0A%0AThanks%21">
-                <img src="/images/icon_mail.png" alt="icon_mail" width="90" height="20" /></a></p>
-            </div>
-
-            <div class="title">
-				<a href="/">
-	                <h1>Queensland Flood Relief Housing</h1>
-	                <h4>Connecting Aussies affected by floods, with welcome homes</h4>
+			<div class="sponsors">
+				<a href="#">
+	                <img src="/images/get_up_logo.gif" alt="GetUp! Action for Australia" height="81" width="149" />
 				</a>
-            </div><!--title-->
+				<a href="#">
+	                <img src="/images/thoughtworks_logo.gif" alt="ThoughtWorks Australia" height="81 width="146" />
+				</a>
+            </div><!--sponsors-->
+			<div class="networks">
+            	<div class="share-fb">
+					<iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fexample.com%2Fpage%2Fto%2Flike&amp;layout=button_count&amp;show_faces=false&amp;width=450&amp;action=like&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:130px; height:21px;" allowTransparency="true"></iframe>
+  				</div>
+				<div class="share-twitter">
+					<a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ozfloodhelp.org" data-text="Connecting Aussies affected by #QLDflood with welcome Aussie homes" data-count="horizontal" data-via="GetUp">Tweet This</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+               	</div>
+				<div class="share-mail">
+					<a href="mailto: ?Subject=Temporary%20housing%20for%20flood%20victims&Body=Hi%2C%0A%0ATens%20of%20thousands%20of%20Australians%20affected%20by%20floods%20are%20in%20need%20of%20temporary%20housing.%20%0A%0AIf%20you%20need%20a%20place%20to%20stay%20-%20or%20have%20a%20spare%20bed%2C%20couch%20or%20room%2C%20check%20out%20this%20site%3A%0A%0Awww.ozfloodhelp.org%0A%0AThanks%21">
+					<img src="/images/email_button.gif" alt="icon_mail" width="130" height="19" /></a>
+				</div>
+            </div><!--networks-->
 
                     </div><!--head-->
         <div class="nav">
           <ul>
-			<li><a href="/" title="Home">Home</a></li>
             <li><%= link_to "Find a Place to Stay", search_accommodations_path %></li>
-            <li><%= link_to "Volunteer a Place to Stay", new_accommodation_path %></li>
+            <li><%= link_to "Offer a Place to Stay", new_accommodation_path %></li>
             <li><a href="/faq" title="FAQ">FAQ</a></li>
             <li><a href="/guidelines" title="Guidelines">Guidelines</a></li>
             <li><a href="/guidelines#terms_and_conditions" title="Terms &amp; Conditions">Terms &amp; Conditions</a></li>
@@ -54,6 +57,16 @@
         </div>
 
         <div class="footer">
+		&copy; 2011 GetUp! Australia.
+			<div class="footer_links">
+				<ul>
+					<li><%= link_to "Find a Place to Stay", search_accommodations_path %></li>
+					<li><%= link_to "Offer a Place to Stay", new_accommodation_path %></li>
+					<li><a href="/faq" title="FAQ">FAQ</a></li>
+					<li><a href="/guidelines" title="Guidelines">Guidelines</a></li>
+					<li><a href="/guidelines#terms_and_conditions" title="Terms &amp; Conditions">Terms &amp; Conditions</a></li>
+			  </ul>
+		  </div><!--footer_links-->
         </div>
     </div>
 
