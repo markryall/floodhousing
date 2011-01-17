@@ -10,7 +10,7 @@
     <%= javascript_include_tag 'flash' %>
     <%= csrf_meta_tag %>
     <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
-	<link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+	<link href='<%= request.protocol %>fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
@@ -29,10 +29,10 @@
             </div><!--sponsors-->
 			<div class="networks">
             	<div class="share-fb">
-					<iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fexample.com%2Fpage%2Fto%2Flike&amp;layout=button_count&amp;show_faces=false&amp;width=450&amp;action=like&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:130px; height:21px;" allowTransparency="true"></iframe>
+					<iframe src="<%= request.protocol %>www.facebook.com/plugins/like.php?href=https%3A%2F%2Fexample.com%2Fpage%2Fto%2Flike&amp;layout=button_count&amp;show_faces=false&amp;width=450&amp;action=like&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:130px; height:21px;" allowTransparency="true"></iframe>
   				</div>
 				<div class="share-twitter">
-					<a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ozfloodhelp.org" data-text="Connecting Aussies affected by #QLDflood with welcome Aussie homes" data-count="horizontal" data-via="GetUp">Tweet This</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+					<a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ozfloodhelp.org" data-text="Connecting Aussies affected by #QLDflood with welcome Aussie homes" data-count="horizontal" data-via="GetUp">Tweet This</a><script type="text/javascript" src="<%= request.protocol %>platform.twitter.com/widgets.js"></script>
                	</div>
 				<div class="share-mail">
 					<a href="mailto: ?Subject=Temporary%20housing%20for%20flood%20victims&Body=Hi%2C%0A%0ATens%20of%20thousands%20of%20Australians%20affected%20by%20floods%20are%20in%20need%20of%20temporary%20housing.%20%0A%0AIf%20you%20need%20a%20place%20to%20stay%20-%20or%20have%20a%20spare%20bed%2C%20couch%20or%20room%2C%20check%20out%20this%20site%3A%0A%0Awww.ozfloodhelp.org%0A%0AThanks%21">
