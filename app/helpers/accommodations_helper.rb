@@ -5,7 +5,7 @@ module AccommodationsHelper
   end
 
   def number_of_beds
-    (1..6).to_a  << "6+"
+    (1..6).to_a  << "7+"
   end
  
   def areas
