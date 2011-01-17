@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -e
+
+HEROKU_PROJECT=ozfloodhelp
+
+git push git@heroku.com:$HEROKU_PROJECT.git hudson-floodhousing-${1}^{}:master
+heroku rake db:migrate --app $HEROKU_PROJECT
+heroku restart --app $HEROKU_PROJECT
