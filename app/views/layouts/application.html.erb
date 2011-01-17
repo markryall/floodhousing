@@ -28,16 +28,17 @@
 				</a>
             </div><!--sponsors-->
 			<div class="networks">
-            	<div class="share-fb">
-					<iframe src="<%= request.protocol %>www.facebook.com/plugins/like.php?href=https%3A%2F%2Fexample.com%2Fpage%2Fto%2Flike&amp;layout=button_count&amp;show_faces=false&amp;width=450&amp;action=like&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:130px; height:21px;" allowTransparency="true"></iframe>
-  				</div>
-				<div class="share-twitter">
-					<a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ozfloodhelp.org" data-text="Connecting Aussies affected by #QLDflood with welcome Aussie homes" data-count="horizontal" data-via="GetUp">Tweet This</a><script type="text/javascript" src="<%= request.protocol %>platform.twitter.com/widgets.js"></script>
-               	</div>
 				<div class="share-mail">
 					<a href="mailto: ?Subject=Temporary%20housing%20for%20flood%20victims&Body=Hi%2C%0A%0ATens%20of%20thousands%20of%20Australians%20affected%20by%20floods%20are%20in%20need%20of%20temporary%20housing.%20%0A%0AIf%20you%20need%20a%20place%20to%20stay%20-%20or%20have%20a%20spare%20bed%2C%20couch%20or%20room%2C%20check%20out%20this%20site%3A%0A%0Awww.ozfloodhelp.org%0A%0AThanks%21">
 					<img src="/images/email_button.gif" alt="icon_mail" width="130" height="19" /></a>
 				</div>
+				<div class="share-twitter">
+					<a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ozfloodhelp.org" data-text="Connecting Aussies affected by #QLDflood with welcome Aussie homes" data-count="horizontal" data-via="GetUp">Tweet This</a><script type="text/javascript" src="<%= request.protocol %>platform.twitter.com/widgets.js"></script>
+               	</div>
+				
+				<div class="share-fb">
+					<iframe src="<%= request.protocol %>www.facebook.com/plugins/like.php?href=https%3A%2F%2Fexample.com%2Fpage%2Fto%2Flike&amp;layout=button_count&amp;show_faces=false&amp;width=450&amp;action=like&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:130px; height:21px;" allowTransparency="true"></iframe>
+  				</div>
             </div><!--networks-->
 
                     </div><!--head-->
@@ -57,7 +58,9 @@
         </div>
 
         <div class="footer">
-		&copy; 2011 GetUp! Australia.
+			<div class="footer_left">
+				&copy; 2011 GetUp! Australia.
+			</div>
 			<div class="footer_links">
 				<ul>
 					<li><%= link_to "Find a Place to Stay", search_accommodations_path %></li>
@@ -69,19 +72,5 @@
 		  </div><!--footer_links-->
         </div>
     </div>
-
-<!-- Google Analytics -->
-<script type="text/javascript">
- var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-20794602-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-    
 </body>
 </html>
