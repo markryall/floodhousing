@@ -10,7 +10,7 @@ describe NotificationMailer do
     end
     
     it "renders the headers" do
-      @mail.subject.should eq("Your accommodation has been listed")
+      @mail.subject.should eq("[OzFloodHelp] Fred, your accommodation has been listed.")
       @mail.to.should eq(["to@example.org"])
       @mail.from.should eq(["ozfloodhelp@getup.org.au"])
     end
@@ -28,8 +28,8 @@ describe NotificationMailer do
       @mail = NotificationMailer.accommodation_listed(accomodation)
     end
 
-    it "calls the person 'friend'" do
-      @mail.body.should match("Dear Friend,")
+    it "no name given" do
+      @mail.body.should_not match("Dear")
     end
   end
 

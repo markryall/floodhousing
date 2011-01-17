@@ -1,18 +1,18 @@
 class NotificationMailer < ActionMailer::Base
-  default :from => "OzFloodHelp <ozfloodhelp@getup.org.au>"
+  default :from => "GetUp OzFloodHelp <ozfloodhelp@getup.org.au>"
   helper :application
   
   def accommodation_listed(accommodation)
     headers["X-SMTPAPI"] = disable_opentrack_header
     headers["Precedence"] = "bulk"
     @accommodation = accommodation
-    person_name = @accommodation.name || 'Friend'
-    @salutation = person_name.split(/\s/).first || 'Friend'
-    if @salutation == "Friend"
-      subj = "Your accommodation has been listed"
+    person_name = @accommodation.name || ''
+    @salutation = person_name.split(/\s/).first
+    if @salutation.nil?
+      subj = "[OzFloodHelp] Your accommodation has been listed"
       dest = "#{accommodation.email}"
     else
-      subj = "Thanks #{@salutation}, your accommodation has been listed."
+      subj = "[OzFloodHelp] #{@salutation.titleize}, your accommodation has been listed."
       dest = "#{accommodation.name} <#{accommodation.email}>"
     end
     mail(:to => dest, :subject => subj)
