@@ -5,8 +5,8 @@ class NotificationMailer < ActionMailer::Base
   def accommodation_listed(accommodation)
     headers["X-SMTPAPI"] = disable_opentrack.to_json
     @accommodation = accommodation
-    @salutation = (@accommodation.name || 'Friend').split(/\s/).first
-    @salutation = 'Friend' if @salutation.blank?
+    person_name = @accommodation.name || 'Friend'
+    @salutation = person_name.split(/\s/).first || 'Friend'
     mail(:to => "#{accommodation.name} <#{accommodation.email}>", :subject => "Your accommodation has been listed")
   end
   
