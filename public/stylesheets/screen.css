@@ -165,8 +165,8 @@ body {
 	background:url(/images/footer_BG.gif) no-repeat;
 	height:47px;
 	margin-top: 20px;
-	padding:17px;
-	font-size:11px;
+	padding:12px 17px;
+	font-size:10px;
 	color:#666;
 
 }
@@ -177,6 +177,7 @@ body {
 
 .footer .footer_links {
 	float:right;
+	padding-top:5px;
 }
 
 .footer_links li {
