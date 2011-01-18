@@ -436,7 +436,7 @@ a.button:hover {
 
 
 #new_accommodation li.commit input {
-	background:url(/images/sm_create_accomm_button.gif);
+	background:url(/images/sm_create_accomm_button.gif) no-repeat;
 	width:190px;
 	height:51px;
 	padding-top:51px;
@@ -448,7 +448,7 @@ a.button:hover {
 }
 
 input.update {
-	background:url(/images/sm_update_accomm_button.gif);
+	background:url(/images/sm_update_accomm_button.gif) no-repeat;
 	width:190px!important;
 	height:51px;
 	text-indent:-99999px;
@@ -456,6 +456,11 @@ input.update {
 	border:0;
 	cursor:pointer;
 	border:0 !important;
+}
+
+#new_accommodation li span {
+	color:#f68d1f;
+	font-size:11px;
 }
 
 #new_seeker li.commit input {
