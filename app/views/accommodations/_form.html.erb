@@ -4,12 +4,12 @@
     <li>
     <%= form.input :number_of_beds, :as => :select, :prompt => "Please Select", :collection => number_of_beds %>
     </li>
-    <%= form.input :takes_pets, :label => "Pets ok?" %>
+    <%= form.input :takes_pets, :label => "Pets ok?", :class => 'checkbox' %>
     <%= form.input :takes_pets_comment, :label => "Comments about pets", :input_html => { :size => 5 } %>
-    <%= form.input :takes_children, :label => "Suitable for children?" %>
-    <%= form.input :takes_smokers, :label => "Smokers ok?" %>
-    <%= form.input :takes_disabled, :label => "Disabled access?" %>
-    <%= form.input :takes_storage, :label => "Storage available?" %>
+    <%= form.input :takes_children, :label => "Suitable for children?", :class => 'checkbox' %>
+    <%= form.input :takes_smokers, :label => "Smokers ok?", :class => 'checkbox' %>
+    <%= form.input :takes_disabled, :label => "Disabled access?", :class => 'checkbox' %>
+    <%= form.input :takes_storage, :label => "Storage available?", :class => 'checkbox' %>
     <%= form.input :takes_storage_comment, :label => "Comments about storage" %>
   <% end %>
 
@@ -30,7 +30,7 @@
     <%= form.input :other_phone, :label => 'Other Phone' %>
     <%= form.input :email, :label => 'Email' %>
     <%= form.input :email_confirmation, :required => true, :label => 'Email Confirmation' %>
-    <%= form.input :over_eighteen, :required=> true, :label => "I am over 18" %>
+    <%= form.input :over_eighteen, :required=> true, :label => "I am over 18", :class => 'checkbox' %>
   <% end %>
 
   <%= form.inputs :name => "Other Comments", :class => "inputs other-comments" do %>
@@ -45,7 +45,7 @@
       <li>I hereby release GetUp! Limited and its directors, officers, employees, agents, affiliates and representatives from any liability arising from any acts or omissions of any person who contacts me through OzFloodHelp or any other means through GetUp!’s flood relief campaign.</li>
       <li>I also agree to the <a href="/guidelines#terms_and_conditions" title="Terms &amp; Conditions">Terms of Use</a>.</li>
     </ul>
-    <%= form.input(:terms_and_conditions_accepted, :required => true, :label => "I accept the above terms &amp; conditions.") %>
+    <%= form.input(:terms_and_conditions_accepted, :required => true, :label => "I accept the above terms &amp; conditions.", :class => 'checkbox') %>
   <% end %>  
 
   <%= form.buttons do %>
