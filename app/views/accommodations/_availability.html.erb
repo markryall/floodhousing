@@ -1,9 +1,9 @@
 <div id="availability">
   <% if @accommodation.available %>
-    <h2 class="go">Available</h2>
-    <%= link_to 'Remove my offer from the website, please.', {:action => :list, :available => false}, :class => 'list', :method => :put, :remote => true %>
+    <h2 class="go">published.</h2>
+    <%= link_to 'Remove my listing please.', {:action => :list, :available => false}, :class => 'list', :method => :put, :remote => true %>
   <% else %>
-    <h2 class="stop">Unavailable</h2>
-    <%= link_to 'Post my offer on the website, please.', {:action => :list, :available => true}, :class => 'list', :method => :put, :remote => true %>
+    <h2 class="stop">not published.</h2>
+    <%= link_to 'Publish my listing please.', {:action => :list, :available => true}, :class => 'list', :method => :put, :remote => true %>
   <% end %>
 </div>

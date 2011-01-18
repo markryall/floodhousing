@@ -708,7 +708,6 @@ dl.comments dd {
 }
 
 #availability a.list {
-  float: right;
 }
 
 .title a {
@@ -737,7 +736,7 @@ input.edit_button {
 	
 }
 
-.share_wtitter a {
+.share_twitter a {
 	background:url(/images/tweet_button.gif) no-repeat;
 	width:55px;
 	height:21px;
