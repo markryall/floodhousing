@@ -2,48 +2,67 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title><%= content_for(:title).blank? ? 'OzFloodHelp.org - Opening hearts and homes for Australians affected by the floods' : content_for(:title) %></title>
-    <%= stylesheet_link_tag 'screen' %>
-    <%= stylesheet_link_tag 'flash' %>
-    <%= javascript_include_tag :defaults %>
-    <%= javascript_include_tag 'flash' %>
-    <%= csrf_meta_tag %>
-    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
-	<link href='<%= request.protocol %>fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
-	<meta name="description" content="OzFloodHelp.org connects Australians affected by flood with free temporary housing.">
-</head>
+  <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+      <meta name="description" content="OzFloodHelp.org connects Australians affected by flood with free temporary housing.">
+      <title><%= content_for(:title).blank? ? 'OzFloodHelp.org - Opening hearts and homes for Australians affected by the floods' : content_for(:title) %></title>
+      <%= stylesheet_link_tag 'screen' %>
+      <%= stylesheet_link_tag 'flash' %>
+      <link href='<%= request.protocol %>fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+      <%= javascript_include_tag :defaults %>
+      <%= javascript_include_tag 'flash' %>
+      <script defer="yes" type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
+      <script defer="yes" type="text/javascript" src="https://s7.addthis.com/js/250/addthis_widget.js#username=ozfloodhelp"></script>
+      <%= csrf_meta_tag %>
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <div class="head">
-            <div class="logos">
-                <a href="/"><img src="/images/logo.gif" alt="OzFloodHelp.org" height="112" width="332" /></a>
-            </div><!--logos-->
-			<div class="sponsors">
-				<a href="http://www.getup.org.au/" target="_blank" >
-	                <img src="/images/get_up_logo.gif" alt="GetUp! Action for Australia" height="81" width="149" />
-				</a>
-				<a href="http://www.thoughtworks.com/" target="_blank">
-	                <img src="/images/thoughtworks_logo.gif" alt="ThoughtWorks Australia" height="81 width="146" />
-				</a>
-            </div><!--sponsors-->
-			<div class="networks">
-				<div class="share-mail">
-					<a href="mailto: ?Subject=Temporary%20housing%20for%20flood%20victims&Body=Hi%2C%0A%0ATens%20of%20thousands%20of%20Australians%20affected%20by%20floods%20are%20in%20need%20of%20temporary%20housing.%20%0A%0AIf%20you%20need%20a%20place%20to%20stay%20-%20or%20have%20a%20spare%20bed%2C%20couch%20or%20room%2C%20check%20out%20this%20site%3A%0A%0Awww.ozfloodhelp.org%0A%0AThanks%21">
-					<img src="/images/email_button.gif" alt="icon_mail" width="130" height="19" /></a>
-				</div>
-				<!-- <div class="share-twitter">
-					<a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.ozfloodhelp.org" data-text="Connecting Aussies affected by #QLDflood with welcome Aussie homes" data-count="horizontal" data-via="GetUp">Tweet This</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-               	</div> -->
-				
-				<div class="share-fb">
-					<iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.ozfloodhelp.org&amp;layout=button_count&amp;show_faces=false&amp;width=120&amp;action=like&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:120px; height:21px;" allowTransparency="true"></iframe>
-				</div>
-            </div><!--networks-->
+      <div class="head">
+        <div class="logos">
+            <a href="/"><img src="/images/logo.gif" alt="OzFloodHelp.org" height="112" width="332" /></a>
+        </div><!--logos-->
 
-                    </div><!--head-->
-        <div class="nav">
+        <div class="sponsors">
+          <a href="http://www.getup.org.au/" target="_blank">
+            <img src="/images/get_up_logo.gif" alt="GetUp! Action for Australia" height="81" width="149" />
+          </a>
+          <a href="http://www.thoughtworks.com/" target="_blank">
+            <img src="/images/thoughtworks_logo.gif" alt="ThoughtWorks Australia" height="81" width="146" />
+          </a>
+        </div><!--sponsors-->
+
+        <div class="networks addthis_toolbox addthis_default_style"
+          addthis:url="https://wwww.ozfloodhelp.org/"
+          addthis:title="OzFloodHelp.org"
+          addthis:description="Connects Australians affected by flood with free temporary housing.">
+          <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+          <a class="addthis_button_tweet"></a>
+          <a class="addthis_counter addthis_pill_style"></a>
+        </div>
+      </div><!--head-->
+
+      <div class="nav">
+        <ul>
+          <li><%= link_to "Find a Place to Stay", search_accommodations_path %></li>
+          <li><%= link_to "Offer a Place to Stay", new_accommodation_path %></li>
+          <li><a href="/faq" title="FAQ">FAQ</a></li>
+          <li><a href="/guidelines" title="Guidelines">Guidelines</a></li>
+          <li><a href="/guidelines#terms_and_conditions" title="Terms &amp; Conditions">Terms &amp; Conditions</a></li>
+        </ul>
+      </div>
+
+      <div class="content">
+        <%= display_flash_messages %>
+        <%= yield %>
+      </div>
+
+      <div class="footer">
+        <div class="footer_left">
+          Authorised by Simon Sheikh, GetUp, 116 Kippax St Surry Hills 2010, NSW.<br />&copy; 2011 GetUp! Australia.
+        </div>
+
+        <div class="footer_links">
           <ul>
             <li><%= link_to "Find a Place to Stay", search_accommodations_path %></li>
             <li><%= link_to "Offer a Place to Stay", new_accommodation_path %></li>
@@ -51,27 +70,8 @@
             <li><a href="/guidelines" title="Guidelines">Guidelines</a></li>
             <li><a href="/guidelines#terms_and_conditions" title="Terms &amp; Conditions">Terms &amp; Conditions</a></li>
           </ul>
-        </div>
-
-        <div class="content">
-          <%= display_flash_messages %>
-          <%= yield %>
-        </div>
-
-        <div class="footer">
-			<div class="footer_left">
-				Authorised by Simon Sheikh, GetUp, 116 Kippax St Surry Hills 2010, NSW.<br />&copy; 2011 GetUp! Australia.
-			</div>
-			<div class="footer_links">
-				<ul>
-					<li><%= link_to "Find a Place to Stay", search_accommodations_path %></li>
-					<li><%= link_to "Offer a Place to Stay", new_accommodation_path %></li>
-					<li><a href="/faq" title="FAQ">FAQ</a></li>
-					<li><a href="/guidelines" title="Guidelines">Guidelines</a></li>
-					<li><a href="/guidelines#terms_and_conditions" title="Terms &amp; Conditions">Terms &amp; Conditions</a></li>
-			  </ul>
-		  </div><!--footer_links-->
-        </div>
+        </div><!--footer_links-->
+      </div>
     </div>
-</body>
+  </body>
 </html>
