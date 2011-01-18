@@ -12,7 +12,7 @@ class NotificationMailer < ActionMailer::Base
       subj = "Please confirm your offer of help"
       dest = "#{accommodation.email}"
     else
-      subj = "[OzFloodHelp] #{@salutation.titleize}, your accommodation has been listed."
+      subj = ""#{@salutation.titleize}, please confirm your offer of help."
       dest = "#{accommodation.name} <#{accommodation.email}>"
     end
     mail(:to => dest, :subject => subj)
@@ -23,7 +23,7 @@ class NotificationMailer < ActionMailer::Base
     @seeker = seeker
     @accommodation = accommodation
     mail(:to => "#{accommodation.name} <#{accommodation.email}>", 
-         :subject => "[OzFloodHelp] A message from someone looking for a place to stay")
+         :subject => "A message from someone looking for a place to stay")
   end
 
   private
