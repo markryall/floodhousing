@@ -729,6 +729,12 @@ input.edit_button {
 	background-image:none!important;
 	text-indent:0!important;
 	padding:5px!important;
+	background-color:#ccc!important;
+	border:1pxsolid #666!important;
+	width:60px!important;
+	position:relative;
+	top:-50px;
+	
 }
 
 .share_wtitter a {
