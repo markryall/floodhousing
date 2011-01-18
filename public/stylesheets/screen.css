@@ -107,7 +107,7 @@ body {
 	top:-10px;
 }
 .share-fb, .share-twitter, .share-mail {
-	float:left;
+	float:right;
 }
 
 .head .networks img {
@@ -124,7 +124,7 @@ body {
 }
 .nav a, .nav a:visited, .nav a:active {
 	color: #fff;
-	font-family:"arvo", Georgia, "Times New Roman", Times, serif;
+	font-family:'Arvo', Georgia, Times, serif;
 	font-size:20px;
 	padding:9px 15px 0 17px;
 	margin:0;
@@ -203,37 +203,42 @@ body {
 /* -- CONTENT STYLES -- */
 
 h1 {
-	font-weight: bold;
-	font-size: 20pt;
-	letter-spacing: 0.6pt;
-	margin-top: 30px;
+	color: #25aae1;
+	font-family:'Arvo', Georgia, "Times New Roman", Times, serif;
+	font-size:28px;
+	line-height:35px;
+	padding-bottom:30px;
 }
 h2 {
 	color: #f68d1f;
-	font-family:"arvo", Georgia, "Times New Roman", Times, serif;
+	font-family:'Arvo', Georgia, "Times New Roman", Times, serif;
 	font-size:22px;
 	line-height: 2;
-	padding-left: 1em;
+
 }
 
 h3{
 	font-weight: bold;
 	font-size: 12pt;
-	padding-left: 1em;
 }
 
 h3{
 	font-weight: bold;
-	font-size: 10pt;
-	padding-left: 1em;
+	font-size: 12pt;
+	color:#333;
 }
 
 p {
-	font-size: 10pt;
+	font-size: 12pt;
 	line-height: 1.2;
 	margin: 2pt 0 6pt 0;
-	padding: 0 1em
 }
+
+li {
+	color:#666;
+}
+
+
 /*ul {
 	padding: 2pt 1em 6pt 1em;
 }*/
@@ -248,13 +253,16 @@ img.body_image {
 	margin: 0 auto;
 	text-align:center;
 }
-.page_intro h1 {
-	color: #25aae1;
-	font-family:"arvo", Georgia, "Times New Roman", Times, serif;
-	font-size:28px;
-	line-height:35px;
-	margin:40px 0 40px 0;
+
+div.page_intro h1 {
+	color: #25aae1!important;
+	font-family:'Arvo', Georgia, "Times New Roman", Times, serif!important;
+	font-size:28px!important;
+	line-height:35px!important;
+	margin:40px 0 40px 0!important;
+	padding:0;
 }
+
 .home_box {
 	width: 412px;
 	float: left;
@@ -429,8 +437,18 @@ a.button:hover {
 }
 
 #new_accommodation li.commit input {
-	background:url(/images/create_accomm_button.gif) no-repeat;
-	width:291px;
+	background:url(/images/sm_create_accomm_button.gif);
+	width:190px;
+	height:51px;
+	text-indent:-99999px;
+	overflow:hidden;
+	border:0;
+	cursor:pointer;
+}
+
+input.update {
+	background:url(/images/sm_update_accomm_button.gif);
+	width:190px;
 	height:51px;
 	text-indent:-99999px;
 	overflow:hidden;
@@ -478,6 +496,7 @@ p.inline-errors {
 .filter-box ul li {
 	float:left;
 	padding:10px 0;
+	color:#333;
 }
 
 .filter-box li.number-of-beds {
@@ -521,8 +540,8 @@ h1.heading {
 	color:#fff;
 	font-size:30px;
 	font-weight:normal;
-	font-family:"arvo", Georgia, "Times New Roman", Times, serif;
-	margin:0 0 20px 0;
+	font-family:'Arvo', Georgia, "Times New Roman", Times, serif;
+	margin:0;
 }
 	
 
@@ -636,7 +655,7 @@ dl.comments dd {
 
 .listing .address dd {
 	color:#f68d1f;
-	font-family:"arvo", Georgia, "Times New Roman", Times, serif;
+	font-family:'Arvo', Georgia, "Times New Roman", Times, serif;
 	font-size:16px;
 }
 
@@ -689,4 +708,8 @@ div#form {
 	margin: 0;
 	border-left:1px solid #e3e3e3;
 	border-right:1px solid #e3e3e3;
+}
+
+div.text-container {
+	padding:30px;
 }
