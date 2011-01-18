@@ -103,8 +103,8 @@ body {
 .head .networks {
 	clear:both;
 	float:right;
-	position:relative;
-	top:-10px;
+	width:500px;
+	border:1px solid #fff;
 }
 .share-fb, .share-twitter, .share-mail {
 	float:right;
@@ -316,6 +316,7 @@ div.page_intro h1 {
 	text-indent:-99999px;
 	overflow:hidden;
 	margin:0 auto;
+	border:0;
 }
 
 .home_box a.offer_button {
@@ -412,6 +413,8 @@ a.button:hover {
 	width: 20px;
 	margin-left: 180px;
 	float: left;
+	border:0!important;
+	width:auto !important;
 }
 .formbox fieldset #terms_and_conditions {
 	font-size: 8pt;
@@ -430,40 +433,41 @@ a.button:hover {
 .formbox fieldset:last-child input[type="button"]  {
 	margin: 0 auto;
 }
-.formbox fieldset.buttons input {
-	padding: 0;
-	width: 200px;
-	margin: 0 auto;
-}
+
 
 #new_accommodation li.commit input {
 	background:url(/images/sm_create_accomm_button.gif);
 	width:190px;
 	height:51px;
+	padding-top:51px;
 	text-indent:-99999px;
 	overflow:hidden;
 	border:0;
 	cursor:pointer;
+	display:block;
 }
 
 input.update {
 	background:url(/images/sm_update_accomm_button.gif);
-	width:190px;
+	width:190px!important;
 	height:51px;
 	text-indent:-99999px;
 	overflow:hidden;
 	border:0;
 	cursor:pointer;
+	border:0 !important;
 }
 
 #new_seeker li.commit input {
 	background:url(/images/sm_contact_host_button.gif) no-repeat;
 	width:190px;
 	height:51px;
+	padding-top:51px;
 	text-indent:-99999px;
 	overflow:hidden;
 	border:0;
 	cursor:pointer;
+	display:block;
 }
 
 p.inline-errors {
@@ -672,6 +676,7 @@ dl.comments dd {
 	background:url(/images/contact_host_button.gif) no-repeat;
 	width:291px;
 	height:51px;
+	padding-top:51px;
 	text-indent:-99999px;
 	overflow:hidden;
 	border:0;
