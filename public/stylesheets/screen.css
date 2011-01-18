@@ -725,7 +725,17 @@ div.text-container {
 }
 
 input.edit_button {
-	background-image:none;
-	text-indent:0;
-	padding:5px;
+	background-image:none!important;
+	text-indent:0!important;
+	padding:5px!important;
+}
+
+.share_wtitter a {
+	background:url(/images/tweet_button.gif) no-repeat;
+	width:55px;
+	height:21px;
+	margin-right:30px;
+	text-indent:-99999px;
+	display:block;
+	overflow:hidden;
 }
