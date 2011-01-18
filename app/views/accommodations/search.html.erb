@@ -72,7 +72,7 @@
 
     <% if login_signed_in? %>
     <fieldset style="float: right">
-	<%= button_to 'Edit', edit_accommodation_path(accommodation), :method => :get %>
+      <%= button_to 'Edit', edit_accommodation_path(accommodation), :method => :get, :class => 'edit_button' %>
     </fieldset>
     <% end %>
   </li>
