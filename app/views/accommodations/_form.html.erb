@@ -14,6 +14,8 @@
   <% end %>
 
   <%= form.inputs :name => "Where do you live?", :class => "inputs where-do-you-live" do %>
+
+    NB: your address will not be visible - users of this website will only see your suburb and area.
     <%= form.input :address1, :label => "Address line 1" %>
     <%= form.input :address2, :label => "Address line 2" %>
 	<%= form.input :suburb, :label => "Suburb" %>
@@ -24,13 +26,14 @@
   <% end %>
 
   <%= form.inputs :name => "Your Details", :class => "inputs your-contact-details" do %>
-    <%= form.input :name, :label => 'Name' %>
+
+    <%= form.input :name, :label => 'Name' %><p>NB: Only your name will be visible publicly - your other details remain private.</p>
     <%= form.input :phone_home, :label => 'Home Phone' %>
     <%= form.input :phone_mobile, :label => 'Mobile Phone' %>
     <%= form.input :other_phone, :label => 'Other Phone' %>
     <%= form.input :email, :label => 'Email' %>
     <%= form.input :email_confirmation, :required => true, :label => 'Email Confirmation' %>
-    <%= form.input :over_eighteen, :required=> true, :label => "I am over 18" %>
+    <%= form.input :over_eighteen, :required=> true, :label => "Please confirm that you are over 18" %>
   <% end %>
 
   <%= form.inputs :name => "Other Comments", :class => "inputs other-comments" do %>
@@ -43,7 +46,7 @@
       <li>I understand that GetUp! is not familiar with the laws of every State, and if I have any questions regarding the legal implications of the goods and/or services I am offering, I should seek legal advice in my State.</li>
       <li>I understand that GetUp! may, exclusively for the purpose of flood relief assistance, provide my personal details and contact information to third parties assisting with the flood relief campaign.
       <li>I hereby release GetUp! Limited and its directors, officers, employees, agents, affiliates and representatives from any liability arising from any acts or omissions of any person who contacts me through OzFloodHelp or any other means through GetUp!’s flood relief campaign.</li>
-      <li>I also agree to the <a href="/guidelines#terms_and_conditions" title="Terms &amp; Conditions">Terms of Use</a>.</li>
+      <li>I also agree to the <a href="/guidelines#terms_and_conditions" title="Terms &amp; Conditions" target="_blank">Terms of Use</a>.</li>
     </ul>
     <%= form.input(:terms_and_conditions_accepted, :required => true, :label => "I accept the above terms &amp; conditions.") %>
   <% end %>  
