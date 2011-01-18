@@ -6,8 +6,10 @@ class ApplicationController < ActionController::Base
   before_filter :redirect_to_ssl
   
   def redirect_to_ssl
-    return if Rails.env.development? || request.host=='test.host'
+    return if Rails.env.development? || request.host=='test.host' || request.host=='danger.endofinternet.net'
     return if request.ssl? && request.host == CANONICAL_HOST
     redirect_to url_for params.merge({:protocol => 'https://', :host => CANONICAL_HOST})
   end
 end
+
+
