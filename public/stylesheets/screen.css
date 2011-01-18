@@ -107,7 +107,7 @@ body {
 	top:-10px;
 }
 .share-fb, .share-twitter, .share-mail {
-	float:left;
+	float:right;
 }
 
 .head .networks img {
