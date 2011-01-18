@@ -3,13 +3,14 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title><%= content_for(:title) %></title>
+    <title><%= content_for(:title).blank? ? 'OzFloodHelp.org - Opening hearts and homes for Australians affected by the floods' : content_for(:title) %></title>
     <%= stylesheet_link_tag 'screen' %>
     <%= stylesheet_link_tag 'flash' %>
     <%= javascript_include_tag :defaults %>
     <%= javascript_include_tag 'flash' %>
     <%= csrf_meta_tag %>
     <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+    <meta name="description" content="OzFloodHelp.org connects Australians affected by flood with free temporary housing.">
 	<link href='<%= request.protocol %>fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
 </head>
 
