@@ -10,7 +10,7 @@ Feature: Manage Listings
 
     When I view the search page
     And I press "Edit"
-    And I follow "Delist me, please."
+    And I follow "Remove my offer from the website, please."
 
     When I view the search page
     Then I will be advised that there are no available places
