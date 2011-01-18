@@ -9,7 +9,7 @@ class NotificationMailer < ActionMailer::Base
     person_name = @accommodation.name || ''
     @salutation = person_name.split(/\s/).first
     if @salutation.nil?
-      subj = "[OzFloodHelp] Your accommodation has been listed"
+      subj = "Please confirm your offer of help"
       dest = "#{accommodation.email}"
     else
       subj = "[OzFloodHelp] #{@salutation.titleize}, your accommodation has been listed."
