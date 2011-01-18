@@ -14,8 +14,7 @@
   <% end %>
 
   <%= form.inputs :name => "Where do you live?", :class => "inputs where-do-you-live" do %>
-
-    NB: your address will not be visible - users of this website will only see your suburb and area.
+    <li><span>NB: your address will not be visible - users of this website will only see your suburb and area.</span></li>
     <%= form.input :address1, :label => "Address line 1" %>
     <%= form.input :address2, :label => "Address line 2" %>
 	<%= form.input :suburb, :label => "Suburb" %>
@@ -27,7 +26,8 @@
 
   <%= form.inputs :name => "Your Details", :class => "inputs your-contact-details" do %>
 
-    <%= form.input :name, :label => 'Name' %><p>NB: Only your name will be visible publicly - your other details remain private.</p>
+    <%= form.input :name, :label => 'Name' %><p>
+    <li><span>NB: your address will not be visible - users of this website will only see your suburb and area.</span></li>
     <%= form.input :phone_home, :label => 'Home Phone' %>
     <%= form.input :phone_mobile, :label => 'Mobile Phone' %>
     <%= form.input :other_phone, :label => 'Other Phone' %>
