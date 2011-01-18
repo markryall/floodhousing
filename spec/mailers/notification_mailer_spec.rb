@@ -10,7 +10,7 @@ describe NotificationMailer do
     end
     
     it "renders the headers" do
-      @mail.subject.should eq("[OzFloodHelp] Fred, your accommodation has been listed.")
+      @mail.subject.should eq("Fred, please confirm your offer of help.")
       @mail.to.should eq(["to@example.org"])
       @mail.from.should eq(["ozfloodhelp@getup.org.au"])
     end

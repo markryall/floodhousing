@@ -12,7 +12,7 @@ class NotificationMailer < ActionMailer::Base
       subj = "Please confirm your offer of help"
       dest = "#{accommodation.email}"
     else
-      subj = ""#{@salutation.titleize}, please confirm your offer of help."
+      subj = "#{@salutation.titleize}, please confirm your offer of help."
       dest = "#{accommodation.name} <#{accommodation.email}>"
     end
     mail(:to => dest, :subject => subj)

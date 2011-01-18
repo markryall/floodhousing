@@ -31,7 +31,7 @@ Feature: Listing Created Email
       | terms_and_conditions_accepted | yes                 |
      
     Then I will receive a confirmation email at "foo@foo.com"
-    And the subject will be "[OzFloodHelp] Shandra, your accommodation has been listed."
+    And the subject will be "Shandra, please confirm your offer of help."
     And the email will address me as "Shandra"
     And the email will contain a link I should click if I need to update my listing
 
