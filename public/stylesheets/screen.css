@@ -723,3 +723,9 @@ div#form {
 div.text-container {
 	padding:30px;
 }
+
+input.edit_button {
+	background-image:none;
+	text-indent:0;
+	padding:5px;
+}
