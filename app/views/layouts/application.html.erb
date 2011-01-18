@@ -11,7 +11,10 @@
       <link href='<%= request.protocol %>fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
       <%= javascript_include_tag :defaults %>
       <%= javascript_include_tag 'flash' %>
-      <script defer="yes" type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
+      <script type="text/javascript">
+        var addthis_config = {"data_track_clickback": true};
+        var addthis_share = {"templates": {"twitter": "Do you have a spare bed, room, or house to offer an Australian affected by the recent floods? {{url}} #qldfloods #vicfloods"}};
+      </script>
       <script defer="yes" type="text/javascript" src="https://s7.addthis.com/js/250/addthis_widget.js#username=ozfloodhelp"></script>
       <%= csrf_meta_tag %>
   </head>
@@ -35,9 +38,11 @@
         <div class="networks addthis_toolbox addthis_default_style"
           addthis:url="https://www.ozfloodhelp.org/"
           addthis:title="OzFloodHelp.org"
-          addthis:description="Connects Australians affected by flood with free temporary housing.">
+          addthis:description="People helping people affected by flood">
           <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
-          <a class="addthis_button_tweet"></a>
+          <a class="addthis_button_twitter"></a>
+          <a class="addthis_button_email"></a>
+          <span class="addthis_separator">|</span>
           <a class="addthis_counter addthis_pill_style"></a>
         </div>
       </div><!--head-->
