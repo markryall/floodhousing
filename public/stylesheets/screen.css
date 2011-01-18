@@ -107,7 +107,7 @@ body {
 	top:-10px;
 }
 .share-fb, .share-twitter, .share-mail {
-	float:left;
+	float:right;
 }
 
 .head .networks img {
@@ -437,8 +437,18 @@ a.button:hover {
 }
 
 #new_accommodation li.commit input {
-	background:url(/images/create_accomm_button.gif) no-repeat;
-	width:291px;
+	background:url(/images/sm_create_accomm_button.gif);
+	width:190px;
+	height:51px;
+	text-indent:-99999px;
+	overflow:hidden;
+	border:0;
+	cursor:pointer;
+}
+
+input.update {
+	background:url(/images/sm_update_accomm_button.gif);
+	width:190px;
 	height:51px;
 	text-indent:-99999px;
 	overflow:hidden;

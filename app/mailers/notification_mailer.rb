@@ -1,10 +1,10 @@
 class NotificationMailer < ActionMailer::Base
-  default :from => ENV['MAIL_SENDER'] || "Alex Cooper - GetUp! <info@getup.org.au>"
+  default :from => ENV['MAIL_SENDER'] || "OzFloodHelp <ozfloodhelp@getup.org.au>"
   helper :application
   
   def accommodation_listed(accommodation)
     headers["X-SMTPAPI"] = disable_opentrack_header
-    headers["Precedence"] = "bulk"
+#    headers["Precedence"] = "bulk"
     @accommodation = accommodation
     person_name = @accommodation.name || ''
     @salutation = person_name.split(/\s/).first
@@ -19,10 +19,11 @@ class NotificationMailer < ActionMailer::Base
   end
   
   def register_interest(accommodation, seeker)
+    headers["X-SMTPAPI"] = disable_opentrack_header
     @seeker = seeker
     @accommodation = accommodation
     mail(:to => "#{accommodation.name} <#{accommodation.email}>", 
-         :subject => "Flood housing - a message from someone looking for a place to stay")
+         :subject => "[OzFloodHelp] A message from someone looking for a place to stay")
   end
 
   private
