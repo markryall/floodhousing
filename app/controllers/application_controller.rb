@@ -7,8 +7,7 @@ class ApplicationController < ActionController::Base
   
   def redirect_to_ssl
     return unless Rails.env.production?
-    return if request.ssl? && request.host == CANONICAL_HOST
-    #redirect_to url_for params.merge({:protocol => 'https://', :host => CANONICAL_HOST})
+    return if request.host == CANONICAL_HOST
     redirect_to url_for params.merge({:host => CANONICAL_HOST})
   end
 end
