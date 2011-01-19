@@ -3,6 +3,10 @@ require 'machinist/active_record'
 Sham.email { Faker::Internet.email }
 
 Accommodation.blueprint do
+  name {'John D.'}
+  phone_mobile {'01 2345 6780'}
+  phone_home {'01 2345 6781'}
+  other_phone {'01 2345 6782'}
   address1 {'1/509 Factory'}
   address2 {'Street'}
   suburb  {'FactoryVille'}

@@ -61,11 +61,43 @@
       </dl>
     </div>
 
+    <% if login_signed_in? %>
+
+    <div class="takes">Confidential Details:</div>
+    
+    <div class="takes">      <dl>
+        <dt class="details-name">Name</dt>
+        <dd><%= accommodation.name%></dd>
+      </dl>
+
+      <dl>
+        <dt class="details-mobile-phone">Mobile Phone</dt>
+        <dd><%= accommodation.phone_mobile %></dd>
+      </dl>
+
+      <dl>
+        <dt class="details-home-phone">Home Phone</dt>
+        <dd><%= accommodation.phone_home %></dd>
+      </dl>
+
+      <dl>
+        <dt class="details-other-phone">Other Phone</dt>
+        <dd><%= accommodation.other_phone %></dd>
+      </dl>
+
+      <dl>
+        <dt class="details-address">Address</dt>
+        <dd><%= accommodation.address1 %> <%= accommodation.address2 %></dd>
+      </dl>
+    </div>
+    <% end %>
+
     <dl class="comments">
       <dt>Comments</dt>
       <dd><%= accommodation.comments%></dd>
     </dl>
 
+    
     <fieldset>
       <%= button_to 'Interested? Contact Host.', contact_host_accommodation_path(accommodation), :method => :get %>
     </fieldset>
