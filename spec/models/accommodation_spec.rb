@@ -53,6 +53,13 @@ describe Accommodation do
     accommodation.postcode = "asd"
     accommodation.should_not be_valid
   end
+
+  it 'should update the contact count' do
+    accommodation = Accommodation.make
+    expect {
+      accommodation.record_contact
+    }.to change { accommodation.contact_count }.by(1)
+  end
     
   describe 'complete_address' do
     it 'should have address1, address2, suburb as comma separated fields' do

@@ -21,6 +21,10 @@ class Accommodation < ActiveRecord::Base
              :conditions => query.to_sql_conditions, 
              :order => 'created_at DESC'
   end
+
+  def self.all_contact_count
+    sum(:contact_count)
+  end
   
   def complete_address
     address_formatter([address1, address2, suburb])
@@ -32,6 +36,13 @@ class Accommodation < ActiveRecord::Base
 
   def authorization_token
     OpenSSL::HMAC.hexdigest(OpenSSL::Digest::MD5.new, Rails.application.config.secret_token, id.to_s).to_i(16).to_s(36)
+  end
+
+  def record_contact
+    Accommodation.transaction do
+      reload
+      update_attributes!(:contact_count => contact_count + 1)
+    end
   end
 
   private

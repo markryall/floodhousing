@@ -4,10 +4,7 @@ class SeekersController < ApplicationController
     @seeker = Seeker.new(params[:seeker])
     if @seeker.valid?
       email_notification @accommodation, @seeker
-      Accommodation.transaction do
-        @accommodation.reload
-        @accommodation.update_attributes!(:contact_count => @accommodation.contact_count + 1)
-      end
+      @accommodation.record_contact
     end
 
     respond_to do |format|
