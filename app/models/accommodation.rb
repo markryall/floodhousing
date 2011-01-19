@@ -13,7 +13,7 @@ class Accommodation < ActiveRecord::Base
   validates :phone_home, :phone_mobile, :other_phone, :phone => true
   
   def self.per_page
-    50
+    20
   end
   
   def self.search(query, page)
