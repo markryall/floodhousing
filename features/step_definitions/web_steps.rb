@@ -217,3 +217,30 @@ end
 Then /^show me the page$/ do
   save_and_open_page
 end
+
+Then /^there should be google analytics in the page$/ do
+  
+analytics_code = <<EOF.split("\n")
+<!-- Google Analytics -->
+<script type="text/javascript">
+    var account = 'UA-20794602-1';
+     if(document.location.hostname == "localhost" || document.location.hostname == "qldfloods-preproduction.heroku.com"){
+      account = '';
+    }
+    var _gaq = _gaq || [];
+     _gaq.push(['_setAccount', account]);
+     _gaq.push(['_trackPageview']);
+
+     (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+</script>
+EOF
+  analytics_code.each do |line|
+   source.include?(line.strip).should be_true
+  end
+  
+end
+ 
