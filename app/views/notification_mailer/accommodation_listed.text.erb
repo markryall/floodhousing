@@ -2,17 +2,11 @@
 Dear <%= @salutation.titleize %>,
 
 <% end -%>
-Thank you for volunteering to provide someone with a home in their time
-of need.
-
-But, your offer has not been listed quite yet.
-
-Please confirm your listing by following this link and clicking 'post my
-offer on the website, please':
+Thank you for registering. Please follow this link and confirm your listing:
 
   <%= short_login_url(@accommodation) %>
 
-You will then begin to receive emails from people seeking accommodation.
+You will then start to receive emails with details of those seeking housing.
 It's up to you to call or email back to organise the stay.
 
 We have not vetted the people using our site to find housing, nor can
@@ -37,3 +31,8 @@ urge you not to accept an arrangement that doesn't feel right.  If you
 connect with an evacuee and you think for whatever reason it’s not a
 good match, tell them so.  If appropriate, you can encourage them to
 use our website or hotline to submit more requests.
+
+Thanks,
+The GetUp team.
+
+unsubscribe from these emails: <%= short_login_url(@accommodation) %>
