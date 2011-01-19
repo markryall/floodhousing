@@ -9,6 +9,7 @@ namespace :floods do
       puts "Total listings:\t\t#{total}"
       puts "Available listings:\t#{available}"
       puts "Unconfirmed listings:\t#{unconfirmed}"
+      puts "Total contacts:\t\t#{Accommodation.sum(:contact_count)}"
     end
     
   end
