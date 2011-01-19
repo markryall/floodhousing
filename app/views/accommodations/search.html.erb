@@ -6,12 +6,12 @@
     <%= select_tag "area", options_for_select(['All'] + areas, @area), options={:onchange => "this.form.submit()"} %>
   </div>
   <ul>
-    <li class="number-of-beds">I need <%= select_tag "number_of_beds", options_for_select([""] | number_of_beds, @number_of_beds), options={:onchange => "this.form.submit()"} %> beds</li>
-    <li class="pets"><%= check_box_tag 'pets', 'yes', @pets, options={:onchange => "this.form.submit()"} %>I have pets</li>
-    <li class="children"><%= check_box_tag 'children', 'yes', @children, options={:onchange => "this.form.submit()"} %>I have children</li>
-    <li class="smokers"><%= check_box_tag 'smokers', 'yes', @smokers, options={:onchange => "this.form.submit()"} %>I smoke</li>
-    <li class="disabled"><%= check_box_tag 'disabled', 'yes', @disabled, options={:onchange => "this.form.submit()"} %>I require disabled access</li>
-    <li class="storage"><%= check_box_tag 'storage', 'yes', @storage, options={:onchange => "this.form.submit()"} %>I require storage space</li>
+    <li class="number-of-beds">I need <%= select_tag "number_of_beds", options_for_select([""] | number_of_beds, @number_of_beds), options={:onclick => "this.form.submit()"} %> beds</li>
+    <li class="pets"><%= check_box_tag 'pets', 'yes', @pets, options={:onclick => "this.form.submit()"} %>I have pets</li>
+    <li class="children"><%= check_box_tag 'children', 'yes', @children, options={:onclick => "this.form.submit()"} %>I have children</li>
+    <li class="smokers"><%= check_box_tag 'smokers', 'yes', @smokers, options={:onclick => "this.form.submit()"} %>I smoke</li>
+    <li class="disabled"><%= check_box_tag 'disabled', 'yes', @disabled, options={:onclick => "this.form.submit()"} %>I require disabled access</li>
+    <li class="storage"><%= check_box_tag 'storage', 'yes', @storage, options={:onclick => "this.form.submit()"} %>I require storage space</li>
   </ul>
 </form>
 </div>
