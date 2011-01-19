@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110116040248) do
+ActiveRecord::Schema.define(:version => 20110119133004) do
 
   create_table "accommodations", :force => true do |t|
     t.string   "address1"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20110116040248) do
     t.boolean  "terms_and_conditions_accepted"
     t.boolean  "enabled",                       :default => true
     t.text     "comments"
+    t.integer  "contact_count",                 :default => 0
   end
 
   create_table "logins", :force => true do |t|
