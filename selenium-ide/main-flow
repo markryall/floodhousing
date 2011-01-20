@@ -109,17 +109,12 @@
 <tr>
 	<td>type</td>
 	<td>accommodation_email</td>
-	<td>strongcoffee@gmail.com</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>accommodation_email</td>
-	<td>duana.stanley@gmail.com</td>
+	<td>ozfloodhelptest@gmail.com</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>accommodation_email_confirmation</td>
-	<td>duana.stanley@gmail.com</td>
+	<td>ozfloodhelptest@gmail.com</td>
 </tr>
 <tr>
 	<td>click</td>
@@ -152,8 +147,8 @@
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>link=Kotak Masuk (790)</td>
+	<td>clickAndWait</td>
+	<td>//a/span</td>
 	<td></td>
 </tr>
 <tr>
@@ -163,22 +158,12 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=exact:http://qldfloods-preproduction.heroku.com/l/78/lj21vgj5hz4j80a8ff8wsn2q</td>
+	<td>link=glob:http://qldfloods-preproduction.heroku.com/*</td>
 	<td></td>
-</tr>
-<tr>
-	<td>selectFrame</td>
-	<td>relative=up</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForPopUp</td>
-	<td>_blank</td>
-	<td>30000</td>
 </tr>
 <tr>
 	<td>verifyTextPresent</td>
-	<td>not published.</td>
+	<td>published.</td>
 	<td></td>
 </tr>
 <tr>
@@ -197,13 +182,13 @@
 	<td>Tom Peter</td>
 </tr>
 <tr>
-	<td>assertText</td>
-	<td>//div/dl[1]/dd</td>
-	<td>Yes</td>
+	<td>clickAndWait</td>
+	<td>accommodation_submit</td>
+	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>accommodation_submit</td>
+	<td>link=Find a Place to Stay</td>
 	<td></td>
 </tr>
 <tr>
@@ -287,48 +272,28 @@
 	<td></td>
 </tr>
 <tr>
-	<td>selectFrame</td>
-	<td>c1thtdwgqssae6</td>
+	<td>open</td>
+	<td>http://mail.google.com</td>
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>link=exact:http://qldfloods-preproduction.heroku.com/l/78/lj21vgj5hz4j80a8ff8wsn2q</td>
-	<td></td>
-</tr>
-<tr>
-	<td>selectFrame</td>
-	<td>relative=up</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForPopUp</td>
-	<td>_blank</td>
-	<td>30000</td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Remove my listing please.</td>
+	<td>clickAndWait</td>
+	<td>//a/span</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyTextPresent</td>
-	<td>not published.</td>
+	<td>A message from someone seeking accommodation through ozfloodhelp.org</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Haskell</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Find a Place to Stay</td>
-	<td></td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>link=Find a Place to Stay</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyTextNotPresent</td>
-	<td>Mt Cotton, 9999, Northern Territory</td>
+	<td>nvp_a_tr</td>
 	<td></td>
 </tr>
 

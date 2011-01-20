@@ -26,9 +26,7 @@
   <li class= "<%= cycle("even", "odd") %> box-shadow">
     <dl class="address">
       <dt>Address</dt>
-      <dd><%= accommodation.restricted_address %>
-      <% if login_signed_in? %><span class='contact_count'>(<%= accommodation.contact_count %> contacts so far)</span><% end %>
-      </dd>
+      <dd><%= accommodation.restricted_address %></dd>
     </dl>
 
     <dl class="number-of-beds">
