@@ -37,9 +37,8 @@ open http://#{name}.heroku.com
 EOF
 
 puts <<EOF
-# edit config/environments/#{name}.rb
 # set the following environment variable
-export $HEROKU_TEST=#{name}
+export HEROKU_TEST=#{name}
 # for subsequent deployments
 . profile
 dtest
