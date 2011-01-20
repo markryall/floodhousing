@@ -122,6 +122,11 @@ describe AccommodationsController do
         session[:ok_to_edit] = @accommodation.id
       end
 
+      it 'should change to enabled' do
+        @accommodation.should_receive(:enabled=).with(true)
+        post :update, :id => @accommodation.id
+      end
+
       it 'should accept an authenticated request' do
         post :update, :id => @accommodation.id
         response.should be_success

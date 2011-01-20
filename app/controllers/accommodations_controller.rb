@@ -77,6 +77,7 @@ class AccommodationsController < ApplicationController
 
   def update
     @accommodation = Accommodation.find(params[:id])
+    @accommodation.enabled = true
 
     respond_to do |format|
       if @accommodation.update_attributes(params[:accommodation])
