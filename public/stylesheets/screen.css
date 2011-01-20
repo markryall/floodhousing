@@ -736,6 +736,14 @@ input.edit_button {
 	
 }
 
+.contact_count {
+	padding:5px!important;
+	font-size: 12px;
+	font-family: Helvetica,Arial,Sans-Serif;
+	font-weight: normal;
+	color: #666;
+}
+
 .share-twitter a.twitter-share-button {
 	background:url(/images/tweet_button.gif) no-repeat;
 	width:55px;
@@ -744,4 +752,20 @@ input.edit_button {
 	text-indent:-99999px;
 	display:block;
 	overflow:hidden;
+}
+
+.unconfirmed-table {
+	border: 1px solid gray;
+	margin: 10px;
+	color: #404040;
+}
+
+.unconfirmed-table td,th {
+	border: 1px solid gray;
+	padding: 5px;
+}
+
+.unconfirmed-table th {
+	font-weight: bold;
+	text-align: center;
 }

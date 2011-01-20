@@ -95,15 +95,12 @@
     <dl class="comments">
       <dt>Comments</dt>
       <dd><%= accommodation.comments%></dd>
-    </dl>
-
-    
+    </dl>   
     <fieldset>
       <%= button_to 'Interested? Contact Host.', contact_host_accommodation_path(accommodation), :method => :get %>
     </fieldset>
-
     <% if login_signed_in? %>
-    <fieldset style="float: right">
+	<fieldset style="float: right">
       <%= button_to 'Edit', edit_accommodation_path(accommodation), :method => :get, :class => 'edit_button' %>
     </fieldset>
     <% end %>
