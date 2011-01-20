@@ -20,6 +20,16 @@ describe AccommodationsController do
       Accommodation.stub(:new).and_return(@accommodation)
     end
 
+    it 'should initially set to unavailable' do
+      @accommodation.should_receive(:available=).with(false)
+      post :create, :accommodation => {}
+    end
+
+    it 'should initially set to disabled' do
+      @accommodation.should_receive(:enabled=).with(false)
+      post :create, :accommodation => {}
+    end
+
     context "on success" do
       it "should redirect to thank you" do
         post :create, :accommodation => {}

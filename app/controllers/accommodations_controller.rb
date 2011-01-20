@@ -53,6 +53,7 @@ class AccommodationsController < ApplicationController
   def create
     @accommodation = Accommodation.new(params[:accommodation])
     @accommodation.available = false
+    @accommodation.enabled = false
 
     respond_to do |format|
       if @accommodation.save
