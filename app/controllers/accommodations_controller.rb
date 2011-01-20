@@ -1,5 +1,6 @@
 class AccommodationsController < ApplicationController
-  before_filter :authorized?, :only => [:edit, :update, :list]
+  
+  before_filter :authorized?, :only => [:edit, :update, :list, :unconfirmed]
 
   def index
     redirect_to :action => :search
@@ -103,6 +104,19 @@ class AccommodationsController < ApplicationController
     end
   end
 
+  def unconfirmed
+    ids = params[:ids]
+    if ids
+      Accommodation.confirm(ids)
+      redirect_to :action => :unconfirmed
+    else
+      @accommodations = Accommodation.find_unconfirmed
+      respond_to do |format|
+        format.html
+      end
+    end
+  end
+  
   def list
     @accommodation = Accommodation.find(params[:id])
     @accommodation.update_attribute(:available, params[:available])
@@ -114,7 +128,7 @@ class AccommodationsController < ApplicationController
           end
       end
     end
-  end
+  end  
   
   def contact_host
     @seeker = Seeker.new
@@ -128,7 +142,7 @@ class AccommodationsController < ApplicationController
   
   private
   def authorized?
-    session[:ok_to_edit] == params[:id] || authenticate_login!
+    (session[:ok_to_edit]!=nil && session[:ok_to_edit] == params[:id]) || authenticate_login!
   end
 
 end
