@@ -1,9 +1,10 @@
 full details:
+  number_of_beds: "4"
+  takes_pets: true
+
   address1: "18 Anthony Drive"
   address2: "Near Glebe Place"
   suburb: "Brookfield"
-  number_of_people: "9"
-  takes_pets: true
   takes_family: true
   takes_children: true
   takes_smokers: true

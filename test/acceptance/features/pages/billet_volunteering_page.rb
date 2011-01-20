@@ -2,16 +2,16 @@ class BilletVolunteering
   include WatirHelper
 
   URLS = {
-    :local => "http://localhost/accommodations/new",
-    :production => "http://floodhousing.heroku.com/accommodations/new"
+    :local => "http://localhost:3000/accommodations/new",
+    :production => "http://#{ENV['HEROKU_TEST']}.heroku.com/accommodations/new"
   }
 
+  select_list(:number_of_beds, :id => "accommodation_number_of_beds")
+  checkbox(:takes_pets, :id => "accommodation_takes_pets")
 
   text_field(:address1, :id => "accommodation_address1")
   text_field(:address2, :id => "accommodation_address2")
   text_field(:suburb, :id => "accommodation_suburb")
-  text_field(:number_of_people, :id => "accommodation_number_of_people")
-  checkbox(:takes_pets, :id => "accommodation_takes_pets")
   checkbox(:takes_family, :id => "accommodation_takes_family")
   checkbox(:takes_children, :id => "accommodation_takes_children")
   checkbox(:takes_smokers, :id => "accommodation_takes_smokers")
@@ -36,5 +36,6 @@ class BilletVolunteering
     @details.each do |field, value|
       self.send("#{field}=", value)
     end
+    @details.email = ENV['TEST_EMAIL']
   end
 end

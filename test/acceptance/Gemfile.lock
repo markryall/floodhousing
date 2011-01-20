@@ -12,9 +12,14 @@ GEM
       json (~> 1.4.6)
       term-ansicolor (~> 1.0.5)
     diff-lcs (1.1.2)
+    ffi (0.6.3)
+      rake (>= 0.8.7)
     ffi (0.6.3-java)
+    gherkin (2.3.3)
+      json (~> 1.4.6)
     gherkin (2.3.3-java)
       json (~> 1.4.6)
+    json (1.4.6)
     json (1.4.6-java)
     json_pure (1.4.6)
     prawn (0.8.4)
@@ -24,6 +29,7 @@ GEM
     prawn-core (0.8.4)
     prawn-layout (0.8.4)
     prawn-security (0.8.4)
+    rake (0.8.7)
     rubyzip (0.9.4)
     selenium-webdriver (0.1.2)
       childprocess (~> 0.1.5)
@@ -36,6 +42,7 @@ GEM
 
 PLATFORMS
   java
+  ruby
 
 DEPENDENCIES
   celerity (= 0.8.7)
