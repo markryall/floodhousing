@@ -97,6 +97,8 @@ class AccommodationsController < ApplicationController
 
     if @accommodation && @accommodation.authorization_token == params[:token]
       session[:ok_to_edit] = @accommodation.id.to_s
+      @accommodation.available = true
+      @accommodation.save
       redirect_to :action => :edit
     else
       redirect_to :root

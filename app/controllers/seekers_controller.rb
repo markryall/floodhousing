@@ -2,7 +2,10 @@ class SeekersController < ApplicationController
   def create
     @accommodation = Accommodation.find(params[:accommodation])
     @seeker = Seeker.new(params[:seeker])
-    email_notification @accommodation, @seeker if @seeker.valid?
+    if @seeker.valid?
+      email_notification @accommodation, @seeker
+      @accommodation.record_contact
+    end
 
     respond_to do |format|
       if @seeker.valid?

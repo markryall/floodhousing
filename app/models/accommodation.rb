@@ -13,13 +13,17 @@ class Accommodation < ActiveRecord::Base
   validates :phone_home, :phone_mobile, :other_phone, :phone => true
   
   def self.per_page
-    50
+    20
   end
   
   def self.search(query, page)
     paginate :per_page => per_page, :page => page,
              :conditions => query.to_sql_conditions, 
              :order => 'created_at DESC'
+  end
+
+  def self.all_contact_count
+    sum(:contact_count)
   end
   
   def self.find_unconfirmed
@@ -43,6 +47,13 @@ class Accommodation < ActiveRecord::Base
 
   def authorization_token
     OpenSSL::HMAC.hexdigest(OpenSSL::Digest::MD5.new, Rails.application.config.secret_token, id.to_s).to_i(16).to_s(36)
+  end
+
+  def record_contact
+    Accommodation.transaction do
+      reload
+      update_attributes!(:contact_count => contact_count + 1)
+    end
   end
 
   private

@@ -21,15 +21,15 @@ Scenario: There is less than one page of available listings
   And I will not see a pagination control
  
 Scenario: There is exactly one page of available listings
-  Given that 50 listings have been posted
+  Given that 20 listings have been posted
   When I view the search page
-  Then I will see 50 listings
+  Then I will see 20 listings
   And I will not see a pagination control
  
 Scenario: There is more than one page of available listings
-  Given that 55 listings have been posted
+  Given that 25 listings have been posted
   When I view the search page
-  Then I will see 50 listings
+  Then I will see 20 listings
   And I will see a pagination control
   #TODO check pagination stuff
 
