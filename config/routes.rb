@@ -13,6 +13,8 @@ Flood::Application.routes.draw do
   resources :accommodations do
     collection do
       get :search
+      get :unconfirmed
+      post :unconfirmed
     end
     member do
       get :edit

@@ -22,6 +22,17 @@ class Accommodation < ActiveRecord::Base
              :order => 'created_at DESC'
   end
   
+  def self.find_unconfirmed
+    Accommodation.where('created_at = updated_at')    
+  end
+  
+  def self.confirm(ids)
+    ids.each do |id|
+      accommodation = Accommodation.find(id)
+      accommodation.update_attributes(:updated_at => Time.now)
+    end
+  end
+  
   def complete_address
     address_formatter([address1, address2, suburb])
   end

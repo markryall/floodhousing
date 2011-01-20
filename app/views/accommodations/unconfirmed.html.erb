@@ -1,0 +1,40 @@
+
+<script src="http://code.jquery.com/jquery-1.4.4.min.js" type="text/javascript"></script>
+
+<div class="filter-box" style="height:30px;">
+<h1 class="heading">Unconfirmed Entries</h1>
+</div>
+
+<% if @accommodations.size == 0 %>
+<div id="no-listings-message">No unconfirmed entries</div>
+<% end %>
+
+<div class="form-top"></div>
+<ul class="listing">
+	
+  <%= form_tag({:action => 'unconfirmed'}, {:method => 'post'}) %>
+	
+  <table class="unconfirmed-table">
+	<tr>
+		<th><input type="checkbox" onclick="status = this.checked; $('#accommodations :checkbox').each(function() { this.checked = status })"/></th>
+		<th>Name</th>
+		<th>email</th>
+		<th>Address</th>
+	</tr>
+
+  <% @accommodations.each do |accommodation| %>	
+	<tr id="accommodations">
+		<td><input type="checkbox" name="ids[]" value="<%=accommodation.id%>"/></td>
+		<td><%= accommodation.name %></td>
+		<td><%= accommodation.email %></td>
+		<td><%= accommodation.restricted_address %></td>
+	</tr>
+  <% end %>
+  </table>
+
+  <input type="submit" value="Confirm selected">
+
+  </form>
+
+</ul>
+<div class="form-bottom"></div>

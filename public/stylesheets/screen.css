@@ -745,3 +745,19 @@ input.edit_button {
 	display:block;
 	overflow:hidden;
 }
+
+.unconfirmed-table {
+	border: 1px solid gray;
+	margin: 10px;
+	color: #404040;
+}
+
+.unconfirmed-table td,th {
+	border: 1px solid gray;
+	padding: 5px;
+}
+
+.unconfirmed-table th {
+	font-weight: bold;
+	text-align: center;
+}
