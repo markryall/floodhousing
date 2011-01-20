@@ -5,29 +5,33 @@ def prompt_for prompt
   gets.chomp
 end
 
-def onward
+def confirm
   if ENV['SOFTLY_SOFTLY']
     print 'Continue? '
     exit 0 if gets.slice(0..0).downcase == 'n'
   end
 end
 
-def run command
-  puts command
-  system command
-  raise "command failed with status #{$?}" unless $? == 0
-  onward
+def run commands
+  commands.each do |command|
+    puts command
+    confirm
+    system command
+    raise "command failed with status #{$?}" unless $? == 0
+  end
 end
 
 name = ARGV.shift || prompt_for('heroku project name')
 
-run "heroku create #{name}"
-run "git remote add heroku-#{name} git@heroku.com:#{name}.git"
-run "heroku config:add BUNDLE_WITHOUT=\"development:test\" --app #{name}"
-run "heroku addons:add sendgrid:free --app #{name}"
-run "git push heroku-#{name} master"
-run "heroku rake db:migrate --app #{name}"
-run "open http://#{name}.heroku.com/"
+run <<EOF.lines
+heroku create #{name}
+heroku config:add BUNDLE_WITHOUT=\"development:test\" --app #{name}
+heroku addons:add sendgrid:free --app #{name}
+heroku addons:add releases:basic --app #{name}
+git push git@heroku.com:#{name}.git master
+heroku rake db:migrate --app #{name}
+open http://#{name}.heroku.com
+EOF
 
 puts <<EOF
 # set the following environment variable
