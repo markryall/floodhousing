@@ -26,7 +26,9 @@
   <li class= "<%= cycle("even", "odd") %> box-shadow">
     <dl class="address">
       <dt>Address</dt>
-      <dd><%= accommodation.restricted_address %></dd>
+      <dd><%= accommodation.restricted_address %>
+      <% if login_signed_in? %><span class='contact_count'>(<%= accommodation.contact_count %> contacts so far)</span><% end %>
+      </dd>
     </dl>
 
     <dl class="number-of-beds">
@@ -95,15 +97,12 @@
     <dl class="comments">
       <dt>Comments</dt>
       <dd><%= accommodation.comments%></dd>
-    </dl>
-
-    
+    </dl>   
     <fieldset>
       <%= button_to 'Interested? Contact Host.', contact_host_accommodation_path(accommodation), :method => :get %>
     </fieldset>
-
     <% if login_signed_in? %>
-    <fieldset style="float: right">
+	<fieldset style="float: right">
       <%= button_to 'Edit', edit_accommodation_path(accommodation), :method => :get, :class => 'edit_button' %>
     </fieldset>
     <% end %>

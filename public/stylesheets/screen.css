@@ -736,6 +736,14 @@ input.edit_button {
 	
 }
 
+.contact_count {
+	padding:5px!important;
+	font-size: 12px;
+	font-family: Helvetica,Arial,Sans-Serif;
+	font-weight: normal;
+	color: #666;
+}
+
 .share-twitter a.twitter-share-button {
 	background:url(/images/tweet_button.gif) no-repeat;
 	width:55px;
