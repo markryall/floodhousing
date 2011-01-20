@@ -26,14 +26,17 @@ name = ARGV.shift || prompt_for('heroku project name')
 run <<EOF.lines
 heroku create #{name}
 heroku config:add BUNDLE_WITHOUT=\"development:test\" --app #{name}
+heroku config:add RACK_ENV=#{name} --app #{name}
 heroku addons:add sendgrid:free --app #{name}
 heroku addons:add releases:basic --app #{name}
+cp config/environments/preproduction.rb config/environments/#{name}.rb
 git push git@heroku.com:#{name}.git master
 heroku rake db:migrate --app #{name}
 open http://#{name}.heroku.com
 EOF
 
 puts <<EOF
+# edit config/environments/#{name}.rb
 # set the following environment variable
 export $HEROKU_TEST=#{name}
 # for subsequent deployments
