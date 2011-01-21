@@ -25,7 +25,8 @@ Feature: Manage Listings
     And I should see "01 2345 6780" within "dt.details-mobile-phone + dd"           
     And I should see "01 2345 6781" within "dt.details-home-phone + dd"       
     And I should see "01 2345 6782" within "dt.details-other-phone + dd" 
-    And I should see "1/509 Factory Street" within "dt.details-address + dd" 
+    And I should see "1/509 Factory Street" within "dt.details-address + dd"
+    And I should see "contacts" 
 
   Scenario: As a call centre admin, I should be able to edit a listing
     Given that a listing has been posted

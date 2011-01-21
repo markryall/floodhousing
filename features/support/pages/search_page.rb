@@ -24,4 +24,9 @@ class SearchPage < Page
   def select_area area
     driver.select area, :from => "area"
   end
+  
+  def has_contact_count
+    page.has_content?('contacts')
+  end
+    
 end
