@@ -25,15 +25,17 @@ class Accommodation < ActiveRecord::Base
   def self.all_contact_count
     sum(:contact_count)
   end
-  
+
   def self.find_unconfirmed
-    Accommodation.find(:all, :conditions => ['enabled = ?', false])
+    Accommodation.where(:enabled => false)
   end
-  
+
   def self.confirm(ids)
     ids.each do |id|
       accommodation = Accommodation.find(id)
-      accommodation.update_attributes(:updated_at => Time.now)
+      accommodation.enabled = true
+      accommodation.available = true
+      accommodation.save
     end
   end
   
