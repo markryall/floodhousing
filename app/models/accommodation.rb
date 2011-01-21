@@ -27,7 +27,7 @@ class Accommodation < ActiveRecord::Base
   end
   
   def self.find_unconfirmed
-    Accommodation.where('created_at = updated_at')    
+    Accommodation.find(:all, :conditions => ['enabled = ?', false])
   end
   
   def self.confirm(ids)
