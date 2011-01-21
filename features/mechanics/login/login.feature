@@ -12,6 +12,7 @@ Feature: Login
          | email         | password |
          | admin@foo.com | secret!  |
       Then the application will show that I am logged in as 'admin'
+      And the contact count is displayed
 
   Scenario: Incorrect Password
       Given there is an Admin user
