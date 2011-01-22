@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://www.google.com/" />
+<title>login-to-gmail</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">login-to-gmail</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/accounts/ServiceLogin?service=mail&amp;passive=true&amp;rm=false&amp;continue=https%3A%2F%2Fmail.google.com%2Fmail%2F%3Fui%3Dhtml%26zy%3Dl&amp;bsv=1eic6yu9oa4y3&amp;ss=1&amp;scc=1&amp;ltmpl=default&amp;ltmplcache=2&amp;hl=en</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>Email</td>
+	<td>ozfloodhelptest</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>Passwd</td>
+	<td>ozfloodhelptest</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>signIn</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

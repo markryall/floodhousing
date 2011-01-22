@@ -157,18 +157,13 @@
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
+	<td>clickAndWait</td>
 	<td>link=glob:http://qldfloods-preproduction.heroku.com/*</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyTextPresent</td>
 	<td>published.</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Publish my listing please.</td>
 	<td></td>
 </tr>
 <tr>
