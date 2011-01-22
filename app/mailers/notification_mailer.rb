@@ -25,6 +25,13 @@ class NotificationMailer < ActionMailer::Base
     mail(:to => "#{accommodation.name} <#{accommodation.email}>", 
          :subject => "A message from someone looking for a place to stay")
   end
+  
+  def confirmation_reminder(accommodation)
+    headers["X-SMTPAPI"] = disable_opentrack_header
+    @accommodation = accommodation
+    mail(:to => "#{accommodation.name} <#{accommodation.email}>", 
+         :subject => "Reminder - your listing is not yet published?")
+  end
 
   private
 
