@@ -10,10 +10,10 @@ loop do
     contacts = $1.to_i if line =~ /Total contacts:\t\t(\d+)/
   end
   unavailable = total - (available+unconfirmed)
-  if i%5==0 do
+  if i%5 == 0 
     puts "timestamp, human time, unconfirmed,available,unavailable,contacts"
   end
   puts "#{Time.new.to_i},#{unconfirmed},#{available},#{unavailable},#{contacts}"
   sleep 120
-  i++
+  i = i+1
 end
