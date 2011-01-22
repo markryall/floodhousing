@@ -16,7 +16,7 @@
 	
   <table class="unconfirmed-table">
 	<tr>
-		<th></th>
+		<th><input  type="checkbox" onclick="status = this.checked; $('.unconfirmed_checkbox').each(function() { this.checked = status })"/></th>
 		<th>Name</th>
 		<th>Email</th>
 		<th>Mobile</th>
@@ -34,7 +34,7 @@
 		<td><%= accommodation.phone_mobile %></td>
 		<td><%= accommodation.phone_home %></td>
 		<td><%= accommodation.restricted_address %></td>
-		<td><%= accommodation.updated_at.strftime('%d/%m/%y %H:%M') %></td>
+		<td><%= accommodation.updated_at.strftime('%d/%m/%y %H:%') %></td>
 	</tr>
   <% end %>
   </table>
