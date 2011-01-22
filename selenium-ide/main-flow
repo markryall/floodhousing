@@ -291,6 +291,26 @@
 	<td>nvp_a_tr</td>
 	<td></td>
 </tr>
+<tr>
+	<td>open</td>
+	<td>http://mail.google.com</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>click on email to delist</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Find a Place to Stay</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>Mt Cotton, 9999, Northern Territory</td>
+	<td></td>
+</tr>
 
 </tbody></table>
 </body>
