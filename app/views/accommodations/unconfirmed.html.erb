@@ -14,15 +14,16 @@
 	
   <%= form_tag({:action => 'unconfirmed'}, {:method => 'post'}) %>
 	
+	
   <table class="unconfirmed-table">
 	<tr>
-		<th><input  type="checkbox" onclick="status = this.checked; $('.unconfirmed_checkbox').each(function() { this.checked = status })"/></th>
+		<th></th>
 		<th>Name</th>
 		<th>Email</th>
 		<th>Mobile</th>
 		<th>Home</th>
 		<th>Address</th>
-		<th>Updated</th>
+		<th>Created</th>
 		
 	</tr>
 
@@ -34,7 +35,7 @@
 		<td><%= accommodation.phone_mobile %></td>
 		<td><%= accommodation.phone_home %></td>
 		<td><%= accommodation.restricted_address %></td>
-		<td><%= accommodation.updated_at.strftime('%d/%m/%y %H:%') %></td>
+		<td><%= accommodation.created_at.strftime('%d/%m/%y %H:%M') %></td>
 	</tr>
   <% end %>
   </table>
