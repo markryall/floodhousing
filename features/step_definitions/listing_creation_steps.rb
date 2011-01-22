@@ -1,3 +1,4 @@
+
 When /^I fill in details about the accommodation I can offer$/ do |table|
   listing = table.rows_hash
   goto(CreateListingPage) do |page|
@@ -26,7 +27,6 @@ Given /^that listing has already been taken$/ do
   @accommodation.save!
 end
 
-
 Given /^that (\d+) listings have been posted$/ do |number_of_listings|
   number_of_listings.to_i.times {Accommodation.make}
 end
@@ -38,11 +38,7 @@ Given /^a listing at "([^"]*)" was posted ([^"]*)$/ do |address, time|
   end
 end
 
-Given /^a listing "([^"]*)" for (\d+) beds was posted$/ do |listing, number_of_beds|
-  @listings = { listing => Accommodation.make(:number_of_beds => number_of_beds) }
-end
-
-Given /^a listing "([^"]*)" for area "([^"]*)" was posted$/ do |listing, area|
-  @listings = { listing => Accommodation.make(:area => area) }
+Given /^a listing for (\d+) beds in "([^"]*)" was posted$/ do |beds, area|
+  Accommodation.make(:number_of_beds => beds, :area => area).save!
 end
 
