@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 
+i=0
 loop do
   total, available, unconfirmed, contacts = 0, 0, 0, 0
   `heroku rake floods:report:listings --app ozfloodhelp`.each_line do |line|
@@ -9,6 +10,10 @@ loop do
     contacts = $1.to_i if line =~ /Total contacts:\t\t(\d+)/
   end
   unavailable = total - (available+unconfirmed)
+  if i%5==0 do
+    puts "timestamp, human time, unconfirmed,available,unavailable,contacts"
+  end
   puts "#{Time.new.to_i},#{unconfirmed},#{available},#{unavailable},#{contacts}"
-  sleep 60
+  sleep 120
+  i++
 end
