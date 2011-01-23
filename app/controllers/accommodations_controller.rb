@@ -93,7 +93,7 @@ class AccommodationsController < ApplicationController
     end
   end
 
-  def login
+  def confirm_my_listing
     @accommodation = Accommodation.find(params[:id])
 
     if @accommodation && @accommodation.authorization_token == params[:token]

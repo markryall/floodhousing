@@ -3,7 +3,7 @@ Flood::Application.routes.draw do
 
   devise_for :logins
 
-  match "l/:id/:token" => "accommodations#login"
+  match "l/:id/:token" => "accommodations#confirm_my_listing"
   
   match "faq" => "home#faq"
   match "guidelines" => "home#guidelines"
@@ -18,7 +18,7 @@ Flood::Application.routes.draw do
     end
     member do
       get :edit
-      get :login
+      get :confirm_my_listing
       get :contact_host
       put :list
     end

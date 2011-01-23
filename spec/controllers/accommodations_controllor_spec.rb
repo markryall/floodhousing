@@ -51,13 +51,13 @@ describe AccommodationsController do
     end
   end
 
-  describe :login do
+  describe :confirm_my_listing do
     context 'with a valid accommodation' do
       it 'should confirm the listing as available and redirect to edit page' do
         token = 'abc123'
 
         @accommodation.should_receive(:authorization_token).and_return token
-        get :login, :id => @accommodation.id, :token => token
+        get :confirm_my_listing, :id => @accommodation.id, :token => token
 
         response.should redirect_to :action => :edit, :confirmed => true
         session[:ok_to_edit].should == @accommodation.id.to_s
@@ -65,7 +65,7 @@ describe AccommodationsController do
 
       it 'should redirect an invalid token to the index page' do
         @accommodation.should_receive(:authorization_token).and_return nil
-        get :login, :id => @accommodation.id, :token => 'abc123'
+        get :confirm_my_listing, :id => @accommodation.id, :token => 'abc123'
 
         response.should redirect_to :root
         session[:ok_to_edit].should == nil
@@ -75,7 +75,7 @@ describe AccommodationsController do
 
     it 'should redirect an invalid ID to the index page' do
       Accommodation.should_receive(:find).with(0).and_return nil
-      get :login, :id => 0
+      get :confirm_my_listing, :id => 0
 
       response.should redirect_to :root
       session[:ok_to_edit].should == nil

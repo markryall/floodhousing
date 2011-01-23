@@ -4,7 +4,7 @@ Dear <%= @salutation.titleize %>,
 <% end -%>
 Thank you for registering. Please follow this link and confirm your listing:
 
-  <%= short_login_url(@accommodation) %>
+  <%= short_confirmation_url(@accommodation) %>
 
 You will then start to receive emails with details of those seeking housing.
 It's up to you to call or email back to organise the stay.
@@ -35,4 +35,4 @@ use our website or hotline to submit more requests.
 Thanks,
 The GetUp team.
 
-unsubscribe from these emails: <%= short_login_url(@accommodation) %>
+unsubscribe from these emails: <%= short_confirmation_url(@accommodation) %>

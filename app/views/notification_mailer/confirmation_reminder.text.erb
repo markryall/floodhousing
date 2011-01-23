@@ -5,7 +5,7 @@ Dear <%= @salutation.titleize %>,
 Reminder - your listing is still not published.  Please click on the following
 link to have it listed!
 
-  <%= short_login_url(@accommodation) %>
+  <%= short_confirmation_url(@accommodation) %>
 
 You will then start to receive emails with details of those seeking housing.
 It's up to you to call or email back to organise the stay.
@@ -36,4 +36,4 @@ use our website or hotline to submit more requests.
 Thanks,
 The GetUp team.
 
-unsubscribe from these emails: <%= short_login_url(@accommodation) %>
+unsubscribe from these emails: <%= short_confirmation_url(@accommodation) %>
