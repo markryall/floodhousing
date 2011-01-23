@@ -1,9 +1,30 @@
 <div id="availability">
+
   <% if @accommodation.available %>
     <h2 class="go">published.</h2>
-    <%= link_to 'Remove my listing please.', {:action => :list, :available => false}, :class => 'list', :method => :put, :remote => true %>
+    <%= link_to 'Remove my listing please.', {:action => :list,
+    :available => false}, :class => 'list', :method => :put, 
+    :remote => true, :id => 'change-availability-link' %>
+
+
   <% else %>
+
     <h2 class="stop">not published.</h2>
-    <%= link_to 'Publish my listing please.', {:action => :list, :available => true}, :class => 'list', :method => :put, :remote => true %>
+    <%= link_to 'Publish my listing please.', {:action => :list,
+    :available => true}, :class => 'list', :method => :put, 
+    :remote => true, :id => 'change-availability-link' %>
+
   <% end %>
 </div>
+
+
+<script>
+$('change-availability-link').observe('click', 
+function(event){
+  var newStatus =  '<%= !@accommodation.is_available? %>';
+  _gaq._getAsyncTracker('pageTracker')._trackEvent(
+  'change availability', 
+  newStatus, 
+  '<%= @accommodation.id %>');});
+</script>
+ 

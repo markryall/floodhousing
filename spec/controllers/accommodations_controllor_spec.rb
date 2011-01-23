@@ -53,13 +53,13 @@ describe AccommodationsController do
 
   describe :login do
     context 'with a valid accommodation' do
-      it 'should redirect a valid token to the edit page' do
+      it 'should confirm the listing as available and redirect to edit page' do
         token = 'abc123'
 
         @accommodation.should_receive(:authorization_token).and_return token
         get :login, :id => @accommodation.id, :token => token
 
-        response.should redirect_to :action => :edit
+        response.should redirect_to :action => :edit, :confirmed => true
         session[:ok_to_edit].should == @accommodation.id.to_s
       end
 

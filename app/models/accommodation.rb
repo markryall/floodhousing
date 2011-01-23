@@ -58,6 +58,10 @@ class Accommodation < ActiveRecord::Base
     end
   end
 
+  def is_available?
+    available == true #active record sets this to '' if not available
+  end
+  
   private
   def address_formatter(field_arr)
     field_arr.collect { |x|

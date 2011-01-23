@@ -101,7 +101,7 @@ class AccommodationsController < ApplicationController
       @accommodation.available = true
       @accommodation.enabled = true
       @accommodation.save
-      redirect_to :action => :edit
+      redirect_to :action => :edit, :confirmed => true
     else
       redirect_to :root
     end

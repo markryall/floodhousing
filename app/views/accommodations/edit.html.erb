@@ -21,3 +21,15 @@
   </div><!--.text-container-->
 </div><!--#form-->
 <div class="form-bottom"></div>
+
+
+<% if params[:confirmed] %>
+<script>
+document.observe("dom:loaded", 
+ function() {
+  _gaq._getAsyncTracker('pageTracker')._trackEvent(
+    'change availability', 
+    '<%= !@accommodation.is_available? %>',
+    '<%= @accommodation.id %>');});
+</script>
+<% end %>
