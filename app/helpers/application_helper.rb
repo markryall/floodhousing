@@ -3,8 +3,11 @@ module ApplicationHelper
     url_for :controller => :accommodations, :action => :confirm_my_listing, :id => accommodation.id, :token => accommodation.authorization_token
   end
 
-  def short_confirmation_url(accommodation)
-    url_for :only_path => false, :controller => :accommodations, :action => :confirm_my_listing, :id => accommodation.id, :token => accommodation.authorization_token
+  def short_confirmation_url(accommodation, params={})
+    stuff= {:only_path => false, :controller => :accommodations, :action => :confirm_my_listing, :id => accommodation.id, 
+    :token => accommodation.authorization_token}
+    stuff.update(params)
+    url_for stuff
   end
 
   def display_flash_messages

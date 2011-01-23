@@ -20,5 +20,9 @@ describe ApplicationHelper do
     it 'should generate a path with the authorization key' do
       short_confirmation_url(@acc).should == "http://localhost/l/#{@acc.id}/#{@acc.authorization_token}"
     end
+    
+    it 'should generate a path for the confirmation reminder email' do
+      short_confirmation_url(@acc, :reminder=>true).should == "http://localhost/l/#{@acc.id}/#{@acc.authorization_token}?reminder=true"
+    end
   end
 end
