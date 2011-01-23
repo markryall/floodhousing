@@ -101,7 +101,9 @@ class AccommodationsController < ApplicationController
       @accommodation.available = true
       @accommodation.enabled = true
       @accommodation.save
-      redirect_to :action => :edit, :confirmed => true
+      event = "offer confirmation"
+      event = "offer confirmation via reminder" if params[:reminder]
+      redirect_to :action => :edit, :confirmed => true, :event => event
     else
       redirect_to :root
     end

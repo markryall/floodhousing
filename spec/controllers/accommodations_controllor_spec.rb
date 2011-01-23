@@ -52,20 +52,26 @@ describe AccommodationsController do
   end
 
   describe :confirm_my_listing do
+
+    
     context 'with a valid accommodation' do
       it 'should confirm the listing as available and redirect to edit page' do
-        token = 'abc123'
-
-        @accommodation.should_receive(:authorization_token).and_return token
-        get :confirm_my_listing, :id => @accommodation.id, :token => token
-
-        response.should redirect_to :action => :edit, :confirmed => true
+        @accommodation.should_receive(:authorization_token).and_return "abc123"
+        get :confirm_my_listing, :id => @accommodation.id, :token => "abc123"
+        response.should redirect_to :action => :edit, :confirmed => true, :event => "offer confirmation"  
+        session[:ok_to_edit].should == @accommodation.id.to_s      
+      end
+      
+      it 'should include event reflecting reminder email if query parameter from reminder email is set' do
+        @accommodation.should_receive(:authorization_token).and_return "abc123"
+        get :confirm_my_listing, :id => @accommodation.id, :token => "abc123", :reminder => true
+        response.should redirect_to :action => :edit, :confirmed => true, :event => "offer confirmation via reminder"  
         session[:ok_to_edit].should == @accommodation.id.to_s
       end
 
       it 'should redirect an invalid token to the index page' do
         @accommodation.should_receive(:authorization_token).and_return nil
-        get :confirm_my_listing, :id => @accommodation.id, :token => 'abc123'
+        get :confirm_my_listing, :id => @accommodation.id, :token => 'abc123' 
 
         response.should redirect_to :root
         session[:ok_to_edit].should == nil
