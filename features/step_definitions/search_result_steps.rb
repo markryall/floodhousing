@@ -26,7 +26,7 @@ Then /^I will see the listings in the following order$/ do |table|
   expected_order = table.raw.flatten
   
   actual_order = []
-  on(SearchPage) do | page |
+  on(SearchPage) do |page|
     page.listings.each do |listing|
       actual_order << listing.find(".address dd").text
     end
@@ -35,18 +35,27 @@ Then /^I will see the listings in the following order$/ do |table|
   actual_order.should eql expected_order
 end
 
-When /^I filter by (\d+) beds$/ do | number_of_beds |
+When /^I filter by (\d+) beds$/ do |number_of_beds|
   on(SearchPage) do | page |
     page.select_number_of_beds number_of_beds
   end
 end
 
-When /^I filter by area "([^"]*)"$/ do | area |
+When /^I filter by area "([^"]*)"$/ do |area|
   on(SearchPage) do | page |
     page.select_area area
   end
 end
 
-Then /^the listing "([^"]*)" will be returned$/ do |listing|
-  @listings.has_key?(listing).should be_true
+Then /^only a listing for (\d+) beds in "([^"]*)" will be returned$/ do |beds, area|
+  on(SearchPage) do |page|
+    listings = page.listings
+    listings.should have(1).listing
+
+    listing = listings.first
+    listing.find(".number-of-beds dd").text.should eql(beds)
+    listing.find(".address dd").text.should include(area)
+  end
+
 end
+
