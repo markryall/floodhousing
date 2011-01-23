@@ -1,5 +1,36 @@
 #!/usr/bin/env ruby
 
+class CFNotifier
+  def initialize
+    @subdomain = ENV['CF_SUBDOMAIN']
+    @room = ENV['CF_ROOM']
+    @key = ENV['CF_KEY']
+  end
+
+  def say content
+    return unless valid?
+    curl "#{@key}:X", message(content)
+  end
+private
+  def valid?
+    @subdomain and @room and @key
+  end
+
+  def message content
+    "{\"message\":{\"body\":\"#{content}\"}}"
+  end
+
+  def curl creds, content
+    run "curl -u #{creds} -H 'Content-Type: application/json' -d '#{content}' https://#{@subdomain}.campfirenow.com/room/#{@room}/speak.json"
+  end
+
+  def run command
+    $stderr.puts command
+    system command
+  end
+end
+
+notifier = CFNotifier.new
 i=0
 loop do
   total, available, unconfirmed, contacts = 0, 0, 0, 0
@@ -10,10 +41,11 @@ loop do
     contacts = $1.to_i if line =~ /Total contacts:\t\t(\d+)/
   end
   unavailable = total - (available+unconfirmed)
-  if i%5 == 0 
-    puts "timestamp, human time, unconfirmed,available,unavailable,contacts"
+  if i%10 == 0 
+    i = 0
+    notifier.say "Total listings #{total}: #{unconfirmed} inactive, #{available} available and #{unavailable} unavailable - #{contacts} contacs"
   end
   puts "#{Time.new.to_i},#{unconfirmed},#{available},#{unavailable},#{contacts}"
   sleep 60
-  i = i+1
+  i += 1
 end
