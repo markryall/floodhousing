@@ -2,30 +2,23 @@
 Dear <%= @salutation.titleize %>,
 
 <% end -%>
-Reminder - your listing is still not published.  Please click on the following
-link to have it listed!
+You recently submitted an offer of accommodation through our website.  We noticed 
+that you have not yet confirmed your offer and therefore your offer is not yet public.
 
-  <%= short_confirmation_url(@accommodation) %>
+You should have received a prior email asking to confirm your offer. If you did
+not receive this email, or the process of confirmation was unclear, please let us
+know so we can improve this site for the future!  Just reply to this email address.
+
+If you would like to confirm your offer, please click on the link below:
+
+  <%= short_confirmation_url(@accommodation, :reminder=>true) %>
 
 You will then start to receive emails with details of those seeking housing.
-It's up to you to call or email back to organise the stay.
 
-We have not vetted the people using our site to find housing, nor can
-we vouch for them.  It's critical that you speak with them to
-determine whether it’s a good match and decide whether you feel
-comfortable housing them.
+Please visit our FAQ and Guidelines for information to assist you with this process.    
 
-Questions you should ask:
-
- * Who are they bringing?  
- * How long do they hope to stay?  
- * What are their expectations from you?  
- * What is their background? 
- * Who are they?  
- * Are they smokers? 
- * Do they have any particular allergies?  
- * Do they need disabled or wheelchair access?  
- * What do they think they might do when you can no longer house them?
+http://www.ozfloodhelp.org.au/faq
+http://www.ozfloodhelp.org.au/guidelines
 
 Your generosity in offering your home is commendable.  But we strongly
 urge you not to accept an arrangement that doesn't feel right.  If you

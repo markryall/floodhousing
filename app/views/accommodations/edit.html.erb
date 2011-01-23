@@ -28,7 +28,7 @@
 document.observe("dom:loaded", 
  function() {
   _gaq._getAsyncTracker('pageTracker')._trackEvent(
-    'change availability', 
+    '<%= params[:event]%>', 
     '<%= !@accommodation.is_available? %>',
     '<%= @accommodation.id %>');});
 </script>
