@@ -20,8 +20,8 @@ loop do
     notifier.message <<EOF
 #{total} listings:
   #{unconfirmed} inactive (#{unconfirmed*100/total}%)
-  #{available} available (#{available*100/total})
-  #{unavailable} unavailable (#{unavailable*100/total})
+  #{available} available (#{available*100/total}%)
+  #{unavailable} unavailable (#{unavailable*100/total}%)
 #{contacts} contacts
 EOF
   end
