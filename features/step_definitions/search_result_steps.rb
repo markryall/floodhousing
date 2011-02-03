@@ -49,6 +49,7 @@ end
 
 Then /^only a listing for (\d+) beds in "([^"]*)" will be returned$/ do |beds, area|
   on(SearchPage) do |page|
+    sleep 5
     listings = page.listings
     listings.should have(1).listing
 
