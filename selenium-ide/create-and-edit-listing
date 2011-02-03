@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>create listing</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">create listing</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Offer Your Help</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>accommodation_number_of_beds</td>
+	<td>label=1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>accommodation_takes_pets</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>accommodation_takes_pets_comment</td>
+	<td>they must get along with dogs</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>accommodation_takes_children</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>accommodation_takes_smokers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>accommodation_takes_disabled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>accommodation_takes_storage</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>accommodation_takes_storage_comment</td>
+	<td>plenty of room in attic</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>accommodation_address1</td>
+	<td>4 strange st</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>accommodation_suburb</td>
+	<td>Mt Cotton</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>accommodation_address1</td>
+	<td>16 bohemia st</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>accommodation_address1</td>
+	<td>21/23 Mock St</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>accommodation_postcode</td>
+	<td>9999</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>accommodation_area</td>
+	<td>label=Northern Territory</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>accommodation_name</td>
+	<td>Tom Wilson</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>accommodation_phone_home</td>
+	<td>9888 2332</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>accommodation_phone_mobile</td>
+	<td>0421 223 232</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>accommodation_email</td>
+	<td>ozfloodhelptesting@gmail.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>accommodation_email_confirmation</td>
+	<td>ozfloodhelptesting@gmail.com</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>accommodation_over_eighteen</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>accommodation_comments</td>
+	<td>Come one, come all!</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>accommodation_terms_and_conditions_accepted</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>accommodation_submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Thanks - one more step!</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>http://mail.google.com</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Thank you for registering. Please follow this link and confirm your listing:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=glob:http://qldfloods-preproduction.heroku.com/*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>published.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='availability']/h2</td>
+	<td>published.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>accommodation_name</td>
+	<td>Tom Peter</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>accommodation_submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Find a Place to Stay</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div/dl[2]/dd</td>
+	<td>Yes (they must get along with dogs)</td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Mt Cotton, 9999, Northern Territory</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>
