@@ -47,5 +47,5 @@ Flood::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
   
-  config.action_mailer.default_url_options = {:host => ENV['DEFAULT_HOST']}
+  config.action_mailer.default_url_options = {:host =>ENV['HOST_FOR_EMAIL_LINKS']}
 end
