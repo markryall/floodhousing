@@ -4,8 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
       <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
-      <meta name="description" content="Connects Australians affected by flood with free temporary housing.">
-      <title><%= content_for(:title).blank? ? 'OzFloodHelp.org - Opening hearts and homes for Australians affected by the floods' : content_for(:title) %></title>
+      <meta name="description" content="Connects Australians affected by natural disasters with free temporary housing.">
+      <title><%= content_for(:title).blank? ? 'OzDisasterHelp.org - Opening hearts and homes for Australians affected by the natural disasters' : content_for(:title) %></title>
       <%= stylesheet_link_tag 'screen' %>
       <%= stylesheet_link_tag 'flash' %>
       <link href='<%= request.protocol %>fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
@@ -14,7 +14,7 @@
       <link rel="image_src" href="<%= "#{request.protocol}#{request.host_with_port}/images/logo.gif" %>" />
       <script type="text/javascript">
         var addthis_config = {"data_track_clickback": true};
-        var addthis_share = {"templates": {"twitter": "Do you have a spare bed, room, or house to offer an Australian affected by the recent floods? {{url}} #qldfloods #vicfloods"}};
+var addthis_share = {"templates": {"twitter": "Do you have a spare bed, room, or house to offer an Australian affected by the recent disasters? {{url}} <%= ENV['TWITTER_HASHTAGS']%>"}};
       </script>
       <script defer="yes" type="text/javascript" src="https://s7.addthis.com/js/250/addthis_widget.js#username=ozfloodhelp"></script>
       <%= csrf_meta_tag %>
@@ -24,7 +24,7 @@
     <div class="container">
       <div class="head">
         <div class="logos">
-            <a href="/"><img src="/images/logo.gif" alt="OzFloodHelp.org" height="112" width="332" /></a>
+            <a href="/"><img src="/images/logo.gif" alt="OzDisasterHelp.org" height="112" width="332" /></a>
         </div><!--logos-->
 
         <div class="sponsors">
@@ -37,9 +37,9 @@
         </div><!--sponsors-->
 
         <div class="networks addthis_toolbox addthis_default_style"
-          addthis:url="https://www.ozfloodhelp.org/"
-          addthis:title="OzFloodHelp.org"
-          addthis:description="People helping people affected by flood">
+          addthis:url="https://www.ozdisasterhelp.org/"
+          addthis:title="OzDisasterHelp.org"
+          addthis:description="People helping people affected by natural disasters">
           <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
           <a class="addthis_button_twitter"></a>
           <a class="addthis_button_email"></a>
