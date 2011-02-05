@@ -12,47 +12,49 @@ describe ApplicationController do
     @controller.stub!(:request).and_return(@request)
   end
 
-  it 'should skip redirection when DISABLE_REDIRECTS is set to true' do
-    ENV.should_receive(:[]).with('DISABLE_REDIRECTS').and_return('true')
-    @controller.should_not_receive(:redirect_to)
-    @controller.redirect_to_ssl
+  def with_environment hash
+    hash.each_pair { |key, value| ENV.should_receive(:[]).with(key).and_return value }
   end
 
-  it 'should skip redirection when request is already to CANONICAL_HOST, the request is ssl, and USE_SSL is set and DISABLE_REDIRECTS is unset' do
-    ENV.should_receive(:[]).with('DISABLE_REDIRECTS').and_return(nil)
-    ENV.should_receive(:[]).with('CANONICAL_HOST').and_return('www.host.com')
-    ENV.should_receive(:[]).with('USE_SSL').and_return('true')
-
-    @request.should_receive(:host).and_return('www.host.com')
-    @request.should_receive(:ssl?).and_return(true)
-
-    @controller.should_not_receive(:redirect_to)
-    @controller.redirect_to_ssl
+  def with_request hash
+    hash.each_pair { |key, value| @request.should_receive(key).and_return value }
   end
 
-  it 'should redirect to CANONICAL_HOST when DISABLE_REDIRECTS and USE_SSL is unset' do
-    ENV.should_receive(:[]).with('DISABLE_REDIRECTS').and_return(nil)
-    ENV.should_receive(:[]).with('CANONICAL_HOST').and_return('www.host.com')
-    ENV.should_receive(:[]).with('USE_SSL').and_return(nil)
-
-    @request.should_receive(:protocol).and_return('protocol://')
-    @request.should_receive(:host).and_return('something.heroku.com')
-    @request.should_receive(:ssl?).and_return(false)
-
-    @controller.should_receive(:url_for).with({:protocol => 'protocol://', :host => 'www.host.com'})
-    @controller.should_receive(:redirect_to).with(@url)
-    @controller.redirect_to_ssl
+  def should_not_redirect
+    @controller.should_not_receive :redirect_to
   end
 
-  it 'should redirect to CANONICAL_HOST and change protocol when USE_SSL is true and DISABLE_REDIRECTS is unset' do
-    ENV.should_receive(:[]).with('DISABLE_REDIRECTS').and_return(nil)
-    ENV.should_receive(:[]).with('CANONICAL_HOST').and_return('www.host.com')
-    ENV.should_receive(:[]).with('USE_SSL').and_return('true')
+  def should_redirect_with hash
+    @controller.should_receive(:url_for).with hash
+    @controller.should_receive(:redirect_to).with @url
+  end
 
-    @request.should_receive(:ssl?).and_return(false)
+  describe '#redirect_to_ssl' do
+    after do
+      @controller.redirect_to_ssl
+    end
 
-    @controller.should_receive(:url_for).with({:protocol => 'https://', :host => 'www.host.com'})
-    @controller.should_receive(:redirect_to).with(@url)
-    @controller.redirect_to_ssl
+    it 'should skip redirection when DISABLE_REDIRECTS is set to true' do
+      with_environment 'DISABLE_REDIRECTS' => 'true'
+      should_not_redirect
+    end
+
+    it 'should skip redirection when request is already to CANONICAL_HOST, the request is ssl, and USE_SSL is set and DISABLE_REDIRECTS is unset' do
+      with_environment 'DISABLE_REDIRECTS' => nil, 'CANONICAL_HOST' => 'www.host.com', 'USE_SSL' => 'true'
+      with_request :host => 'www.host.com', :ssl? => true
+      should_not_redirect
+    end
+
+    it 'should redirect to CANONICAL_HOST when DISABLE_REDIRECTS and USE_SSL is unset' do
+      with_environment 'DISABLE_REDIRECTS' => nil, 'CANONICAL_HOST' => 'www.host.com', 'USE_SSL' => nil
+      with_request :host => 'something.heroku.com', :ssl? => false, :protocol => 'protocol://'
+      should_redirect_with  :protocol => 'protocol://', :host => 'www.host.com'
+    end
+
+    it 'should redirect to CANONICAL_HOST and change protocol when USE_SSL is true and DISABLE_REDIRECTS is unset' do
+      with_environment 'DISABLE_REDIRECTS' => nil, 'CANONICAL_HOST' => 'www.host.com', 'USE_SSL' => 'true'
+      with_request :ssl? => false
+      should_redirect_with :protocol => 'https://', :host => 'www.host.com'
+    end
   end
 end
