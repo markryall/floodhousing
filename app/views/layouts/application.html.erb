@@ -77,13 +77,11 @@ var addthis_share = {"templates": {"twitter": "Do you have a spare bed, room, or
      </div>
     </div>
 
+<% if ENV['GA_ACCOUNT'] %>
 <!-- Google Analytics -->
 <script type="text/javascript">
 
-    var account = 'UA-20794602-1';
-    if(document.location.hostname == "localhost" || document.location.hostname == "qldfloods-preproduction.heroku.com"){
-      account = '';
-    }
+    var account = '<%= ENV['GA_ACCOUNT'] %>';
     var _gaq = _gaq || [];
      _gaq.push(['_setAccount', account]);
      _gaq.push(['_trackPageview']);
@@ -95,6 +93,6 @@ var addthis_share = {"templates": {"twitter": "Do you have a spare bed, room, or
      })();
 
 </script>
-   
+<% end %>
   </body>
 </html>
