@@ -223,10 +223,7 @@ Then /^there should be google analytics in the page$/ do
 analytics_code = <<EOF.split("\n")
 <!-- Google Analytics -->
 <script type="text/javascript">
-    var account = 'UA-20794602-1';
-     if(document.location.hostname == "localhost" || document.location.hostname == "qldfloods-preproduction.heroku.com"){
-      account = '';
-    }
+    var account = '#{ENV['GA_ACCOUNT']}';
     var _gaq = _gaq || [];
      _gaq.push(['_setAccount', account]);
      _gaq.push(['_trackPageview']);

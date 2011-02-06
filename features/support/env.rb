@@ -6,6 +6,7 @@
 
 ENV["RAILS_ENV"] ||= "test"
 ENV["DISABLE_REDIRECTS"] = 'true'
+ENV['GA_ACCOUNT'] = 'UA-blahblah'
 require File.expand_path(File.dirname(__FILE__) + '/../../config/environment')
 
 require 'cucumber/formatter/unicode' # Remove this line if you don't want Cucumber Unicode support
