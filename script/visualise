@@ -1,1 +1,1 @@
-gource -1024x768 --stop-position 0.85 --seconds-per-day 6 -o - | ffmpeg -y -b 10000K -r 60 -f image2pipe -vcodec ppm -i - -vcodec libx264 -threads 0 -bf 0 gource.x264.mp4
+gource --hide filenames --disable-bloom -1280x720 --stop-position 0.85 --seconds-per-day 10 -o - | ffmpeg -y -b 10000K -r 60 -f image2pipe -vcodec ppm -i - -vcodec libx264 -threads 0 -bf 0 gource.x264.mp4
