@@ -28,7 +28,7 @@ Given /^that listing has already been taken$/ do
 end
 
 Given /^that (\d+) listings have been posted$/ do |number_of_listings|
-  number_of_listings.to_i.times {Accommodation.make}
+  number_of_listings.to_i.times { Accommodation.make!}
 end
 
 Given /^a listing at "([^"]*)" was posted ([^"]*)$/ do |address, time|
