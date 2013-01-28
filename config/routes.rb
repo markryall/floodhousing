@@ -7,7 +7,7 @@ Floodhousing::Application.routes.draw do
   match "faq" => "home#faq"
   match "guidelines" => "home#guidelines"
 
-  resource :thank_you
+  resources :thank_you
 
   resources :accommodations do
     collection do
