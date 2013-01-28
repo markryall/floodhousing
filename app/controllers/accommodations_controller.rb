@@ -1,4 +1,6 @@
 class AccommodationsController < ApplicationController
+  before_filter :authorized?, :only => [:edit, :update, :list, :unconfirmed]
+
   def index
     redirect_to :action => :search
   end
@@ -142,7 +144,7 @@ class AccommodationsController < ApplicationController
     end
   end
 
-  private
+private
   def authorized?
     (session[:ok_to_edit]!=nil && session[:ok_to_edit] == params[:id]) || authenticate_login!
   end

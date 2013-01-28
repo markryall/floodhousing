@@ -1,4 +1,6 @@
 Floodhousing::Application.routes.draw do
+  devise_for :logins
+
   get 'home/index'
 
   match "l/:id/:token" => "accommodations#confirm_my_listing"

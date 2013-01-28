@@ -4,6 +4,7 @@ gem 'rails', '3.2.11'
 gem 'pg'
 gem 'formtastic'
 gem 'will_paginate'
+gem 'devise'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -15,4 +16,5 @@ gem 'jquery-rails'
 
 group :test, :development do
   gem 'rspec-rails'
+  gem 'machinist'
 end

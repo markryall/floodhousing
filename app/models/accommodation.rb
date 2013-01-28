@@ -1,5 +1,6 @@
 class Accommodation < ActiveRecord::Base
-  attr_accessible :number_of_beds, :takes_pets, :takes_pets_comment, :takes_children, :takes_smokers, :takes_disabled, :takes_storage, :takes_storage_comment, :address1, :address2, :suburb, :postcode, :area, :name, :phone_home, :phone_mobile, :other_phone, :email, :email_confirmation, :over_eighteen, :comments, :terms_and_conditions_accepted
+  attr_accessible :number_of_beds, :takes_pets, :takes_pets_comment, :takes_children, :takes_smokers, :takes_disabled, :takes_storage, :takes_storage_comment, :address1, :address2, :suburb, :postcode, :area, :name, :phone_home, :phone_mobile, :other_phone, :email, :email_confirmation, :over_eighteen, :comments, :terms_and_conditions_accepted, :contact_count
+
   validates_acceptance_of :over_eighteen, :accept=>true, :message => 'You must be over 18'
   validates_acceptance_of :terms_and_conditions_accepted, :accept=>true, :message => 'Please accept the terms and conditions'
   validates_presence_of :number_of_beds, :message => 'Please tell us the number of beds'
