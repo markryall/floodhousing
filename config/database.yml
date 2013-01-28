@@ -6,7 +6,7 @@ development:
   username: floodhousing
   password:
 
-test:
+test: &test
   adapter: postgresql
   encoding: unicode
   database: floodhousing_test
@@ -21,3 +21,6 @@ production:
   pool: 5
   username: floodhousing
   password:
+
+cucumber:
+  <<: *test
