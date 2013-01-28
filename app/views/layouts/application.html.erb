@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+      <meta name="description" content="Connects Australians affected by natural disasters with free temporary housing.">
+      <title><%= content_for(:title).blank? ? 'OzDisasterHelp.org - Opening hearts and homes for Australians affected by the natural disasters' : content_for(:title) %></title>
+      <%= stylesheet_link_tag 'screen' %>
+      <%= stylesheet_link_tag 'flash' %>
+      <link href='<%= request.protocol %>fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+      <%= javascript_include_tag 'application' %>
+      <link rel="image_src" href="<%= "#{request.protocol}#{request.host_with_port}/images/logo.gif" %>" />
+      <script type="text/javascript">
+        var addthis_config = {"data_track_clickback": true};
+var addthis_share = {"templates": {"twitter": "Do you have a spare bed, room, or house to offer an Australian affected by the recent disasters? {{url}} <%= ENV['TWITTER_HASHTAGS']%>"}};
+      </script>
+      <script defer="yes" type="text/javascript" src="https://s7.addthis.com/js/250/addthis_widget.js#username=ozfloodhelp"></script>
+      <%= csrf_meta_tag %>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="head">
+        <div class="logos">
+            <a href="/"><img src="/images/logo.gif" alt="OzDisasterHelp.org" height="112" width="332" /></a>
+        </div><!--logos-->
+
+        <div class="sponsors">
+          <a href="http://www.getup.org.au/" target="_blank">
+            <img src="/images/get_up_logo.gif" alt="GetUp! Action for Australia" height="81" width="149" />
+          </a>
+          <a href="http://www.thoughtworks.com/" target="_blank">
+            <img src="/images/thoughtworks_logo.gif" alt="ThoughtWorks Australia" height="81" width="146" />
+          </a>
+        </div><!--sponsors-->
+
+        <div class="networks addthis_toolbox addthis_default_style"
+          addthis:url="http://www.ozdisasterhelp.org/"
+          addthis:title="OzDisasterHelp.org"
+          addthis:description="People helping people affected by natural disasters">
+          <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+          <a class="addthis_button_twitter"></a>
+          <a class="addthis_button_email"></a>
+          <span class="addthis_separator">|</span>
+          <a class="addthis_counter addthis_pill_style"></a>
+        </div>
+      </div><!--head-->
+
+      <div class="nav">
+        <ul>
+          <li><%= link_to "Find a Place to Stay", search_accommodations_path %></li>
+          <li><%= link_to "Offer a Place to Stay", new_accommodation_path %></li>
+          <li><a href="/faq" title="FAQ">FAQ</a></li>
+          <li><a href="/guidelines" title="Guidelines">Guidelines</a></li>
+          <li><a href="/guidelines#terms_and_conditions" title="Terms &amp; Conditions">Terms &amp; Conditions</a></li>
+        </ul>
+      </div>
+
+      <div class="content">
+        <%= display_flash_messages %>
+        <%= yield %>
+      </div>
+
+      <div class="footer">
+        <div class="footer_left">
+          Authorised by Simon Sheikh, GetUp, 116 Kippax St Surry Hills 2010, NSW.<br />&copy; 2011 GetUp! Australia.
+        </div>
+
+        <div class="footer_links">
+	  <ul>
+	    <li style="font-size:12px; padding-right:15px;">Need more help? Please call <strong>1300 998 603</strong></li>
+	    <li><a href="/guidelines#terms_and_conditions" title="Terms &amp; Conditions">Terms &amp; Conditions</a></li>
+	  </ul>
+	</div><!--footer_links-->
+     </div>
+    </div>
+
+<% if ENV['GA_ACCOUNT'] %>
+<!-- Google Analytics -->
+<script type="text/javascript">
+
+    var account = '<%= ENV['GA_ACCOUNT'] %>';
+    var _gaq = _gaq || [];
+     _gaq.push(['_setAccount', account]);
+     _gaq.push(['_trackPageview']);
+
+     (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+
+</script>
+<% end %>
+  </body>
+</html>

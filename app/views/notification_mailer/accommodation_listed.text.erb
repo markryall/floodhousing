@@ -1,0 +1,38 @@
+<% if @salutation %>
+Dear <%= @salutation.titleize %>,
+
+<% end -%>
+Thank you for registering. Please follow this link and confirm your listing:
+
+  <%= short_confirmation_url(@accommodation) %>
+
+You will then start to receive emails with details of those seeking housing.
+It's up to you to call or email back to organise the stay.
+
+We have not vetted the people using our site to find housing, nor can
+we vouch for them.  It's critical that you speak with them to
+determine whether it’s a good match and decide whether you feel
+comfortable housing them.
+
+Questions you should ask:
+
+ * Who are they bringing?  
+ * How long do they hope to stay?  
+ * What are their expectations from you?  
+ * What is their background? 
+ * Who are they?  
+ * Are they smokers? 
+ * Do they have any particular allergies?  
+ * Do they need disabled or wheelchair access?  
+ * What do they think they might do when you can no longer house them?
+
+Your generosity in offering your home is commendable.  But we strongly
+urge you not to accept an arrangement that doesn't feel right.  If you
+connect with an evacuee and you think for whatever reason it’s not a
+good match, tell them so.  If appropriate, you can encourage them to
+use our website or hotline to submit more requests.
+
+Thanks,
+The GetUp team.
+
+unsubscribe from these emails: <%= short_confirmation_url(@accommodation) %>

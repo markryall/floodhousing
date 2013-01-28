@@ -1,0 +1,35 @@
+<div class="form-top"></div>
+<div id="form">
+<div class="text-container"><h1><strong>Thank You!</strong></h1>
+<div id ="app" class="box-shadow">
+    <h2>Your accommodation details</h2>
+
+    <form>
+      <fieldset>
+	<legend>
+	  <span>Your accommodation is...</span>
+	</legend>
+	<ol>
+	  <%= render 'availability' %>
+	</ol>
+      </fieldset>
+    </form>
+
+    <%= render 'form' %>
+</div>
+
+  </div><!--.text-container-->
+</div><!--#form-->
+<div class="form-bottom"></div>
+
+
+<% if params[:confirmed] %>
+<script>
+document.observe("dom:loaded", 
+ function() {
+  _gaq._getAsyncTracker('pageTracker')._trackEvent(
+    '<%= params[:event]%>', 
+    '<%= !@accommodation.is_available? %>',
+    '<%= @accommodation.id %>');});
+</script>
+<% end %>

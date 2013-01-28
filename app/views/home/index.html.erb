@@ -1,0 +1,25 @@
+<% content_for :title do %>
+  Oz Disaster Help.org - a safe and easy way to find or offer temporary accomodation for Australians affected by natural disasters
+<% end %>
+<div class="page_intro">
+	<h1>A safe and easy way to find or offer temporary<br />accommodation for Australians affected by natural disasters.</h1>
+</div>
+
+<div class="home_box">
+    <h2 class="find">Find a place to stay</h2>
+
+    <div class="text">
+        <p>Australians around the country are volunteering spare rooms, beds and houses. </p>
+		<p>Whether it's for one night or a few months, we'll help you find a welcome home near you. Just use the simple search to find something that suits your needs.</p>
+    </div><%= link_to "Search for Accomodation", search_accommodations_path, :class => "search_button" %>
+</div>
+
+<div class="home_box home_box_right">
+    <h2 class="offer">Volunteer a place to stay</h2>
+
+    <div class="text">
+        <p>Do you have a spare bed, room, or house to offer an Australian affected by the recent natural disasters?</p>
+		<p>Just tell us how many beds you'd like to offer, and for how long. We'll email you with details of people who might be a good match. Your details remain private.</p>
+    </div><%= link_to "Offer Your Help", new_accommodation_path, :class => "offer_button" %>
+</div>
+

@@ -1,0 +1,21 @@
+<% if @salutation %>
+Dear <%= @salutation.titleize %>,
+
+<% end -%>
+You recently submitted an offer of accommodation through our website.  We noticed 
+that you have not yet confirmed your offer and therefore your offer is not yet public.
+
+You should have received a prior email asking to confirm your offer. If you did
+not receive this email, or the process of confirmation was unclear, please let us
+know so we can improve this site for the future!  Just reply to this email address.
+
+If you would like to confirm your offer, please click on the link below:
+
+  <%= short_confirmation_url(@accommodation, :reminder=>true) %>
+
+You will then start to receive emails with details of those seeking housing.
+
+Thanks,
+The GetUp team.
+
+unsubscribe from these emails: <%= short_confirmation_url(@accommodation) %>

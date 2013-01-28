@@ -1,0 +1,112 @@
+<div class="filter-box">
+<h1 class="heading">Find a Place to Stay</h1>
+<form id="suburb-search" name="suburb-search" action="/accommodations/search" method="get">
+  <div>
+    <label for="area">I am looking for accommodation in</label>
+    <%= select_tag "area", options_for_select(['All'] + areas, @area), options={:onchange => "this.form.submit()"} %>
+  </div>
+  <ul>
+    <li class="number-of-beds">I need <%= select_tag "number_of_beds", options_for_select([""] | number_of_beds, @number_of_beds), options={:onchange => "this.form.submit()"} %> beds</li>
+    <li class="pets"><%= check_box_tag 'pets', 'yes', @pets, options={:onclick => "this.form.submit()"} %>I have pets</li>
+    <li class="children"><%= check_box_tag 'children', 'yes', @children, options={:onclick => "this.form.submit()"} %>I have children</li>
+    <li class="smokers"><%= check_box_tag 'smokers', 'yes', @smokers, options={:onclick => "this.form.submit()"} %>I smoke</li>
+    <li class="disabled"><%= check_box_tag 'disabled', 'yes', @disabled, options={:onclick => "this.form.submit()"} %>I require disabled access</li>
+    <li class="storage"><%= check_box_tag 'storage', 'yes', @storage, options={:onclick => "this.form.submit()"} %>I require storage space</li>
+  </ul>
+</form>
+</div>
+
+<% if @accommodations.size == 0 %>
+<div id="no-listings-message">We are sorry, but we haven't been able to find anywhere matching your description. Perhaps you should try a different neighbourhood?</div>
+<% end %>
+
+<div class="form-top"></div>
+<ul class="listing">
+  <% @accommodations.each do |accommodation| %>	
+  <li class= "<%= cycle("even", "odd") %> box-shadow">
+    <dl class="address">
+      <dt>Address</dt>
+      <dd><%= accommodation.restricted_address %></dd>
+    </dl>
+
+    <dl class="number-of-beds">
+      <dt class="number-of-beds">Number of beds that we can provide</dt>
+      <dd><%= accommodation.number_of_beds%></dd>
+    </dl>
+
+    <div class="takes">
+      <dl class="children">
+	<dt>Children</dt> 
+	<dd><%= accommodation.takes_children ? "Yes" : "No"%></dd>
+      </dl>
+
+      <dl class="pets">
+	<dt>Pet(s)</dt> 
+	<dd><%= accommodation.takes_pets ? "Yes" : "No"%><%= accommodation.takes_pets_comment.blank? ? "" : " (" + accommodation.takes_pets_comment + ")" %></dd>
+      </dl>
+
+      <dl class="smokers">
+	<dt>Smokers</dt> 
+	<dd><%= accommodation.takes_smokers ? "Yes" : "No"%></dd>
+      </dl>
+
+      <dl class="disabled">
+	<dt>Disabled Support</dt> 
+	<dd><%= accommodation.takes_disabled ? "Yes" : "No"%></dd>
+      </dl>
+
+      <dl class="storage">
+	<dt>Storage</dt> 
+	<dd><%= accommodation.takes_storage ? "Yes" : "No"%><%= accommodation.takes_storage_comment.blank? ? "" : " (" + accommodation.takes_storage_comment + ")" %></dd>
+      </dl>
+    </div>
+
+    <% if login_signed_in? %>
+
+    <div class="takes">Confidential Details:</div>
+    
+    <div class="takes">      <dl>
+        <dt class="details-name">Name</dt>
+        <dd><%= accommodation.name%></dd>
+      </dl>
+
+      <dl>
+        <dt class="details-mobile-phone">Mobile Phone</dt>
+        <dd><%= accommodation.phone_mobile %></dd>
+      </dl>
+
+      <dl>
+        <dt class="details-home-phone">Home Phone</dt>
+        <dd><%= accommodation.phone_home %></dd>
+      </dl>
+
+      <dl>
+        <dt class="details-other-phone">Other Phone</dt>
+        <dd><%= accommodation.other_phone %></dd>
+      </dl>
+
+      <dl>
+        <dt class="details-address">Address</dt>
+        <dd><%= accommodation.address1 %> <%= accommodation.address2 %></dd>
+      </dl>
+    </div>
+    <% end %>
+
+    <dl class="comments">
+      <dt>Comments</dt>
+      <dd><%= accommodation.comments%></dd>
+    </dl>   
+    <fieldset>
+      <%= button_to 'Interested? Contact Host.', contact_host_accommodation_path(accommodation), :method => :get %>
+    </fieldset>
+    <% if login_signed_in? %>
+    <span class='contact_count'><%= accommodation.contact_count %> contacts</span>
+	<fieldset style="float: right">
+      <%= button_to 'Edit', edit_accommodation_path(accommodation), :method => :get, :class => 'edit_button' %>
+    </fieldset>
+    <% end %>
+  </li>
+<% end %>
+</ul>
+<div class="form-bottom"></div>
+<%= will_paginate @accommodations %>

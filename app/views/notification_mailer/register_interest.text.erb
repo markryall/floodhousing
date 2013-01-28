@@ -1,0 +1,15 @@
+A message from someone seeking accommodation through <%= ENV['HOST_FOR_EMAIL_LINKS']%>
+
+Name:        <%= @seeker.name %>
+Phone:       <%= @seeker.phone %>
+<% if @seeker.backup_phone %>
+Phone (alt): <%= @seeker.backup_phone %>
+<% end -%>
+Email:       <%= @seeker.email %>
+ 
+Allergies:   <%= @seeker.allergies %>
+Beds:        <%= @seeker.number_of_beds %>
+Pets:        <%= @seeker.pets %>
+  
+Message:
+<%= @seeker.personal_message %>

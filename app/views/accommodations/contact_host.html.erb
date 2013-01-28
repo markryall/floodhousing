@@ -1,0 +1,53 @@
+<div class="form-top"></div>
+<div id="form">
+<h1 style="padding-left:20px;">Contact Host</h1>
+<div class="formbox">
+<%= semantic_form_for @seeker, :class_names => "d" do |form| %>
+  <% form.inputs :name => "Your information", :class => "inputs your-information" do %>
+    <li>
+	    <%= form.input :name, :required => true, :label => "Name" %>
+    </li>
+    <li>
+	    <%= form.input :phone, :required => true, :label => "Phone" %>
+    </li>
+    <li>
+	    <%= form.input :backup_phone, :label => "Backup Phone" %>
+    </li>
+    <li>
+	    <%= form.input :email, :label => "Email" %>
+    </li>
+  <% end %>
+  <% form.inputs :name => "Your requirements", :class => "inputs your-requirements" do %>
+    <li>
+	    <%= form.input :number_of_beds, :label => "Number of Beds" %>
+    </li>
+    <li>
+	    <%= form.input :pets,  :label => "Pets" %>
+    </li>
+    <li>
+	    <%= form.input :allergies,  :label => "Allergies" %>
+    </li>
+
+    <li>
+	    <%= form.input :special_requirements, :label => "Special Access Requirements" %>
+    </li>
+    <li>
+	    <%= form.input :personal_message, :label => "Personal Message" %>
+    </li>
+  <% end %>    
+  <%= form.inputs :name => "Terms and Conditions", :class => "inputs terms-and-conditions" do %>
+    <ul>
+      <li>By accepting these terms and conditions you acknowledge that you’re being contacted by, and receiving goods and/or services from, someone at your own risk and that GetUp! will not be responsible for the conduct of any person offering the goods and/or services.  You understand that GetUp! may provide your personal details to third parties assisting with the natural disaster relief campaign.  You release GetUp! and its affiliates from any liability arising from any person offering the goods and/or services and you agree to the <a href="/guidelines#terms_and_conditions" title="Terms &amp; Conditions" target="_blank">Terms of Use</a> on the website.</li>
+    </ul>
+    <%= form.input(:terms_and_conditions_accepted, :required => true, :label => "I accept the above terms &amp; conditions.", :as => :boolean) %>
+  <% end %>
+  <%= hidden_field_tag 'accommodation', @accommodation.id %>
+  <fieldset class="buttons">
+    <ol>
+      <li class="commit"><input class="submit" id="seeker_submit" name="commit" type="submit" value="Submit" /></li> 
+    </ol>
+  </fieldset>
+<% end %>
+</div>
+</div <!--#form-->
+<div class="form-bottom"></div>

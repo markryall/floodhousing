@@ -1,0 +1,48 @@
+
+<script src="http://code.jquery.com/jquery-1.4.4.min.js" type="text/javascript"></script>
+
+<div class="filter-box" style="height:30px;">
+<h1 class="heading">Unconfirmed Entries</h1>
+</div>
+
+<% if @accommodations.size == 0 %>
+<div id="no-listings-message">No unconfirmed entries</div>
+<% end %>
+
+<div class="form-top"></div>
+<ul class="listing">
+	
+  <%= form_tag({:action => 'unconfirmed'}, {:method => 'post'}) %>
+	
+	
+  <table class="unconfirmed-table">
+	<tr>
+		<th></th>
+		<th>Name</th>
+		<th>Email</th>
+		<th>Mobile</th>
+		<th>Home</th>
+		<th>Address</th>
+		<th>Created</th>
+		
+	</tr>
+
+  <% @accommodations.each do |accommodation| %>	
+	<tr id="accommodations_<%=accommodation.id%>">
+		<td><input class="unconfirmed_checkbox" type="checkbox" name="ids[]" value="<%=accommodation.id%>"/></td>
+		<td><%= accommodation.name %></td>
+		<td><%= accommodation.email %></td>
+		<td><%= accommodation.phone_mobile %></td>
+		<td><%= accommodation.phone_home %></td>
+		<td><%= accommodation.restricted_address %></td>
+		<td><%= accommodation.created_at.strftime('%d/%m/%y %H:%M') %></td>
+	</tr>
+  <% end %>
+  </table>
+
+  <input type="submit" value="Confirm selected" onclick="return confirm('Publish these listings?');">
+
+  </form>
+
+</ul>
+<div class="form-bottom"></div>
