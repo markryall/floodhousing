@@ -32,13 +32,12 @@ Given /^that (\d+) listings have been posted$/ do |number_of_listings|
 end
 
 Given /^a listing at "([^"]*)" was posted ([^"]*)$/ do |address, time|
-  address_1, address_2, suburb = address.split(', ')
+  address_1, address_2, suburb = address.split ', '
   Delorean.time_travel_to(time) do
-    Accommodation.make(:address1 => address_1, :address2 => address_2, :suburb => suburb).inspect
+    Accommodation.make! address1: address_1, address2: address_2, suburb: suburb
   end
 end
 
 Given /^a listing for (\d+) beds in "([^"]*)" was posted$/ do |beds, area|
   Accommodation.make(:number_of_beds => beds, :area => area).save!
 end
-
