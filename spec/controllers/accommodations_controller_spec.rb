@@ -5,7 +5,7 @@ describe AccommodationsController do
 
   before :each do
     @accommodation = Accommodation.make!
-    Accommodation.stub(:find).and_return(@accommodation)
+    Accommodation.stub(:find).and_return @accommodation
   end
 
   describe :index do
@@ -43,7 +43,7 @@ describe AccommodationsController do
     before :each do
       Accommodation.stub(:search).and_return([mock(Accommodation)])
     end
-    
+
     it "should render search" do
       get :search, :area => 'Ipswich'
 
@@ -52,16 +52,14 @@ describe AccommodationsController do
   end
 
   describe :confirm_my_listing do
-
-    
     context 'with a valid accommodation' do
       it 'should confirm the listing as available and redirect to edit page' do
         @accommodation.should_receive(:authorization_token).and_return "abc123"
         get :confirm_my_listing, :id => @accommodation.id, :token => "abc123"
         response.should redirect_to :action => :edit, :confirmed => true, :event => "offer confirmation"  
-        session[:ok_to_edit].should == @accommodation.id.to_s      
+        session[:ok_to_edit].should == @accommodation.id.to_s
       end
-      
+
       it 'should include event reflecting reminder email if query parameter from reminder email is set' do
         @accommodation.should_receive(:authorization_token).and_return "abc123"
         get :confirm_my_listing, :id => @accommodation.id, :token => "abc123", :reminder => true
@@ -71,7 +69,7 @@ describe AccommodationsController do
 
       it 'should redirect an invalid token to the index page' do
         @accommodation.should_receive(:authorization_token).and_return nil
-        get :confirm_my_listing, :id => @accommodation.id, :token => 'abc123' 
+        get :confirm_my_listing, :id => @accommodation.id, :token => 'abc123'
 
         response.should redirect_to :root
         session[:ok_to_edit].should == nil
@@ -80,9 +78,8 @@ describe AccommodationsController do
     end
 
     it 'should redirect an invalid ID to the index page' do
-      Accommodation.should_receive(:find).with(0).and_return nil
-      get :confirm_my_listing, :id => 0
-
+      Accommodation.should_receive(:find).with('0').and_return nil
+      get :confirm_my_listing, id: '0'
       response.should redirect_to :root
       session[:ok_to_edit].should == nil
     end
@@ -130,23 +127,23 @@ describe AccommodationsController do
 
       it 'should change to enabled' do
         @accommodation.should_receive(:enabled=).with(true)
-        post :update, :id => @accommodation.id
+        post :update, id: @accommodation.id
       end
 
       it 'should accept an authenticated request' do
-        post :update, :id => @accommodation.id
+        post :update, id: @accommodation.id
         response.should be_success
       end
 
       it 'should update the model with changes' do
-        params = {'lol' => 1}
+        params = {'lol' => '1'}
         @accommodation.should_receive(:update_attributes).with(params)
-        post :update, :id => @accommodation.id, :accommodation => params
+        post :update, id: @accommodation.id, accommodation: params
       end
 
       it 'should flash a notice' do
         @accommodation.stub(:update_attributes).and_return(true)
-        post :update, :id => @accommodation.id, :accommodation => {}
+        post :update, id: @accommodation.id, accommodation: {}
         flash[:notice].should_not be_blank
       end
     end
@@ -157,31 +154,31 @@ describe AccommodationsController do
 
     context 'with session authorization' do
       before :each do
-        @accommodation.stub(:update_attribute)
+        @accommodation.stub :update_attribute
         session[:ok_to_edit] = @accommodation.id
       end
 
       it 'should accept an authenticated request' do
-        xhr :put, :list, :id => @accommodation.id, :available => true
+        xhr :put, :list, id: @accommodation.id, available: true
         response.should be_success
       end
     end
 
-    context "with a logged in user" do
+    context 'with a logged in user' do
       before :each do
-        @user = Login.make
-        sign_in @user
+        @request.env["devise.mapping"] = Devise.mappings[:user]
+        sign_in Login.make!
       end
 
       it "should allow a listing to be marked taken" do
         @accommodation.should_receive(:update_attribute).with(:available, false)
-        xhr :put, :list, :id => @accommodation.id, :available => false
+        xhr :put, :list, id: @accommodation.id, available: false
         response.should be_success
       end
 
       it "should render the availability partial" do
-	xhr :put, :list, :id => @accommodation.id, :available => true
-	response.should render_template('accommodations/_availability')
+      	xhr :put, :list, id: @accommodation.id, available: true
+      	response.should render_template('accommodations/_availability')
       end
     end
   end

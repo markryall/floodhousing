@@ -7,3 +7,7 @@ Accommodation.blueprint do
   suburb { 'brisbane' }
   postcode { 4000 }
 end
+
+Login.blueprint do
+  email { "user#{sn}@example.com" }
+end

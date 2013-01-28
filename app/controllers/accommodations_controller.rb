@@ -122,15 +122,11 @@ class AccommodationsController < ApplicationController
   end
 
   def list
-    @accommodation = Accommodation.find(params[:id])
+    @accommodation = Accommodation.find params[:id]
     @accommodation.update_attribute(:available, params[:available])
 
     respond_to do |format|
-        format.js do
-          render(:update) do |page|
-            page.replace 'availability', :partial => 'availability'
-          end
-      end
+      format.js { render partial: 'availability' }
     end
   end
 
@@ -146,6 +142,6 @@ class AccommodationsController < ApplicationController
 
 private
   def authorized?
-    (session[:ok_to_edit]!=nil && session[:ok_to_edit] == params[:id]) || authenticate_login!
+    (session[:ok_to_edit]!=nil && session[:ok_to_edit].to_s == params[:id]) || authenticate_login!
   end
 end
